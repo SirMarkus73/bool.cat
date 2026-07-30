@@ -1,0 +1,26 @@
+import { createServerFn } from "@tanstack/react-start";
+import { nanoid } from "nanoid";
+import z from "zod";
+import { db } from "#/db";
+import { shortUrl } from "#/db/schema";
+
+const createShortUrlSchema = z.object({
+	longUrl: z.url(),
+});
+
+export const createShortUrl = createServerFn({ method: "POST" })
+	.validator(createShortUrlSchema)
+	.handler(async ({ data }) => {
+		const { longUrl } = data;
+
+		const [{ slug }] = await db
+			.insert(shortUrl)
+			.values({
+				slug: nanoid(6),
+				redirectUrl: longUrl,
+				ownerId: null,
+			})
+			.returning({ slug: shortUrl.slug });
+
+		return { slug };
+	});
