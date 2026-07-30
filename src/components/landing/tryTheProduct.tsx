@@ -9,7 +9,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "../ui/card";
-import { Field, FieldLabel } from "../ui/field";
+import { Field, FieldGroup, FieldLabel, FieldSet } from "../ui/field";
 import { Input } from "../ui/input";
 
 export function TryTheProduct() {
@@ -38,17 +38,23 @@ export function TryTheProduct() {
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
-					<form className="mt-4 flex gap-3" onSubmit={onSubmit}>
-						<Field className="flex-1">
-							<FieldLabel htmlFor="url" className="sr-only">
-								Ingresa tu enlace
-							</FieldLabel>
-							<Input name="url" placeholder="https://example.com" />
-						</Field>
+					<form onSubmit={onSubmit}>
+						<FieldSet>
+							<FieldGroup>
+								<Field>
+									<FieldLabel htmlFor="url">Ingresa tu enlace</FieldLabel>
+									<Input
+										name="url"
+										id="url"
+										placeholder="https://example.com"
+									/>
+								</Field>
 
-						<Button type="submit" className="whitespace-nowrap">
-							Acortar
-						</Button>
+								<Button type="submit" className="whitespace-nowrap">
+									Acortar
+								</Button>
+							</FieldGroup>
+						</FieldSet>
 					</form>
 
 					{slug && (
