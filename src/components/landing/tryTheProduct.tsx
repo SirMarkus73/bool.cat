@@ -1,6 +1,8 @@
+import { formOptions } from "@tanstack/react-form";
 import { useState } from "react";
+import z from "zod";
+import { useAppForm } from "#/hooks/useAppForm";
 import { createShortUrl } from "#/server/url/createShortUrl";
-import { Button } from "../ui/button";
 import {
 	Card,
 	CardContent,
@@ -12,19 +14,35 @@ import {
 import { Field, FieldGroup, FieldLabel, FieldSet } from "../ui/field";
 import { Input } from "../ui/input";
 
+const formValidator = z.object({
+	url: z.url(),
+});
+
+const formOpts = formOptions({
+	validators: {
+		onChange: formValidator,
+	},
+	defaultValues: {
+		url: "",
+	},
+});
+
 export function TryTheProduct() {
 	const [slug, setSlug] = useState<string>();
 
+	const form = useAppForm({
+		...formOpts,
+		onSubmit: async ({ value }) => {
+			const { url } = value;
+
+			const { slug } = await createShortUrl({ data: { longUrl: url } });
+			setSlug(slug);
+		},
+	});
+
 	const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
 		e.preventDefault();
-
-		const formData = new FormData(e.currentTarget);
-		const url = formData.get("url") as string;
-
-		console.log("URL:", url);
-
-		const { slug } = await createShortUrl({ data: { longUrl: url } });
-		setSlug(slug);
+		form.handleSubmit();
 	};
 
 	return (
@@ -38,21 +56,21 @@ export function TryTheProduct() {
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
-					<form onSubmit={onSubmit}>
+					<form onSubmit={onSubmit} id={form.formId}>
 						<FieldSet>
 							<FieldGroup>
-								<Field>
-									<FieldLabel htmlFor="url">Ingresa tu enlace</FieldLabel>
-									<Input
-										name="url"
-										id="url"
-										placeholder="https://example.com"
-									/>
-								</Field>
+								<form.AppField name="url">
+									{({ InputField }) => (
+										<InputField
+											label="Ingresa tu enlace"
+											placeholder="https://example.com"
+										/>
+									)}
+								</form.AppField>
 
-								<Button type="submit" className="whitespace-nowrap">
-									Acortar
-								</Button>
+								<form.AppForm>
+									<form.SubmitButton label="Acortar" />
+								</form.AppForm>
 							</FieldGroup>
 						</FieldSet>
 					</form>
