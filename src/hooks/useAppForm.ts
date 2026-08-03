@@ -1,4 +1,5 @@
 import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
+import { FormRootError } from "#/components/appForm/formRootError";
 import { InputField } from "#/components/appForm/inputField";
 import { SubmitButton } from "#/components/appForm/submitButton";
 
@@ -6,7 +7,7 @@ import { SubmitButton } from "#/components/appForm/submitButton";
 const { fieldContext, formContext, useFieldContext, useFormContext } =
 	createFormHookContexts();
 
-const { useAppForm } = createFormHook({
+const { useAppForm, withForm } = createFormHook({
 	fieldContext,
 	formContext,
 	fieldComponents: {
@@ -14,7 +15,8 @@ const { useAppForm } = createFormHook({
 	},
 	formComponents: {
 		SubmitButton,
+		FormRootError,
 	},
 });
 
-export { useFieldContext, useFormContext, useAppForm };
+export { useFieldContext, useFormContext, useAppForm, withForm };
