@@ -1,0 +1,40 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "landing": {
+    "short_links": "Enlaces cortos",
+    "true_simplicity": "Simplicidad verdadera",
+    "app_description": "{#strong}bool.cat{/strong} es un acortador de enlaces que te permite crear URLs cortas y fáciles de recordar. Con nuestra plataforma, puedes compartir tus enlaces de manera rápida y sencilla, sin complicaciones ni distracciones."
+  },
+  "settings": {
+    "lang": "Idioma"
+  },
+  "forms": {
+    "reset_form": "Reiniciar formulario",
+    "auth": {
+      "invalid_email": "Dirección de correo electrónico inválida",
+      "required_email": "El correo electrónico es requerido",
+      "password_min_length": "La contraseña debe tener al menos {minLength} caracteres",
+      "password_max_length": "La contraseña debe tener como máximo {maxLength} caracteres",
+      "name_min_length": "El nombre debe tener al menos {minLength} caracteres",
+      "name_max_length": "El nombre debe tener como máximo {maxLength} caracteres",
+      "passwords_do_not_match": "Las contraseñas no coinciden",
+      "unknown_error": "Ocurrió un error desconocido, por favor intenta de nuevo más tarde",
+      "login": "Iniciar sesión",
+      "login_description": "Introduce tu correo electrónico y contraseña para iniciar sesión.",
+      "register": "Registrarse",
+      "register_description": "Crea una cuenta para acceder a todas las funciones de bool.cat.",
+      "login_or_register": "Iniciar sesión / Registrarse",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "password_confirm": "Confirmar contraseña",
+      "name": "Nombre",
+      "your_name": "Tu nombre"
+
+    },
+    "betterAuth": {
+      "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "El usuario ya existe, por favor utiliza otro correo electrónico",
+      "PASSWORD_TOO_SHORT": "La contraseña es demasiado corta, por favor utiliza una contraseña más larga",
+      "INVALID_EMAIL_OR_PASSWORD": "Correo electrónico o contraseña inválidos, por favor verifica tus credenciales y vuelve a intentarlo"
+    }
+  }
+}

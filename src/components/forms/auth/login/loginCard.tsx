@@ -9,6 +9,7 @@ import {
 } from "#/components/ui/card";
 import { useAppForm } from "#/hooks/useAppForm";
 import { authClient } from "#/lib/auth-client";
+import { m } from "#/paraglide/messages";
 import { LoginForm } from "./loginForm";
 import { LoginFormActions } from "./loginFormActions";
 import { loginFormOptions } from "./loginFormOptions";
@@ -39,8 +40,8 @@ export function LoginCard({ className }: Props) {
 						formApi.setErrorMap({
 							onChange: {
 								fields: {
-									email: "Correo electrónico o contraseña incorrectos",
-									password: "Correo electrónico o contraseña incorrectos",
+									email: m["forms.betterAuth.INVALID_EMAIL_OR_PASSWORD"](),
+									password: m["forms.betterAuth.INVALID_EMAIL_OR_PASSWORD"](),
 								},
 							},
 						});
@@ -49,10 +50,8 @@ export function LoginCard({ className }: Props) {
 					default: {
 						formApi.setErrorMap({
 							onChange: {
-								fields: {
-									email: "Error desconocido",
-									password: "Error desconocido",
-								},
+								fields: {},
+								form: m["forms.auth.unknown_error"](),
 							},
 						});
 						break;
@@ -65,10 +64,8 @@ export function LoginCard({ className }: Props) {
 	return (
 		<Card className={className}>
 			<CardHeader>
-				<CardTitle>Iniciar sesión</CardTitle>
-				<CardDescription>
-					Introduce tu correo electrónico y contraseña para iniciar sesión.
-				</CardDescription>
+				<CardTitle>{m["forms.auth.login"]()}</CardTitle>
+				<CardDescription>{m["forms.auth.login_description"]()}</CardDescription>
 			</CardHeader>
 			<CardContent>
 				<LoginForm form={form} />

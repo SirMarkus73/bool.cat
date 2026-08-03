@@ -1,0 +1,39 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "landing": {
+    "short_links": "Short links",
+    "true_simplicity": "True simplicity",
+    "app_description": "{#strong}bool.cat{/strong} is a simple and fast URL shortener that allows you to create short links in seconds. With our intuitive interface, you can easily shorten your URLs and share them with others."
+  },
+  "settings": {
+    "lang": "Language"
+  },
+  "forms": {
+    "reset_form": "Reset form",
+    "auth": {
+      "invalid_email": "Invalid email address",
+      "required_email": "Email is required",
+      "password_min_length": "Password must be at least {minLength} characters long",
+      "password_max_length": "Password must be at most {maxLength} characters long",
+      "name_min_length": "Name must be at least {minLength} characters long",
+      "name_max_length": "Name must be at most {maxLength} characters long",
+      "passwords_do_not_match": "Passwords do not match",
+      "unknown_error": "An unknown error occurred, please try again later",
+      "login": "Login",
+      "login_description": "Enter your email and password to log in.",
+      "register": "Register",
+      "register_description": "Create an account to access all functions of bool.cat.",
+      "login_or_register": "Login / Register",
+      "email": "Email",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "name": "Name",
+      "your_name": "Your name"
+    },
+    "betterAuth": {
+      "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "User already exists, please use another email",
+      "PASSWORD_TOO_SHORT": "Password is too short, please use a longer password",
+      "INVALID_EMAIL_OR_PASSWORD": "Invalid email or password, please check your credentials and try again"
+    }
+  }
+}

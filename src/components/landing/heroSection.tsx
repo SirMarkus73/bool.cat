@@ -2,21 +2,18 @@ import { MoveDown } from "lucide-react";
 import catImage from "#/assets/code_cat.png";
 import { Button } from "#/components/ui/button";
 import { Card, CardContent } from "#/components/ui/card";
-
+import { m } from "#/paraglide/messages";
 export function HeroSection() {
 	return (
 		<div className="flex flex-col md:flex-row justify-between items-center *:flex-1 py-32 px-6 gap-4 bg-linear-to-br from-card via-primary/20 to-primary/80">
 			<div className="flex flex-col gap-4 justify-center">
 				<h1 className="text-6xl font-bold text-balance">
-					Enlaces cortos.
+					{m["landing.short_links"]()}
 					<br />
-					Simplicidad verdadera.
+					{m["landing.true_simplicity"]()}
 				</h1>
 				<p className="mt-4 text-lg text-gray-500 text-pretty">
-					<b>bool.cat</b> es un acortador de enlaces que te permite crear URLs
-					cortas y fáciles de recordar. Con nuestra plataforma, puedes compartir
-					tus enlaces de manera rápida y sencilla, sin complicaciones ni
-					distracciones.
+					{m["landing.app_description"]({ app_name: "bool.cat" })}
 				</p>
 				<Button type="button">Crear enlace corto</Button>
 			</div>

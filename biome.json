@@ -31,6 +31,10 @@
 		"formatter": {
 			"quoteStyle": "double"
 		}
+	},
+	"json": {
+		"formatter": {
+			"enabled": true
+		}
 	}
 }
-
