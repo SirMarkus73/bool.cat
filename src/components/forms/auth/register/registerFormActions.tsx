@@ -1,16 +1,17 @@
 import { Button } from "#/components/ui/button";
 import { withForm } from "#/hooks/useAppForm";
+import { m } from "#/paraglide/messages";
 import { registerFormOptions } from "./registerFormOption";
 
 export const RegisterFormActions = withForm({
 	...registerFormOptions,
 	render: ({ form }) => (
-		<div className="flex">
+		<div className="flex justify-around">
 			<form.AppForm>
 				<form.FormRootError />
 			</form.AppForm>
 
-			<div className="ml-auto">
+			<div>
 				<Button
 					type="reset"
 					form={form.formId}
@@ -20,11 +21,11 @@ export const RegisterFormActions = withForm({
 						form.reset();
 					}}
 				>
-					Reiniciar formulario
+					{m["forms.reset_form"]()}
 				</Button>
 
 				<form.AppForm>
-					<form.SubmitButton label="Registrarse" />
+					<form.SubmitButton label={m["forms.auth.register"]()} />
 				</form.AppForm>
 			</div>
 		</div>

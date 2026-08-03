@@ -1,5 +1,6 @@
 import { FieldGroup, FieldSet } from "#/components/ui/field";
 import { withForm } from "#/hooks/useAppForm";
+import { m } from "#/paraglide/messages";
 import { loginFormOptions } from "./loginFormOptions";
 
 export const LoginForm = withForm({
@@ -17,7 +18,7 @@ export const LoginForm = withForm({
 					<form.AppField name="email">
 						{(field) => (
 							<field.InputField
-								label="Correo electrónico"
+								label={m["forms.auth.email"]()}
 								type="email"
 								required
 								autoComplete="email"
@@ -29,7 +30,7 @@ export const LoginForm = withForm({
 					<form.AppField name="password">
 						{(field) => (
 							<field.InputField
-								label="Contraseña"
+								label={m["forms.auth.password"]()}
 								type="password"
 								required
 								autoComplete="current-password"

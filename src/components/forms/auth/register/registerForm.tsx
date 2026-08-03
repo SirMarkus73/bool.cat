@@ -1,5 +1,6 @@
 import { FieldGroup, FieldSet } from "#/components/ui/field";
 import { withForm } from "#/hooks/useAppForm";
+import { m } from "#/paraglide/messages";
 import { registerFormOptions } from "./registerFormOption";
 
 export const RegisterForm = withForm({
@@ -18,7 +19,7 @@ export const RegisterForm = withForm({
 						<form.AppField name="name">
 							{(field) => (
 								<field.InputField
-									label="Nombre completo"
+									label={m["forms.auth.name"]()}
 									required
 									type="text"
 									autoComplete="name"
@@ -32,7 +33,7 @@ export const RegisterForm = withForm({
 						<form.AppField name="email">
 							{(field) => (
 								<field.InputField
-									label="Correo electrónico"
+									label={m["forms.auth.email"]()}
 									required
 									type="email"
 									autoComplete="email"
@@ -46,7 +47,7 @@ export const RegisterForm = withForm({
 						<form.AppField name="password">
 							{(field) => (
 								<field.InputField
-									label="Contraseña"
+									label={m["forms.auth.password"]()}
 									required
 									type="password"
 									autoComplete="new-password"
@@ -59,28 +60,19 @@ export const RegisterForm = withForm({
 					{
 						<form.AppField
 							name="repeatPassword"
-							// listeners={{
-							// 	onChange: ({ value, fieldApi }) => {
-							// 		const password = fieldApi.form.getFieldValue("password");
-
-							// 		if (value !== password) {
-							// 			return "Las contraseñas no coinciden";
-							// 		}
-							// 	},
-							// }}
 							validators={{
 								onChange: ({ value, fieldApi }) => {
 									const password = fieldApi.form.getFieldValue("password");
 
 									if (value !== password) {
-										return "Las contraseñas no coinciden";
+										return m["forms.auth.passwords_do_not_match"]();
 									}
 								},
 							}}
 						>
 							{(field) => (
 								<field.InputField
-									label="Repetir contraseña"
+									label={m["forms.auth.password_confirm"]()}
 									type="password"
 									required
 									autoComplete="new-password"

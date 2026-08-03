@@ -15,7 +15,17 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "#/components/ui/dropdown-menu";
+import {
+	Select,
+	SelectContent,
+	SelectGroup,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from "#/components/ui/select";
 import { authClient } from "#/lib/auth-client";
+import { m } from "#/paraglide/messages";
+import { getLocale, isLocale, locales, setLocale } from "#/paraglide/runtime";
 
 function UserDropdown() {
 	const navigate = useNavigate();
@@ -77,7 +87,7 @@ function UserDropdown() {
 						to="/app/auth"
 						className={buttonVariants({ size: "lg", variant: "outline" })}
 					>
-						Iniciar sesión / Registrarse
+						{m["forms.auth.login_or_register"]()}
 					</Link>
 				</div>
 			)}
@@ -95,11 +105,59 @@ function HeaderLogo() {
 	);
 }
 
+function getLanguageLabel(locale: string) {
+	const label = new Intl.DisplayNames([locale], {
+		type: "language",
+	}).of(locale);
+
+	if (!label) {
+		return locale;
+	}
+
+	return label.charAt(0).toLocaleUpperCase(locale) + label.slice(1);
+}
+
+function LocaleSwitcher() {
+	const items = locales.map((locale) => ({
+		label: getLanguageLabel(locale),
+		value: locale,
+	}));
+	const currentLocale = getLocale();
+
+	return (
+		<Select
+			defaultValue={currentLocale}
+			onValueChange={(value) => {
+				if (!isLocale(value)) return;
+				setLocale(value);
+			}}
+		>
+			<SelectTrigger className="w-45">
+				<SelectValue placeholder={m["settings.lang"]()}>
+					{getLanguageLabel(currentLocale)}
+				</SelectValue>
+			</SelectTrigger>
+			<SelectContent>
+				<SelectGroup>
+					{items.map((item) => (
+						<SelectItem key={item.value} value={item.value}>
+							{item.label}
+						</SelectItem>
+					))}
+				</SelectGroup>
+			</SelectContent>
+		</Select>
+	);
+}
+
 export function Header() {
 	return (
 		<header className="flex items-center justify-between p-4 bg-accent/85 backdrop-blur-lg text-accent-foreground sticky top-0 left-0 right-0 z-50 ">
 			<HeaderLogo />
-			<UserDropdown />
+			<div className="flex gap-1 items-center">
+				<LocaleSwitcher />
+				<UserDropdown />
+			</div>
 		</header>
 	);
 }

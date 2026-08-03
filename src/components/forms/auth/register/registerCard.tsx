@@ -9,6 +9,7 @@ import {
 } from "#/components/ui/card";
 import { useAppForm } from "#/hooks/useAppForm";
 import { authClient } from "#/lib/auth-client";
+import { m } from "#/paraglide/messages";
 import { RegisterForm } from "./registerForm";
 import { RegisterFormActions } from "./registerFormActions";
 import { registerFormOptions } from "./registerFormOption";
@@ -35,7 +36,10 @@ export function RegisterCard({ className }: Props) {
 						formApi.setErrorMap({
 							onSubmit: {
 								fields: {
-									email: "Ya existe una cuenta con este correo electrónico",
+									email:
+										m[
+											"forms.betterAuth.USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL"
+										](),
 								},
 							},
 						});
@@ -45,7 +49,7 @@ export function RegisterCard({ className }: Props) {
 						formApi.setErrorMap({
 							onSubmit: {
 								fields: {
-									password: "La contraseña es demasiado corta",
+									password: m["forms.betterAuth.PASSWORD_TOO_SHORT"](),
 								},
 							},
 						});
@@ -57,7 +61,7 @@ export function RegisterCard({ className }: Props) {
 						formApi.setErrorMap({
 							onSubmit: {
 								fields: {},
-								form: "Ha ocurrido un error desconocido. Por favor, inténtalo de nuevo más tarde.",
+								form: m["forms.auth.unknown_error"](),
 							},
 						});
 					}
@@ -73,9 +77,9 @@ export function RegisterCard({ className }: Props) {
 	return (
 		<Card className={className}>
 			<CardHeader>
-				<CardTitle>Registrarse</CardTitle>
+				<CardTitle>{m["forms.auth.register"]()}</CardTitle>
 				<CardDescription>
-					Introduce tu correo electrónico y contraseña para registrarte.
+					{m["forms.auth.register_description"]()}
 				</CardDescription>
 			</CardHeader>
 			<CardContent>

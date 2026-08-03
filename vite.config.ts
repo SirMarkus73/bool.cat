@@ -1,3 +1,4 @@
+import { paraglideVitePlugin } from '@inlang/paraglide-js'
 import { defineConfig } from 'vite'
 import { devtools } from '@tanstack/devtools-vite'
 
@@ -9,7 +10,7 @@ import { nitro } from 'nitro/vite'
 
 const config = defineConfig({
   resolve: { tsconfigPaths: true },
-  plugins: [
+  plugins: [paraglideVitePlugin({ project: './project.inlang', outdir: './src/paraglide' }),
     devtools(),
     nitro({ rollupConfig: { external: [/^@sentry\//] } }),
     tailwindcss(),
