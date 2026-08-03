@@ -22,7 +22,7 @@ export const LoginForm = withForm({
 								type="email"
 								required
 								autoComplete="email"
-								placeholder="evil.rabbit@example.com"
+								placeholder="example@bool.cat"
 							/>
 						)}
 					</form.AppField>
@@ -34,7 +34,7 @@ export const LoginForm = withForm({
 								type="password"
 								required
 								autoComplete="current-password"
-								placeholder="Your password"
+								placeholder="••••••••"
 							/>
 						)}
 					</form.AppField>

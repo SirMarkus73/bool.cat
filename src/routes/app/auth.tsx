@@ -4,6 +4,7 @@ import { LoginCard } from "#/components/forms/auth/login/loginCard";
 import { RegisterCard } from "#/components/forms/auth/register/registerCard";
 import { Button } from "#/components/ui/button";
 import { Card } from "#/components/ui/card";
+import { m } from "#/paraglide/messages";
 import { getSession } from "#/server/auth/getSession";
 
 export const Route = createFileRoute("/app/auth")({
@@ -29,7 +30,7 @@ function RouteComponent() {
 					onClick={() => setMode("login")}
 					className="border-e-0 rounded-e-none"
 				>
-					Iniciar sesión
+					{m["forms.auth.login"]()}
 				</Button>
 				<Button
 					variant={mode === "login" ? "secondary" : "default"}
@@ -37,7 +38,7 @@ function RouteComponent() {
 					onClick={() => setMode("register")}
 					className="border-s-0 rounded-s-none"
 				>
-					Registrarse
+					{m["forms.auth.register"]()}
 				</Button>
 			</Card>
 			{mode === "login" ? (

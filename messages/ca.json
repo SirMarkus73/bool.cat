@@ -27,7 +27,9 @@
       "email": "Correu electrònic",
       "password": "Contrasenya",
       "password_confirm": "Confirmar contrasenya",
-      "name": "Nom"
+      "name": "Nom",
+      "your_name": "El teu nom"
+
     },
     "betterAuth": {
       "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "L'usuari ja existeix, si us plau utilitza un altre correu electrònic",

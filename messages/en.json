@@ -27,7 +27,8 @@
       "email": "Email",
       "password": "Password",
       "password_confirm": "Confirm Password",
-      "name": "Name"
+      "name": "Name",
+      "your_name": "Your name"
     },
     "betterAuth": {
       "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "User already exists, please use another email",

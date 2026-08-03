@@ -23,7 +23,7 @@ export const RegisterForm = withForm({
 									required
 									type="text"
 									autoComplete="name"
-									placeholder="Evil Rabbit"
+									placeholder={m["forms.auth.your_name"]()}
 								/>
 							)}
 						</form.AppField>
@@ -37,7 +37,7 @@ export const RegisterForm = withForm({
 									required
 									type="email"
 									autoComplete="email"
-									placeholder="evil.rabbit@example.com"
+									placeholder="example@bool.cat"
 								/>
 							)}
 						</form.AppField>
