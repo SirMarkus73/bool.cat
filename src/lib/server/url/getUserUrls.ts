@@ -1,7 +1,6 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { db } from "#/db";
-import { shortUrl } from "#/db/schema";
 import { ensureAuthenticated } from "../auth/ensureAuthenticatedMiddleware";
 
 const validationSchema = z.object({
@@ -26,10 +25,10 @@ export const getUserUrls = createServerFn({ method: "GET" })
 				OR: [
 					{
 						redirectUrl: {
-							ilike: q && `%${q}%`,
+							ilike: (q?.trim().length ?? 0) === 0 ? undefined : `%${q}%`,
 						},
 						slug: {
-							ilike: q && `%${q}%`,
+							ilike: (q?.trim().length ?? 0) === 0 ? undefined : `%${q}%`,
 						},
 					},
 				],

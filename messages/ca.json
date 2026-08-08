@@ -51,7 +51,9 @@
 		"no_links": "No tens enllaços encara. Crea el teu primer enllaç ara!",
 		"link": "Enllaç",
 		"short_link": "Enllaç curt",
-		"clicks": "Clics"
+		"clicks": "Clics",
+		"fetch_links_error": "Ha ocorregut un error mentre es carregaven els teus enllaços. Si us plau, intenta-ho de nou més endavant.",
+		"no_links_found": "No s'han trobat enllaços per a la teva cerca."
 	},
 	"timestamps": {
 		"created_at": "Creat a",

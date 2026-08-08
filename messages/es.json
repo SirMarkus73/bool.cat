@@ -51,7 +51,9 @@
 		"no_links": "No tienes ningún enlace aún. ¡Crea tu primer enlace ahora!",
 		"link": "Enlace",
 		"short_link": "Enlace Corto",
-		"clicks": "Clicks"
+		"clicks": "Clicks",
+		"fetch_links_error": "Ocurrió un error mientras cargaban tus enlaces. Por favor, inténtalo de nuevo más tarde.",
+		"no_links_found": "No se encontraron enlaces para tu búsqueda."
 	},
 
 	"timestamps": {
