@@ -8,6 +8,7 @@
 	"files": {
 		"ignoreUnknown": false,
 		"includes": [
+			"**/messages/**/*.json",
 			"**/src/**/*",
 			"**/.vscode/**/*",
 			"**/index.html",

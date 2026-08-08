@@ -1,40 +1,39 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format",
-  "landing": {
-    "short_links": "Enllaços curts",
-    "true_simplicity": "Simplicitat veritable",
-    "app_description": "{#strong}bool.cat{/strong} és un escorçador d'enllaços que et permet crear URLs curtes i fàcils de recordar. Amb la nostra plataforma, pots compartir els teus enllaços de manera ràpida i senzilla, sense complicacions ni distraccions."
-  },
-  "settings": {
-    "lang": "Idioma"
-  },
-  "forms": {
-    "reset_form": "Reiniciar formulari",
-    "auth": {
-      "invalid_email": "Adreça de correu electrònic no vàlida",
-      "required_email": "El correu electrònic és obligatori",
-      "password_min_length": "La contraseña ha de tindre al menys {minLength} caràcters",
-      "password_max_length": "La contraseña ha de tindre com a màxim {maxLength} caràcters",
-      "name_min_length": "El nom ha de tindre al menys {minLength} caràcters",
-      "name_max_length": "El nom ha de tindre com a màxim {maxLength} caràcters",
-      "passwords_do_not_match": "Les contrasenyes no coincideixen",
-      "unknown_error": "Ha ocorregut un error desconegut, si us plau intenta-ho de nou més endavant",
-      "login": "Iniciar sessió",
-      "login_description": "Introdueix el teu correu electrònic i contrasenya per iniciar sessió.",
-      "register": "Registrar-se",
-      "register_description": "Crea una compte per accedir a totes les funcions de bool.cat.",
-      "login_or_register": "Iniciar sessió / Registrar-se",
-      "email": "Correu electrònic",
-      "password": "Contrasenya",
-      "password_confirm": "Confirmar contrasenya",
-      "name": "Nom",
-      "your_name": "El teu nom"
-
-    },
-    "betterAuth": {
-      "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "L'usuari ja existeix, si us plau utilitza un altre correu electrònic",
-      "PASSWORD_TOO_SHORT": "La contrasenya és massa curta, si us plau utilitza una contrasenya més llarga",
-      "INVALID_EMAIL_OR_PASSWORD": "Correu electrònic o contrasenya no vàlids, si us plau comprova les teves credencials i torna-ho a provar"
-    }
-  }
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"landing": {
+		"short_links": "Enllaços curts",
+		"true_simplicity": "Simplicitat veritable",
+		"app_description": "{#strong}bool.cat{/strong} és un escorçador d'enllaços que et permet crear URLs curtes i fàcils de recordar. Amb la nostra plataforma, pots compartir els teus enllaços de manera ràpida i senzilla, sense complicacions ni distraccions."
+	},
+	"settings": {
+		"lang": "Idioma"
+	},
+	"forms": {
+		"reset_form": "Reiniciar formulari",
+		"auth": {
+			"invalid_email": "Adreça de correu electrònic no vàlida",
+			"required_email": "El correu electrònic és obligatori",
+			"password_min_length": "La contraseña ha de tindre al menys {minLength} caràcters",
+			"password_max_length": "La contraseña ha de tindre com a màxim {maxLength} caràcters",
+			"name_min_length": "El nom ha de tindre al menys {minLength} caràcters",
+			"name_max_length": "El nom ha de tindre com a màxim {maxLength} caràcters",
+			"passwords_do_not_match": "Les contrasenyes no coincideixen",
+			"unknown_error": "Ha ocorregut un error desconegut, si us plau intenta-ho de nou més endavant",
+			"login": "Iniciar sessió",
+			"login_description": "Introdueix el teu correu electrònic i contrasenya per iniciar sessió.",
+			"register": "Registrar-se",
+			"register_description": "Crea una compte per accedir a totes les funcions de bool.cat.",
+			"login_or_register": "Iniciar sessió / Registrar-se",
+			"email": "Correu electrònic",
+			"password": "Contrasenya",
+			"password_confirm": "Confirmar contrasenya",
+			"name": "Nom",
+			"your_name": "El teu nom"
+		},
+		"betterAuth": {
+			"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "L'usuari ja existeix, si us plau utilitza un altre correu electrònic",
+			"PASSWORD_TOO_SHORT": "La contrasenya és massa curta, si us plau utilitza una contrasenya més llarga",
+			"INVALID_EMAIL_OR_PASSWORD": "Correu electrònic o contrasenya no vàlids, si us plau comprova les teves credencials i torna-ho a provar"
+		}
+	}
 }
