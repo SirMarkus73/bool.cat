@@ -1,5 +1,5 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { getSession } from "#/server/auth/getSession";
+import { getSession } from "#/lib/server/auth/getSession";
 
 export const Route = createFileRoute("/app/")({
 	component: RouteComponent,
