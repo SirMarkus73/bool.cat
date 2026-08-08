@@ -1,7 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { ExternalLinkIcon } from "lucide-react";
 import { buttonVariants } from "#/components/ui/button";
-
 import {
 	Item,
 	ItemActions,
@@ -10,8 +10,8 @@ import {
 	ItemTitle,
 } from "#/components/ui/item";
 import { ScrollArea } from "#/components/ui/scroll-area";
+import { urlsQuery } from "#/lib/query/url/getUserUrls";
 import { getSession } from "#/lib/server/auth/getSession";
-import { getUserUrls } from "#/lib/server/url/getUserUrls";
 import { m } from "#/paraglide/messages";
 
 export const Route = createFileRoute("/app/")({
@@ -25,14 +25,12 @@ export const Route = createFileRoute("/app/")({
 
 		return { user: session.user };
 	},
-	loader: async () => {
-		const urls = await getUserUrls({ data: {} });
-		return { urls };
-	},
+	loader: async ({ context: { queryClient } }) =>
+		queryClient.ensureQueryData(urlsQuery),
 });
 
 function RouteComponent() {
-	const { urls } = Route.useLoaderData();
+	const { data: urls } = useQuery(urlsQuery);
 
 	return (
 		<main className="mx-4 my-6">
@@ -43,7 +41,7 @@ function RouteComponent() {
 				<ScrollArea className="h-72  rounded-md border border-border">
 					<ul>
 						<li>
-							{urls.map((url) => (
+							{urls?.map((url) => (
 								<Item key={url.id}>
 									<ItemContent>
 										<ItemTitle>{url.slug}</ItemTitle>
