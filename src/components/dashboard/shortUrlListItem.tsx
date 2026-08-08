@@ -28,7 +28,7 @@ const getShortUrl = createIsomorphicFn()
 
 export function ShortUrlListItem({ shortUrl }: Props) {
 	return (
-		<Item>
+		<Item id={shortUrl.slug} className="relative">
 			<ItemContent>
 				<ItemTitle>{getShortUrl(shortUrl.slug)}</ItemTitle>
 				<ItemDescription>

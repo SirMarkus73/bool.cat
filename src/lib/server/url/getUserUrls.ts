@@ -1,6 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { db } from "#/db";
+import { shortUrl } from "#/db/schema";
 import { ensureAuthenticated } from "../auth/ensureAuthenticatedMiddleware";
 
 const validationSchema = z.object({
@@ -32,6 +33,10 @@ export const getUserUrls = createServerFn({ method: "GET" })
 						},
 					},
 				],
+			},
+			orderBy: {
+				updatedAt: "desc",
+				createdAt: "desc",
 			},
 		});
 

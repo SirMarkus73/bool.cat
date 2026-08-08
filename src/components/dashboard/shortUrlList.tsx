@@ -15,12 +15,12 @@ function ShortUrlListInner({ className }: Props) {
 
 	return (
 		<ScrollArea className={cn("rounded-md border border-border", className)}>
-			<ul>
-				<li>
-					{urls?.map((url) => (
-						<ShortUrlListItem key={url.id} shortUrl={url} />
-					))}
-				</li>
+			<ul className="flex flex-col gap-2 px-2 *:border-b *:border-border *:last:border-b-0">
+				{urls?.map((url) => (
+					<li key={url.id}>
+						<ShortUrlListItem shortUrl={url} />
+					</li>
+				))}
 			</ul>
 		</ScrollArea>
 	);

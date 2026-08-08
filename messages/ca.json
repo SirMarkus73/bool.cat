@@ -10,6 +10,14 @@
 	},
 	"forms": {
 		"reset_form": "Reiniciar formulari",
+		"invalid_url": "la URL no es vàlida",
+		"required_url": "la URL és obligatòria",
+		"short_url": {
+			"target_url": "URL de destinació",
+			"shorten_url": "Escurçar URL",
+			"create_short": "Crear un enllaç curt",
+			"create_short_description": "Crea un enllaç curt ingressant la URL llarga a continuació."
+		},
 		"auth": {
 			"invalid_email": "Adreça de correu electrònic no vàlida",
 			"required_email": "El correu electrònic és obligatori",
@@ -38,7 +46,7 @@
 	},
 	"dashboard": {
 		"title": "Tauler de control",
-		"links": "Enllaços",
+		"links": "Els teus enllaços",
 		"create_link": "Crear enllaç",
 		"no_links": "No tens enllaços encara. Crea el teu primer enllaç ara!",
 		"link": "Enllaç",

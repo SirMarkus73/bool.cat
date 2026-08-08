@@ -10,6 +10,8 @@
 	},
 	"forms": {
 		"reset_form": "Reset form",
+		"invalid_url": "Invalid URL",
+		"required_url": "URL is required",
 		"auth": {
 			"invalid_email": "Invalid email address",
 			"required_email": "Email is required",
@@ -30,6 +32,12 @@
 			"name": "Name",
 			"your_name": "Your name"
 		},
+		"short_url": {
+			"target_url": "Target URL",
+			"shorten_url": "Shorten URL",
+			"create_short": "Create a short link",
+			"create_short_description": "Create a short link by entering the long URL below."
+		},
 		"betterAuth": {
 			"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "User already exists, please use another email",
 			"PASSWORD_TOO_SHORT": "Password is too short, please use a longer password",
@@ -38,7 +46,7 @@
 	},
 	"dashboard": {
 		"title": "Dashboard",
-		"links": "Links",
+		"links": "Your links",
 		"create_link": "Create Link",
 		"no_links": "You don't have any links yet. Create your first link now!",
 		"link": "Link",

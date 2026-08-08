@@ -10,6 +10,14 @@
 	},
 	"forms": {
 		"reset_form": "Reiniciar formulario",
+		"invalid_url": "La URL no es válida",
+		"required_url": "La URL es requerida",
+		"short_url": {
+			"target_url": "URL de destino",
+			"shorten_url": "Acortar URL",
+			"create_short": "Crear un enlace corto",
+			"create_short_description": "Crea un enlace corto ingresando la URL larga a continuación."
+		},
 		"auth": {
 			"invalid_email": "Dirección de correo electrónico inválida",
 			"required_email": "El correo electrónico es requerido",
@@ -38,11 +46,11 @@
 	},
 	"dashboard": {
 		"title": "Panel de control",
-		"links": "Links",
-		"create_link": "Create Link",
-		"no_links": "You don't have any links yet. Create your first link now!",
-		"link": "Link",
-		"short_link": "Short Link",
+		"links": "Tus enlaces",
+		"create_link": "Crear Enlace",
+		"no_links": "No tienes ningún enlace aún. ¡Crea tu primer enlace ahora!",
+		"link": "Enlace",
+		"short_link": "Enlace Corto",
 		"clicks": "Clicks"
 	},
 
