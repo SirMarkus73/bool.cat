@@ -11,8 +11,9 @@ export const getUserUrls = createServerFn({ method: "GET" })
 
 	.middleware([ensureAuthenticated])
 	.validator(validationSchema)
-	.handler(async ({ context }) => {
+	.handler(async ({ context, data }) => {
 		const { user } = context;
+		const { q } = data;
 
 		const urls = await db.query.shortUrl.findMany({
 			where: {
@@ -21,6 +22,16 @@ export const getUserUrls = createServerFn({ method: "GET" })
 						eq: user.id,
 					},
 				},
+				OR: [
+					{
+						redirectUrl: {
+							ilike: q && `%${q}%`,
+						},
+						slug: {
+							ilike: q && `%${q}%`,
+						},
+					},
+				],
 			},
 		});
 
