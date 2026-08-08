@@ -1,5 +1,5 @@
 import { createFileRoute, notFound, redirect } from "@tanstack/react-router";
-import { getUrlBySlug } from "#/server/url/getUrlBySlug";
+import { getUrlBySlug } from "#/lib/server/url/getUrlBySlug";
 
 export const Route = createFileRoute("/$")({
 	component: RouteComponent,

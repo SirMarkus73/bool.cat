@@ -1,5 +1,8 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { getSession } from "#/server/auth/getSession";
+import { ShortUrlList } from "#/components/dashboard/shortUrlList";
+import { CreateShortUrlCard } from "#/components/forms/url/createShortUrlCard";
+import { getSession } from "#/lib/server/auth/getSession";
+import { m } from "#/paraglide/messages";
 
 export const Route = createFileRoute("/app/")({
 	component: RouteComponent,
@@ -15,5 +18,19 @@ export const Route = createFileRoute("/app/")({
 });
 
 function RouteComponent() {
-	return <div>Panel de control</div>;
+	return (
+		<main className="mx-4 my-6">
+			<h1 className="text-2xl font-bold">{m["dashboard.title"]()}</h1>
+			<div className="lg:grid-cols-3 lg:grid grid gap-5 lg:justify-center items-center">
+				<section className="lg:col-span-2">
+					<h2 className="text-xl font-semibold">{m["dashboard.links"]()}</h2>
+					<ShortUrlList className="h-72" />
+				</section>
+
+				<section>
+					<CreateShortUrlCard />
+				</section>
+			</div>
+		</main>
+	);
 }

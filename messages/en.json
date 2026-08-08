@@ -1,39 +1,63 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format",
-  "landing": {
-    "short_links": "Short links",
-    "true_simplicity": "True simplicity",
-    "app_description": "{#strong}bool.cat{/strong} is a simple and fast URL shortener that allows you to create short links in seconds. With our intuitive interface, you can easily shorten your URLs and share them with others."
-  },
-  "settings": {
-    "lang": "Language"
-  },
-  "forms": {
-    "reset_form": "Reset form",
-    "auth": {
-      "invalid_email": "Invalid email address",
-      "required_email": "Email is required",
-      "password_min_length": "Password must be at least {minLength} characters long",
-      "password_max_length": "Password must be at most {maxLength} characters long",
-      "name_min_length": "Name must be at least {minLength} characters long",
-      "name_max_length": "Name must be at most {maxLength} characters long",
-      "passwords_do_not_match": "Passwords do not match",
-      "unknown_error": "An unknown error occurred, please try again later",
-      "login": "Login",
-      "login_description": "Enter your email and password to log in.",
-      "register": "Register",
-      "register_description": "Create an account to access all functions of bool.cat.",
-      "login_or_register": "Login / Register",
-      "email": "Email",
-      "password": "Password",
-      "password_confirm": "Confirm Password",
-      "name": "Name",
-      "your_name": "Your name"
-    },
-    "betterAuth": {
-      "USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "User already exists, please use another email",
-      "PASSWORD_TOO_SHORT": "Password is too short, please use a longer password",
-      "INVALID_EMAIL_OR_PASSWORD": "Invalid email or password, please check your credentials and try again"
-    }
-  }
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"landing": {
+		"short_links": "Short links",
+		"true_simplicity": "True simplicity",
+		"app_description": "{#strong}bool.cat{/strong} is a simple and fast URL shortener that allows you to create short links in seconds. With our intuitive interface, you can easily shorten your URLs and share them with others."
+	},
+	"settings": {
+		"lang": "Language"
+	},
+	"forms": {
+		"reset_form": "Reset form",
+		"invalid_url": "Invalid URL",
+		"required_url": "URL is required",
+		"auth": {
+			"invalid_email": "Invalid email address",
+			"required_email": "Email is required",
+			"password_min_length": "Password must be at least {minLength} characters long",
+			"password_max_length": "Password must be at most {maxLength} characters long",
+			"name_min_length": "Name must be at least {minLength} characters long",
+			"name_max_length": "Name must be at most {maxLength} characters long",
+			"passwords_do_not_match": "Passwords do not match",
+			"unknown_error": "An unknown error occurred, please try again later",
+			"login": "Login",
+			"login_description": "Enter your email and password to log in.",
+			"register": "Register",
+			"register_description": "Create an account to access all functions of bool.cat.",
+			"login_or_register": "Login / Register",
+			"email": "Email",
+			"password": "Password",
+			"password_confirm": "Confirm Password",
+			"name": "Name",
+			"your_name": "Your name"
+		},
+		"short_url": {
+			"target_url": "Target URL",
+			"shorten_url": "Shorten URL",
+			"create_short": "Create a short link",
+			"create_short_description": "Create a short link by entering the long URL below."
+		},
+		"betterAuth": {
+			"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "User already exists, please use another email",
+			"PASSWORD_TOO_SHORT": "Password is too short, please use a longer password",
+			"INVALID_EMAIL_OR_PASSWORD": "Invalid email or password, please check your credentials and try again"
+		}
+	},
+	"dashboard": {
+		"title": "Dashboard",
+		"links": "Your links",
+		"create_link": "Create Link",
+		"no_links": "You don't have any links yet. Create your first link now!",
+		"link": "Link",
+		"short_link": "Short Link",
+		"clicks": "Clicks",
+		"fetch_links_error": "An error occurred while fetching your links. Please try again later.",
+		"no_links_found": "No links found for your search."
+	},
+
+	"timestamps": {
+		"created_at": "Created at",
+		"updated_at": "Updated at"
+	}
 }

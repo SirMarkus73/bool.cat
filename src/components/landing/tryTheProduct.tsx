@@ -2,7 +2,7 @@ import { formOptions } from "@tanstack/react-form";
 import { useState } from "react";
 import z from "zod";
 import { useAppForm } from "#/hooks/useAppForm";
-import { createShortUrl } from "#/server/url/createShortUrl";
+import { createShortUrl } from "#/lib/server/url/createShortUrl";
 import {
 	Card,
 	CardContent,
