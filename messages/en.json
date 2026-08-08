@@ -35,5 +35,19 @@
 			"PASSWORD_TOO_SHORT": "Password is too short, please use a longer password",
 			"INVALID_EMAIL_OR_PASSWORD": "Invalid email or password, please check your credentials and try again"
 		}
+	},
+	"dashboard": {
+		"title": "Dashboard",
+		"links": "Links",
+		"create_link": "Create Link",
+		"no_links": "You don't have any links yet. Create your first link now!",
+		"link": "Link",
+		"short_link": "Short Link",
+		"clicks": "Clicks"
+	},
+
+	"timestamps": {
+		"created_at": "Created at",
+		"updated_at": "Updated at"
 	}
 }

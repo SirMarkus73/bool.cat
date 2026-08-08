@@ -35,5 +35,18 @@
 			"PASSWORD_TOO_SHORT": "La contrasenya és massa curta, si us plau utilitza una contrasenya més llarga",
 			"INVALID_EMAIL_OR_PASSWORD": "Correu electrònic o contrasenya no vàlids, si us plau comprova les teves credencials i torna-ho a provar"
 		}
+	},
+	"dashboard": {
+		"title": "Tauler de control",
+		"links": "Enllaços",
+		"create_link": "Crear enllaç",
+		"no_links": "No tens enllaços encara. Crea el teu primer enllaç ara!",
+		"link": "Enllaç",
+		"short_link": "Enllaç curt",
+		"clicks": "Clics"
+	},
+	"timestamps": {
+		"created_at": "Creat a",
+		"updated_at": "Actualitzat a"
 	}
 }

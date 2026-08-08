@@ -35,5 +35,19 @@
 			"PASSWORD_TOO_SHORT": "La contraseña es demasiado corta, por favor utiliza una contraseña más larga",
 			"INVALID_EMAIL_OR_PASSWORD": "Correo electrónico o contraseña inválidos, por favor verifica tus credenciales y vuelve a intentarlo"
 		}
+	},
+	"dashboard": {
+		"title": "Panel de control",
+		"links": "Links",
+		"create_link": "Create Link",
+		"no_links": "You don't have any links yet. Create your first link now!",
+		"link": "Link",
+		"short_link": "Short Link",
+		"clicks": "Clicks"
+	},
+
+	"timestamps": {
+		"created_at": "Created at",
+		"updated_at": "Updated at"
 	}
 }
