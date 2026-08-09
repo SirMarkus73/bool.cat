@@ -1,13 +1,13 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { db } from "#/db";
-import { ensureAuthenticated } from "../auth/ensureAuthenticatedMiddleware";
+import { ensureAuthenticated } from "../auth/middleware";
 
 const validationSchema = z.object({
 	q: z.string().optional(),
 });
 
-export const getUserUrls = createServerFn({ method: "GET" })
+export const listUrls = createServerFn({ method: "GET" })
 
 	.middleware([ensureAuthenticated])
 	.validator(validationSchema)

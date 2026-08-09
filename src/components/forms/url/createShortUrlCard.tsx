@@ -9,7 +9,7 @@ import {
 	CardTitle,
 } from "#/components/ui/card";
 import { useAppForm } from "#/hooks/useAppForm";
-import { urlsQuery } from "#/lib/query/url/getUserUrls";
+import { listUrlsQuery } from "#/lib/query/url/list";
 import { createShortUrl } from "#/lib/server/url/createShortUrl";
 import { m } from "#/paraglide/messages";
 import { CreateShortUrlForm } from "./createShortUrlForm";
@@ -31,7 +31,7 @@ export function CreateShortUrlCard({ className }: Props) {
 
 			const { slug } = await createShortUrl({ data: { longUrl: targetUrl } });
 			formApi.reset();
-			await queryClient.invalidateQueries({ queryKey: urlsQuery.queryKey });
+			await queryClient.invalidateQueries({ queryKey: listUrlsQuery.queryKey });
 			navigate({ hash: slug, hashScrollIntoView: { behavior: "smooth" } });
 		},
 	});

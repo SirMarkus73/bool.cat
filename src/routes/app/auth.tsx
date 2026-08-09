@@ -4,7 +4,7 @@ import { LoginCard } from "#/components/forms/auth/login/loginCard";
 import { RegisterCard } from "#/components/forms/auth/register/registerCard";
 import { Button } from "#/components/ui/button";
 import { Card } from "#/components/ui/card";
-import { getSession } from "#/lib/server/auth/getSession";
+import { getSession } from "#/lib/server/auth/session";
 import { m } from "#/paraglide/messages";
 
 export const Route = createFileRoute("/app/auth")({

@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 import z from "zod";
 import { db } from "#/db";
 import { shortUrl } from "#/db/schema";
-import { getSession } from "../auth/getSession";
+import { getSession } from "../auth/session";
 
 const createShortUrlSchema = z.object({
 	longUrl: z.url(),

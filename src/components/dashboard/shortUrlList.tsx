@@ -8,7 +8,7 @@ import {
 	InputGroupText,
 } from "#/components/ui/input-group";
 import { ScrollArea } from "#/components/ui/scroll-area";
-import { createUrlsQuery } from "#/lib/query/url/getUserUrls";
+import { createListUrlsQuery } from "#/lib/query/url/list";
 import { cn } from "#/lib/utils";
 import { m } from "#/paraglide/messages";
 import { Skeleton } from "../ui/skeleton";
@@ -26,7 +26,7 @@ export function ShortUrlList({ className }: Props) {
 		isLoading,
 		isError,
 	} = useQuery({
-		...createUrlsQuery({ q: search }),
+		...createListUrlsQuery({ q: search }),
 		placeholderData: keepPreviousData,
 	});
 

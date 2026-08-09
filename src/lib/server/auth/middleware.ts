@@ -1,5 +1,5 @@
 import { createMiddleware } from "@tanstack/react-start";
-import { getSession } from "./getSession";
+import { getSession } from "./session";
 
 export const ensureAuthenticated = createMiddleware({
 	type: "function",
