@@ -48,7 +48,7 @@ export function ShortUrlList({ className }: Props) {
 
 	if (!urls || urls.length === 0) {
 		return (
-			<div className={"rounded-md border border-border"}>
+			<div className={cn("rounded-md border border-border", className)}>
 				<InputGroup>
 					<InputGroupInput
 						placeholder="Search..."
@@ -70,7 +70,12 @@ export function ShortUrlList({ className }: Props) {
 	}
 
 	return (
-		<div className="rounded-md border border-border">
+		<div
+			className={cn(
+				"rounded-md border border-border flex flex-col gap-2",
+				className,
+			)}
+		>
 			<InputGroup>
 				<InputGroupInput
 					placeholder="Search..."
@@ -86,7 +91,7 @@ export function ShortUrlList({ className }: Props) {
 					</InputGroupText>
 				</InputGroupAddon>
 			</InputGroup>
-			<ScrollArea className={className}>
+			<ScrollArea className="min-h-0">
 				<ul className="flex flex-col gap-2 px-2 *:border-b *:border-border *:last:border-b-0">
 					{urls?.map((url) => (
 						<li key={url.id}>

@@ -26,6 +26,7 @@ import {
 import { authClient } from "#/lib/auth-client";
 import { m } from "#/paraglide/messages";
 import { getLocale, isLocale, locales, setLocale } from "#/paraglide/runtime";
+import { Skeleton } from "./ui/skeleton";
 
 function UserDropdown() {
 	const navigate = useNavigate();
@@ -40,13 +41,13 @@ function UserDropdown() {
 	return (
 		<div className="flex items-center justify-self-end gap-3">
 			{isPending ? (
-				<div className="h-10 w-40 animate-pulse rounded-md bg-muted/50" />
+				<Skeleton className="h-8 w-40" />
 			) : session?.user ? (
 				<DropdownMenu>
 					<DropdownMenuTrigger
 						render={
-							<Button size="lg" className="py-6">
-								<Avatar>
+							<Button>
+								<Avatar size="sm">
 									<AvatarImage
 										src={session.user.image ?? undefined}
 										alt={userName}
@@ -82,14 +83,9 @@ function UserDropdown() {
 					</DropdownMenuContent>
 				</DropdownMenu>
 			) : (
-				<div className="flex items-center gap-2">
-					<Link
-						to="/app/auth"
-						className={buttonVariants({ size: "lg", variant: "outline" })}
-					>
-						{m["forms.auth.login_or_register"]()}
-					</Link>
-				</div>
+				<Link to="/app/auth" className={buttonVariants({ variant: "outline" })}>
+					{m["forms.auth.login_or_register"]()}
+				</Link>
 			)}
 		</div>
 	);
