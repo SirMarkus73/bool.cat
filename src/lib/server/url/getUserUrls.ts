@@ -15,6 +15,8 @@ export const getUserUrls = createServerFn({ method: "GET" })
 		const { user } = context;
 		const { q } = data;
 
+		const ilikeQuery = (q?.trim().length ?? 0) === 0 ? undefined : `%${q}%`;
+
 		const urls = await db.query.shortUrl.findMany({
 			where: {
 				user: {
@@ -25,10 +27,12 @@ export const getUserUrls = createServerFn({ method: "GET" })
 				OR: [
 					{
 						redirectUrl: {
-							ilike: (q?.trim().length ?? 0) === 0 ? undefined : `%${q}%`,
+							ilike: ilikeQuery,
 						},
+					},
+					{
 						slug: {
-							ilike: (q?.trim().length ?? 0) === 0 ? undefined : `%${q}%`,
+							ilike: ilikeQuery,
 						},
 					},
 				],
