@@ -8,6 +8,7 @@ export const shortUrl = pgTable("short_url", {
 		onDelete: "cascade",
 		onUpdate: "cascade",
 	}), // It can be null if the user is not logged in
+	expirationDate: timestamp().notNull(),
 	redirectUrl: text().notNull(),
 	createdAt: timestamp().defaultNow(),
 	updatedAt: timestamp()

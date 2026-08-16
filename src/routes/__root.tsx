@@ -43,8 +43,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<Header />
-				{children}
+				<div className="grid grid-rows-[auto_1fr] min-h-dvh">
+					<Header />
+					{children}
+				</div>
 				<TanStackDevtools
 					config={{
 						position: "bottom-right",

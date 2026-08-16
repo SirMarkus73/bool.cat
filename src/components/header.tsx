@@ -84,7 +84,7 @@ function UserDropdown() {
 				</DropdownMenu>
 			) : (
 				<Link to="/app/auth" className={buttonVariants({ variant: "outline" })}>
-					{m["forms.auth.login_or_register"]()}
+					{m["forms.auth.login"]()}
 				</Link>
 			)}
 		</div>
@@ -148,7 +148,7 @@ function LocaleSwitcher() {
 
 export function Header() {
 	return (
-		<header className="flex items-center justify-between p-4 bg-accent/85 backdrop-blur-lg text-accent-foreground sticky top-0 left-0 right-0 z-50 ">
+		<header className="flex flex-col lg:flex-row items-center justify-between p-4 bg-accent/85 backdrop-blur-lg text-accent-foreground sticky top-0 left-0 right-0 z-50 ">
 			<HeaderLogo />
 			<div className="flex gap-1 items-center">
 				<LocaleSwitcher />
