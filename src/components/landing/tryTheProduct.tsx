@@ -2,7 +2,9 @@ import { formOptions } from "@tanstack/react-form";
 import { useState } from "react";
 import z from "zod";
 import { useAppForm } from "#/hooks/useAppForm";
+import { UNAUTHENTICATED_SHORT_URL_EXPIRATION_HOURS } from "#/lib/constants";
 import { createShortUrl } from "#/lib/server/url/createShortUrl";
+import { m } from "#/paraglide/messages";
 import {
 	Card,
 	CardContent,
@@ -35,7 +37,9 @@ export function TryTheProduct() {
 		onSubmit: async ({ value }) => {
 			const { url } = value;
 
-			const { slug } = await createShortUrl({ data: { longUrl: url } });
+			const { slug } = await createShortUrl({
+				data: { mode: "guest", longUrl: url },
+			});
 			setSlug(slug);
 		},
 	});
@@ -49,10 +53,11 @@ export function TryTheProduct() {
 		<div className="px-6 py-8 flex justify-center">
 			<Card className="w-full max-w-2xl shadow-lg">
 				<CardHeader>
-					<CardTitle>Acorta tu primer enlace</CardTitle>
+					<CardTitle>{m["shortener.guest.shorten_first_link"]()}</CardTitle>
 					<CardDescription>
-						Tus enlaces expiran automáticamente después de{" "}
-						<strong>1 semana (7 días)</strong> y se eliminarán de forma segura.
+						{m["shortener.guest.description"]({
+							expirationHours: UNAUTHENTICATED_SHORT_URL_EXPIRATION_HOURS,
+						})}
 					</CardDescription>
 				</CardHeader>
 				<CardContent>
@@ -62,14 +67,14 @@ export function TryTheProduct() {
 								<form.AppField name="url">
 									{({ InputField }) => (
 										<InputField
-											label="Ingresa tu enlace"
-											placeholder="https://example.com"
+											label={m["shortener.target_url"]()}
+											placeholder="https://example.com/your/long/url"
 										/>
 									)}
 								</form.AppField>
 
 								<form.AppForm>
-									<form.SubmitButton label="Acortar" />
+									<form.SubmitButton label={m["shortener.shorten_url"]()} />
 								</form.AppForm>
 							</FieldGroup>
 						</FieldSet>
@@ -77,7 +82,7 @@ export function TryTheProduct() {
 
 					{slug && (
 						<Field>
-							<FieldLabel>Tu enlace corto</FieldLabel>
+							<FieldLabel>{m["shortener.short_link"]()}</FieldLabel>
 							<Input value={`${window.location.origin}/${slug}`} readOnly />
 						</Field>
 					)}

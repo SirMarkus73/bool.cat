@@ -5,7 +5,7 @@ import { Card, CardContent } from "#/components/ui/card";
 import { m } from "#/paraglide/messages";
 export function HeroSection() {
 	return (
-		<div className="flex flex-col md:flex-row justify-between items-center *:flex-1 py-32 px-6 gap-4 bg-linear-to-br from-card via-primary/20 to-primary/80">
+		<div className="flex flex-col md:flex-row justify-between items-center *:flex-1 py-32 px-6 gap-4 bg-linear-to-br from-background via-primary/20 to-primary/80">
 			<div className="flex flex-col gap-4 justify-center">
 				<h1 className="text-6xl font-bold text-balance">
 					{m["landing.short_links"]()}

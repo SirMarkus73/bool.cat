@@ -8,6 +8,20 @@
 	"settings": {
 		"lang": "Language"
 	},
+	"shortener": {
+		"shorten_url": "Shorten URL",
+		"create_short": "Create a short link",
+		"target_url": "Target URL",
+		"short_link": "Short Link",
+		"copy": "Copy",
+		"copied": "Copied!",
+		"copy_error": "Failed to copy to clipboard. Please try again.",
+
+		"guest": {
+			"shorten_first_link": "Shorten your first link",
+			"description": "You are currently in guest mode. Your links will expire after {expirationHours} hours."
+		}
+	},
 	"forms": {
 		"reset_form": "Reset form",
 		"invalid_url": "Invalid URL",
@@ -25,7 +39,6 @@
 			"login_description": "Enter your email and password to log in.",
 			"register": "Register",
 			"register_description": "Create an account to access all functions of bool.cat.",
-			"login_or_register": "Login / Register",
 			"email": "Email",
 			"password": "Password",
 			"password_confirm": "Confirm Password",
@@ -59,5 +72,7 @@
 	"timestamps": {
 		"created_at": "Created at",
 		"updated_at": "Updated at"
-	}
+	},
+	"expiration": "Expiration",
+	"expired": "Expired"
 }

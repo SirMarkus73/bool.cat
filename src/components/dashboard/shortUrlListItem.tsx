@@ -1,8 +1,12 @@
 import { createIsomorphicFn } from "@tanstack/react-start";
 import { getRequestUrl } from "@tanstack/react-start/server";
+import { formatDistanceToNow } from "date-fns";
 import { ExternalLinkIcon } from "lucide-react";
 import { buttonVariants } from "#/components/ui/button";
+import { getUserDateLocale } from "#/lib/getUserDateLocale";
+import { m } from "#/paraglide/messages";
 import type { ShortUrl } from "#/types/shortUrl";
+import { Badge } from "../ui/badge";
 import {
 	Item,
 	ItemActions,
@@ -27,10 +31,26 @@ const getShortUrl = createIsomorphicFn()
 	});
 
 export function ShortUrlListItem({ shortUrl }: Props) {
+	const locale = getUserDateLocale();
+
 	return (
 		<Item id={shortUrl.slug} className="relative">
 			<ItemContent>
-				<ItemTitle>{getShortUrl(shortUrl.slug)}</ItemTitle>
+				<ItemTitle>
+					{getShortUrl(shortUrl.slug)}
+
+					{shortUrl.expirationDate < new Date() ? (
+						<Badge variant="destructive">{m.expired()}</Badge>
+					) : (
+						<Badge>
+							{m.expiration()}{" "}
+							{formatDistanceToNow(shortUrl.expirationDate, {
+								addSuffix: true,
+								locale,
+							})}
+						</Badge>
+					)}
+				</ItemTitle>
 				<ItemDescription>
 					<a
 						href={shortUrl.redirectUrl}

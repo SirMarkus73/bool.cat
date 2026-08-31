@@ -7,8 +7,8 @@ export const Route = createFileRoute("/")({ component: Home });
 function Home() {
 	return (
 		<main>
-			<HeroSection />
 			<TryTheProduct />
+			<HeroSection />
 		</main>
 	);
 }

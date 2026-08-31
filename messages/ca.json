@@ -8,6 +8,20 @@
 	"settings": {
 		"lang": "Idioma"
 	},
+	"shortener": {
+		"shorten_url": "Escurçar URL",
+		"create_short": "Crear un enllaç curt",
+		"target_url": "URL de destinació",
+		"short_link": "Enllaç Curt",
+		"copy": "Copiar",
+		"copied": "¡Copiat!",
+		"copy_error": "Error al copiar al portapapers. Si us plau, intenta-ho de nou.",
+
+		"guest": {
+			"shorten_first_link": "Escurça el teu primer enllaç",
+			"description": "Estàs en mode convidat. Els teus enllaços expiraran després de {expirationHours} hores."
+		}
+	},
 	"forms": {
 		"reset_form": "Reiniciar formulari",
 		"invalid_url": "la URL no es vàlida",
@@ -31,7 +45,6 @@
 			"login_description": "Introdueix el teu correu electrònic i contrasenya per iniciar sessió.",
 			"register": "Registrar-se",
 			"register_description": "Crea una compte per accedir a totes les funcions de bool.cat.",
-			"login_or_register": "Iniciar sessió / Registrar-se",
 			"email": "Correu electrònic",
 			"password": "Contrasenya",
 			"password_confirm": "Confirmar contrasenya",
@@ -58,5 +71,7 @@
 	"timestamps": {
 		"created_at": "Creat a",
 		"updated_at": "Actualitzat a"
-	}
+	},
+	"expiration": "Expiració",
+	"expired": "Expirat"
 }
