@@ -5,7 +5,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
-import { Header } from "#/components/header";
+import { Header } from "#/features/layout/components/header";
 import { getLocale } from "#/paraglide/runtime";
 import type { getContext } from "#/router";
 import appCss from "../styles.css?url";

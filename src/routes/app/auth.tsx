@@ -1,10 +1,10 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { useState } from "react";
-import { LoginCard } from "#/components/forms/auth/login/loginCard";
-import { RegisterCard } from "#/components/forms/auth/register/registerCard";
 import { Button } from "#/components/ui/button";
 import { Card } from "#/components/ui/card";
-import { getSession } from "#/lib/server/auth/session";
+import { LoginCard } from "#/features/auth/components/form/login/loginCard";
+import { RegisterCard } from "#/features/auth/components/form/register/registerCard";
+import { getSession } from "#/features/auth/server/session";
 import { m } from "#/paraglide/messages";
 
 export const Route = createFileRoute("/app/auth")({

@@ -1,7 +1,7 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
-import { ShortUrlList } from "#/components/dashboard/shortUrlList";
-import { CreateShortUrlCard } from "#/components/forms/url/createShortUrlCard";
-import { getSession } from "#/lib/server/auth/session";
+import { getSession } from "#/features/auth/server/session";
+import { CreateShortUrlCard } from "#/features/url/components/form/createShortUrlCard";
+import { ShortUrlList } from "#/features/url/components/shortUrlList";
 import { m } from "#/paraglide/messages";
 
 export const Route = createFileRoute("/app/")({

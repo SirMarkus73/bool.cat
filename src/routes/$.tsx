@@ -6,7 +6,7 @@ import {
 } from "@tanstack/react-router";
 import { LinkIcon } from "lucide-react";
 import { buttonVariants } from "#/components/ui/button";
-import { getUrlBySlug } from "#/lib/server/url/getUrlBySlug";
+import { getUrlBySlug } from "#/features/url/server/getUrlBySlug";
 import {
 	Empty,
 	EmptyContent,
