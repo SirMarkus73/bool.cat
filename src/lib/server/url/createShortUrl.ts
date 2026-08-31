@@ -67,7 +67,11 @@ const createGuestShortUrl = createServerOnlyFn(
 );
 
 const createUserShortUrl = createServerOnlyFn(
-	async (longUrl: string, expirationDate: Date): Promise<string> => {
+	async (
+		ownerId: string,
+		longUrl: string,
+		expirationDate: Date,
+	): Promise<string> => {
 		const retries = 5;
 
 		for (let i = 0; i < retries; i++) {
@@ -76,6 +80,7 @@ const createUserShortUrl = createServerOnlyFn(
 			try {
 				await db.insert(shortUrl).values({
 					slug,
+					ownerId,
 					redirectUrl: longUrl,
 					expirationDate,
 				});
@@ -131,6 +136,10 @@ export const createShortUrl = createServerFn({ method: "POST" })
 			);
 		}
 
-		const slug = await createUserShortUrl(longUrl, data.expirationDate);
+		const slug = await createUserShortUrl(
+			session.user.id,
+			longUrl,
+			data.expirationDate,
+		);
 		return { slug };
 	});

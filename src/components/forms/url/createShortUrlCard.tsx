@@ -29,9 +29,18 @@ export function CreateShortUrlCard({ className }: Props) {
 		onSubmit: async ({ value, formApi }) => {
 			const { targetUrl } = value;
 
-			const { slug } = await createShortUrl({ data: { longUrl: targetUrl } });
+			const { slug } = await createShortUrl({
+				data: {
+					longUrl: targetUrl,
+					mode: "user",
+					expirationDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+				},
+			});
 			formApi.reset();
-			await queryClient.invalidateQueries({ queryKey: listUrlsQuery.queryKey });
+
+			await queryClient.invalidateQueries({
+				queryKey: listUrlsQuery.queryKey,
+			});
 			navigate({ hash: slug, hashScrollIntoView: { behavior: "smooth" } });
 		},
 	});

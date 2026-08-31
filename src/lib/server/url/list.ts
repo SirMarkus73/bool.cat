@@ -8,7 +8,6 @@ const validationSchema = z.object({
 });
 
 export const listUrls = createServerFn({ method: "GET" })
-
 	.middleware([ensureAuthenticated])
 	.validator(validationSchema)
 	.handler(async ({ context, data }) => {
