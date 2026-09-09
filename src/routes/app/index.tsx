@@ -21,10 +21,10 @@ function RouteComponent() {
 	return (
 		<main className="mx-4 my-6">
 			<h1 className="text-2xl font-bold">{m["dashboard.title"]()}</h1>
-			<div className="lg:grid-cols-3 lg:grid grid gap-5 lg:justify-center items-center">
+			<div className="lg:grid-cols-3 lg:grid gap-5 lg:justify-center flex flex-col">
 				<section className="lg:col-span-2">
 					<h2 className="text-xl font-semibold">{m["dashboard.links"]()}</h2>
-					<ShortUrlList className="h-72" />
+					<ShortUrlList className="h-96 lg:h-132 xl:h-180  " />
 				</section>
 
 				<section>

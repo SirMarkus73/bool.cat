@@ -1,9 +1,18 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createIsomorphicFn } from "@tanstack/react-start";
 import { getRequestUrl } from "@tanstack/react-start/server";
 import { formatDistanceToNow } from "date-fns";
-import { ExternalLinkIcon } from "lucide-react";
+import { EllipsisIcon, ExternalLinkIcon, Trash2Icon } from "lucide-react";
 import { Badge } from "#/components/ui/badge";
-import { buttonVariants } from "#/components/ui/button";
+import { Button } from "#/components/ui/button";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuGroup,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuTrigger,
+} from "#/components/ui/dropdown-menu";
 import {
 	Item,
 	ItemActions,
@@ -14,6 +23,8 @@ import {
 import type { ShortUrl } from "#/features/url/interfaces/shortUrl";
 import { getUserDateLocale } from "#/lib/getUserDateLocale";
 import { m } from "#/paraglide/messages";
+import { listUrlsQuery } from "../query/list";
+import { deleteShortUrl } from "../server/deleteShortUrl";
 
 type Props = {
 	shortUrl: ShortUrl;
@@ -32,14 +43,26 @@ const getShortUrl = createIsomorphicFn()
 
 export function ShortUrlListItem({ shortUrl }: Props) {
 	const locale = getUserDateLocale();
+	const isExpired = shortUrl.expirationDate < new Date();
+	const queryClient = useQueryClient();
+
+	const { mutate, isPending } = useMutation({
+		mutationFn: () => deleteShortUrl({ data: { slug: shortUrl.slug } }),
+		onSettled: () => {
+			queryClient.invalidateQueries({ queryKey: listUrlsQuery.queryKey });
+		},
+	});
 
 	return (
-		<Item id={shortUrl.slug} className="relative">
+		<Item
+			id={shortUrl.slug}
+			className={`relative ${isPending ? "opacity-50 animate-pulse" : ""} `}
+		>
 			<ItemContent>
 				<ItemTitle>
 					{getShortUrl(shortUrl.slug)}
 
-					{shortUrl.expirationDate < new Date() ? (
+					{isExpired ? (
 						<Badge variant="destructive">{m.expired()}</Badge>
 					) : (
 						<Badge>
@@ -62,17 +85,40 @@ export function ShortUrlListItem({ shortUrl }: Props) {
 				</ItemDescription>
 			</ItemContent>
 			<ItemActions>
-				<a
-					href={shortUrl.redirectUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					className={buttonVariants({
-						variant: "ghost",
-						size: "icon",
-					})}
-				>
-					<ExternalLinkIcon />
-				</a>
+				<DropdownMenu>
+					<DropdownMenuTrigger
+						render={
+							<Button disabled={isPending} variant="outline" type="button" />
+						}
+					>
+						<EllipsisIcon />
+					</DropdownMenuTrigger>
+					<DropdownMenuContent>
+						<DropdownMenuGroup>
+							<DropdownMenuLabel>{m.actions()}</DropdownMenuLabel>
+							<DropdownMenuItem>
+								<a
+									href={shortUrl.redirectUrl}
+									target="_blank"
+									rel="noopener noreferrer"
+									className="flex gap-2 items-center"
+								>
+									<ExternalLinkIcon /> {m["shortener.go_to_link"]()}
+								</a>
+							</DropdownMenuItem>
+							<DropdownMenuItem variant="destructive">
+								<button
+									className="flex gap-2 items-center"
+									type="button"
+									onClick={() => mutate()}
+									disabled={isPending}
+								>
+									<Trash2Icon /> {m["shortener.delete_link"]()}
+								</button>
+							</DropdownMenuItem>
+						</DropdownMenuGroup>
+					</DropdownMenuContent>
+				</DropdownMenu>
 			</ItemActions>
 		</Item>
 	);
