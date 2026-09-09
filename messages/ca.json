@@ -13,6 +13,8 @@
 		"create_short": "Crear un enllaç curt",
 		"target_url": "URL de destinació",
 		"short_link": "Enllaç Curt",
+		"delete_link": "Eliminar enllaç",
+		"go_to_link": "Anar a l'enllaç",
 		"copy": "Copiar",
 		"copied": "¡Copiat!",
 		"copy_error": "Error al copiar al portapapers. Si us plau, intenta-ho de nou.",
@@ -66,12 +68,14 @@
 		"short_link": "Enllaç curt",
 		"clicks": "Clics",
 		"fetch_links_error": "Ha ocorregut un error mentre es carregaven els teus enllaços. Si us plau, intenta-ho de nou més endavant.",
-		"no_links_found": "No s'han trobat enllaços per a la teva cerca."
+		"no_links_found": "No s'han trobat enllaços per a la teva cerca.",
+		"delete_expired_links": "Eliminar enllaços expirats"
 	},
 	"timestamps": {
 		"created_at": "Creat a",
 		"updated_at": "Actualitzat a"
 	},
 	"expiration": "Expiració",
-	"expired": "Expirat"
+	"expired": "Expirat",
+	"actions": "Accions"
 }

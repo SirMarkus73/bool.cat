@@ -1,6 +1,12 @@
-import { keepPreviousData, useQuery } from "@tanstack/react-query";
+import {
+	keepPreviousData,
+	useMutation,
+	useQuery,
+	useQueryClient,
+} from "@tanstack/react-query";
 import { SearchIcon } from "lucide-react";
 import { useState } from "react";
+import { Button } from "#/components/ui/button";
 import {
 	InputGroup,
 	InputGroupAddon,
@@ -9,9 +15,10 @@ import {
 } from "#/components/ui/input-group";
 import { ScrollArea } from "#/components/ui/scroll-area";
 import { Skeleton } from "#/components/ui/skeleton";
-import { createListUrlsQuery } from "#/features/url/query/list";
+import { createListUrlsQuery, listUrlsQuery } from "#/features/url/query/list";
 import { cn } from "#/lib/utils";
 import { m } from "#/paraglide/messages";
+import { deleteExpiredShortUrls } from "../server/deleteExpiredShortUrls";
 import { ShortUrlListItem } from "./shortUrlListItem";
 
 type Props = {
@@ -19,6 +26,14 @@ type Props = {
 };
 
 export function ShortUrlList({ className }: Props) {
+	const queryClient = useQueryClient();
+	const { mutate, isPending } = useMutation({
+		mutationFn: deleteExpiredShortUrls,
+		onSettled: () => {
+			queryClient.invalidateQueries({ queryKey: listUrlsQuery.queryKey });
+		},
+	});
+
 	const [search, setSearch] = useState("");
 
 	const {
@@ -100,6 +115,16 @@ export function ShortUrlList({ className }: Props) {
 					))}
 				</ul>
 			</ScrollArea>
+			<Button
+				type="button"
+				variant="destructive"
+				disabled={
+					isPending || urls.every((url) => url.expirationDate > new Date())
+				}
+				onClick={() => mutate({})}
+			>
+				{m["dashboard.delete_expired_links"]()}
+			</Button>
 		</div>
 	);
 }

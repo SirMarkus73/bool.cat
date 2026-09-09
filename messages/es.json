@@ -13,6 +13,8 @@
 		"create_short": "Crear un enlace corto",
 		"target_url": "URL de destino",
 		"short_link": "Enlace Corto",
+		"delete_link": "Eliminar enlace",
+		"go_to_link": "Ir al enlace",
 		"copy": "Copiar",
 		"copied": "¡Copiado!",
 		"copy_error": "Error al copiar al portapapeles. Por favor, inténtalo de nuevo.",
@@ -66,7 +68,8 @@
 		"short_link": "Enlace Corto",
 		"clicks": "Clicks",
 		"fetch_links_error": "Ocurrió un error mientras cargaban tus enlaces. Por favor, inténtalo de nuevo más tarde.",
-		"no_links_found": "No se encontraron enlaces para tu búsqueda."
+		"no_links_found": "No se encontraron enlaces para tu búsqueda.",
+		"delete_expired_links": "Eliminar enlaces expirados"
 	},
 
 	"timestamps": {
@@ -74,5 +77,6 @@
 		"updated_at": "Updated at"
 	},
 	"expiration": "Expiración",
-	"expired": "Expirado"
+	"expired": "Expirado",
+	"actions": "Acciones"
 }

@@ -13,6 +13,8 @@
 		"create_short": "Create a short link",
 		"target_url": "Target URL",
 		"short_link": "Short Link",
+		"delete_link": "Delete link",
+		"go_to_link": "Go to link",
 		"copy": "Copy",
 		"copied": "Copied!",
 		"copy_error": "Failed to copy to clipboard. Please try again.",
@@ -66,7 +68,8 @@
 		"short_link": "Short Link",
 		"clicks": "Clicks",
 		"fetch_links_error": "An error occurred while fetching your links. Please try again later.",
-		"no_links_found": "No links found for your search."
+		"no_links_found": "No links found for your search.",
+		"delete_expired_links": "Delete expired links"
 	},
 
 	"timestamps": {
@@ -74,5 +77,6 @@
 		"updated_at": "Updated at"
 	},
 	"expiration": "Expiration",
-	"expired": "Expired"
+	"expired": "Expired",
+	"actions": "Actions"
 }
