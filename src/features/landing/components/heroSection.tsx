@@ -21,7 +21,7 @@ export function HeroSection() {
 				<img
 					src={catImage}
 					alt="code cat"
-					className="absolute -top-2 size-96 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+					className="absolute -top-2 size-96 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 select-none"
 				/>
 				<CardContent className="flex flex-col gap-4 p-4 text-start z-20 bg-card">
 					<code className="outline outline-primary rounded p-2">
