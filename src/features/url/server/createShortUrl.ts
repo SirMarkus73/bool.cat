@@ -4,6 +4,7 @@ import { z } from "zod";
 import { db } from "#/db";
 import { shortUrl } from "#/db/schema";
 import { getSession } from "#/features/auth/server/session";
+import type { ApiResponse } from "#/interfaces/api";
 import { UNAUTHENTICATED_SHORT_URL_EXPIRATION_HOURS } from "#/lib/constants";
 import { isDatabaseError } from "#/lib/isDatabaseError";
 
@@ -114,26 +115,39 @@ const createUserShortUrl = createServerOnlyFn(
 	},
 );
 
+type CreateShortUrlResponse = {
+	slug: string;
+};
+
 export const createShortUrl = createServerFn({ method: "POST" })
 	.validator(createShortUrlSchema)
-	.handler(async ({ data }) => {
+	.handler(async ({ data }): Promise<ApiResponse<CreateShortUrlResponse>> => {
 		const { longUrl, mode } = data;
 		const session = await getSession();
 
 		if (mode === "guest") {
 			if (session) {
-				throw new Error(
-					"Authenticated users should use the 'user' mode to create short URLs.",
-				);
+				return {
+					success: false,
+					type: "auth",
+					message:
+						"Authenticated users should use the 'user' mode to create short URLs.",
+				};
 			}
 			const slug = await createGuestShortUrl(longUrl);
-			return { slug };
+			return {
+				success: true,
+				data: { slug },
+			};
 		}
 
 		if (!session) {
-			throw new Error(
-				"Guest users should use the 'guest' mode to create short URLs.",
-			);
+			return {
+				success: false,
+				type: "auth",
+				message:
+					"Guest users should use the 'guest' mode to create short URLs.",
+			};
 		}
 
 		const slug = await createUserShortUrl(
@@ -141,5 +155,8 @@ export const createShortUrl = createServerFn({ method: "POST" })
 			longUrl,
 			data.expirationDate,
 		);
-		return { slug };
+		return {
+			success: true,
+			data: { slug },
+		};
 	});

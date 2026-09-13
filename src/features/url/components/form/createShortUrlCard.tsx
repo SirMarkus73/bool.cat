@@ -31,7 +31,7 @@ export function CreateShortUrlCard({ className }: Props) {
 		onSubmit: async ({ value, formApi }) => {
 			const { targetUrl } = value;
 
-			const { slug } = await createShortUrl({
+			const result = await createShortUrl({
 				data: session.data?.user
 					? {
 							longUrl: targetUrl,
@@ -48,6 +48,15 @@ export function CreateShortUrlCard({ className }: Props) {
 			await queryClient.invalidateQueries({
 				queryKey: listUrlsQuery.queryKey,
 			});
+
+			if (!result.success) {
+				return;
+			}
+
+			const {
+				data: { slug },
+			} = result;
+
 			navigate({ hash: slug, hashScrollIntoView: { behavior: "smooth" } });
 		},
 	});

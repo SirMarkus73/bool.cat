@@ -34,12 +34,23 @@ export function TryTheProduct() {
 
 	const form = useAppForm({
 		...formOpts,
-		onSubmit: async ({ value }) => {
+		onSubmit: async ({ value, formApi }) => {
 			const { url } = value;
 
-			const { slug } = await createShortUrl({
+			const { success } = await createShortUrl({
 				data: { mode: "guest", longUrl: url },
 			});
+
+			if (!success) {
+				formApi.setErrorMap({
+					onSubmit: {
+						fields: {},
+						form: "Failed to create short URL. Please try again later.",
+					},
+				});
+				return;
+			}
+
 			setSlug(slug);
 		},
 	});
@@ -75,6 +86,7 @@ export function TryTheProduct() {
 
 								<form.AppForm>
 									<form.SubmitButton label={m["shortener.shorten_url"]()} />
+									<form.FormRootError />
 								</form.AppForm>
 							</FieldGroup>
 						</FieldSet>
