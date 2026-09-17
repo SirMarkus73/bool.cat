@@ -9,6 +9,7 @@ import {
 } from "#/components/ui/card";
 import { useAppForm } from "#/features/appForm/hooks/useAppForm";
 import { authClient } from "#/features/auth/lib/auth-client";
+import { prepareEmailValidation } from "#/features/auth/lib/emailValidation";
 import { m } from "#/paraglide/messages";
 import { RegisterForm } from "./registerForm";
 import { RegisterFormActions } from "./registerFormActions";
@@ -20,7 +21,6 @@ type Props = {
 
 export function RegisterCard({ className }: Props) {
 	const navigate = useNavigate();
-
 	const form = useAppForm({
 		...registerFormOptions,
 		onSubmit: async ({ value, formApi }) => {
@@ -28,6 +28,7 @@ export function RegisterCard({ className }: Props) {
 				name: value.name,
 				email: value.email,
 				password: value.password,
+				callbackURL: "/app",
 			});
 
 			if (error) {
@@ -70,7 +71,10 @@ export function RegisterCard({ className }: Props) {
 				return;
 			}
 
-			throw navigate({ to: "/app" });
+			prepareEmailValidation(value.email);
+			navigate({
+				to: "/app/auth/verifyEmail",
+			});
 		},
 	});
 
