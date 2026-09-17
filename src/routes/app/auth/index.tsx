@@ -7,7 +7,7 @@ import { RegisterCard } from "#/features/auth/components/form/register/registerC
 import { getSession } from "#/features/auth/server/session";
 import { m } from "#/paraglide/messages";
 
-export const Route = createFileRoute("/app/auth")({
+export const Route = createFileRoute("/app/auth/")({
 	component: RouteComponent,
 	beforeLoad: async () => {
 		const session = await getSession();

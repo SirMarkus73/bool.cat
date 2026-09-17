@@ -21,6 +21,7 @@ export function getRouter() {
 			input: ({ url }) => deLocalizeUrl(url),
 			output: ({ url }) => localizeUrl(url),
 		},
+
 		scrollRestoration: true,
 		defaultPreload: "intent",
 		defaultPreloadStaleTime: 0,
