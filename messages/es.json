@@ -78,5 +78,19 @@
 	},
 	"expiration": "Expiración",
 	"expired": "Expirado",
-	"actions": "Acciones"
+	"actions": "Acciones",
+	"email_verification": {
+		"email": {
+			"subject": "Verificar correo electrónico en bool.cat",
+			"greeting": "Hola {username},",
+			"body": "Gracias por registrarte en bool.cat! Por favor, verifica tu correo electrónico haciendo clic en el botón de abajo.",
+			"button_text": "Verificar correo electrónico",
+			"footer": "Si no te registraste en bool.cat, por favor ignora este correo."
+		},
+		"page": {
+			"title": "Verificar correo electrónico",
+			"description": "Hemos enviado un correo de verificación a {#strong}{email}{/strong}. Por favor, verifica tu bandeja de entrada y haz clic en el enlace de verificación para completar tu registro. Si no recibiste el correo, por favor verifica tu carpeta de spam o haz clic en el botón de abajo para reenviar el correo de verificación.",
+			"resend_button": "Reenviar correo de verificación"
+		}
+	}
 }

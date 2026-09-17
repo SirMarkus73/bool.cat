@@ -78,5 +78,19 @@
 	},
 	"expiration": "Expiration",
 	"expired": "Expired",
-	"actions": "Actions"
+	"actions": "Actions",
+	"email_verification": {
+		"email": {
+			"subject": "Verify your email address at bool.cat",
+			"greeting": "Hello {username},",
+			"body": "Thank you for signing up for bool.cat! Please verify your email address by clicking the button below.",
+			"button_text": "Verify Email",
+			"footer": "If you did not sign up for bool.cat, please ignore this email."
+		},
+		"page": {
+			"title": "Verify your email address",
+			"description": "We have sent a verification email to {#strong}{email}{/strong}. Please check your inbox and click the verification link to complete your registration. If you did not receive the email, please check your spam folder or click the button below to resend the verification email.",
+			"resend_button": "Resend verification email"
+		}
+	}
 }

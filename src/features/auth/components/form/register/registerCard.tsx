@@ -9,7 +9,7 @@ import {
 } from "#/components/ui/card";
 import { useAppForm } from "#/features/appForm/hooks/useAppForm";
 import { authClient } from "#/features/auth/lib/auth-client";
-import { prepareEmailValidation } from "#/features/auth/lib/emailValidation";
+import { prepareEmailVerification } from "#/features/auth/lib/emailVerification";
 import { m } from "#/paraglide/messages";
 import { RegisterForm } from "./registerForm";
 import { RegisterFormActions } from "./registerFormActions";
@@ -28,7 +28,6 @@ export function RegisterCard({ className }: Props) {
 				name: value.name,
 				email: value.email,
 				password: value.password,
-				callbackURL: "/app",
 			});
 
 			if (error) {
@@ -71,7 +70,7 @@ export function RegisterCard({ className }: Props) {
 				return;
 			}
 
-			prepareEmailValidation(value.email);
+			prepareEmailVerification(value.email);
 			navigate({
 				to: "/app/auth/verifyEmail",
 			});

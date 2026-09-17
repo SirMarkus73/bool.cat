@@ -77,5 +77,19 @@
 	},
 	"expiration": "Expiració",
 	"expired": "Expirat",
-	"actions": "Accions"
+	"actions": "Accions",
+	"email_verification": {
+		"email": {
+			"subject": "Verifica el teu correu electrònic a bool.cat",
+			"greeting": "Hola {username},",
+			"body": "Gracies per registrar-te a bool.cat! Si us plau, verifica el teu correu electrònic fent clic al botó de sota.",
+			"button_text": "Verificar correu electrònic",
+			"footer": "Si no et vas registrar a bool.cat, si us plau ignora aquest correu."
+		},
+		"page": {
+			"title": "Verifica el teu correu electrònic",
+			"description": "Hem enviat un correu de verificació a {#strong}{email}{/strong}. Si us plau, comprova la teva safata d'entrada i clica l'enllaç de verificació per completar el teu registre. Si no has rebut el correu, si us plau comprova la teva carpeta de spam o pulsa el botó de sota per reenviar el correu de verificació.",
+			"resend_button": "Reenviar correu de verificació"
+		}
+	}
 }
