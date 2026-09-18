@@ -17,7 +17,8 @@
     "db:studio": "drizzle-kit studio",
     "db:pull": "drizzle-kit pull",
     "machine-translate": "inlang machine translate --project project.inlang",
-    "email:dev": "email dev -d ./src/features/emails/components -p 3001"
+    "email:dev": "email dev -d ./src/features/emails/components -p 3001",
+    "prepare": "husky"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",
@@ -32,6 +33,7 @@
     "better-auth": "^1.6.25",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "commitizen": "^4.3.2",
     "date-fns": "^4.4.0",
     "drizzle-orm": "1.0.0-rc.4",
     "lucide-react": "^1.28.0",
@@ -50,6 +52,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.5",
+    "@commitlint/cli": "^21.2.2",
+    "@commitlint/config-conventional": "^21.2.2",
     "@inlang/cli": "^3.0.0",
     "@inlang/paraglide-js": "^2.23.1",
     "@react-email/ui": "6.9.5",
@@ -61,9 +65,16 @@
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^6.0.1",
+    "cz-conventional-changelog": "^3.3.0",
     "drizzle-kit": "1.0.0-rc.4",
+    "husky": "^9.1.7",
     "typescript": "^6.0.2",
     "vite": "^8.0.0"
   },
-  "packageManager": "pnpm@11.24.0+sha512.bd27e345e976dcb0be0b7a1228217b049a817e21b1f355c90dbe7dc46671895a8bc1e6d06c24554505ea93ea0b45f489a27ec1bfbc8de6a9659fca0f16fa0000"
+  "packageManager": "pnpm@12.4.2+sha512.08adc6613180275c7c9edada39dcf08c9c61ad4e7eaf330a4f3461f102b0f907423454d117f98e72d47fef0616070644d7bffc973a6a57f5090a6d7c368b07c9",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
