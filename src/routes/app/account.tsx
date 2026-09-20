@@ -1,7 +1,5 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { Card, CardContent, CardHeader, CardTitle } from "#/components/ui/card";
-import { Field, FieldLabel } from "#/components/ui/field";
-import { Input } from "#/components/ui/input";
 
 import { Separator } from "#/components/ui/separator";
 import { SessionList } from "#/features/account/components/session/sessionList";
