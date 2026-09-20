@@ -8,7 +8,16 @@ import { sendEmail } from "#/features/emails/lib/sendEmail";
 import { m } from "#/paraglide/messages";
 import { getLocale } from "#/paraglide/runtime";
 
+function getTrustedOrigins() {
+	if (process.env.NODE_ENV === "production") {
+		return ["bool.cat"];
+	}
+
+	return ["*"];
+}
+
 export const auth = betterAuth({
+	trustedOrigins: getTrustedOrigins(),
 	database: drizzleAdapter(db, {
 		provider: "pg", // or "mysql", "sqlite"
 		schema,

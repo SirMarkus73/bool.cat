@@ -9,3 +9,11 @@ export const getSession = createServerFn({ method: "GET" }).handler(
 		return session;
 	},
 );
+
+export const listSessions = createServerFn({ method: "GET" }).handler(
+	async () => {
+		const headers = getRequestHeaders();
+		const sessions = await auth.api.listSessions({ headers });
+		return sessions;
+	},
+);
