@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppAccountRouteImport } from './routes/app/account'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 import { Route as AppAuthIndexRouteImport } from './routes/app/auth/index'
 import { Route as AppAuthVerifyEmailRouteImport } from './routes/app/auth/verifyEmail'
@@ -29,6 +30,11 @@ const SplatRoute = SplatRouteImport.update({
 const AppIndexRoute = AppIndexRouteImport.update({
   id: '/app/',
   path: '/app/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppAccountRoute = AppAccountRouteImport.update({
+  id: '/app/account',
+  path: '/app/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
@@ -50,6 +56,7 @@ const AppAuthVerifyEmailRoute = AppAuthVerifyEmailRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/app/account': typeof AppAccountRoute
   '/app/': typeof AppIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/app/auth/verifyEmail': typeof AppAuthVerifyEmailRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/app/account': typeof AppAccountRoute
   '/app': typeof AppIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/app/auth/verifyEmail': typeof AppAuthVerifyEmailRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/app/account': typeof AppAccountRoute
   '/app/': typeof AppIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
   '/app/auth/verifyEmail': typeof AppAuthVerifyEmailRoute
@@ -77,17 +86,25 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/$'
+    | '/app/account'
     | '/app/'
     | '/api/auth/$'
     | '/app/auth/verifyEmail'
     | '/app/auth/'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/$' | '/app' | '/api/auth/$' | '/app/auth/verifyEmail' | '/app/auth'
+    | '/'
+    | '/$'
+    | '/app/account'
+    | '/app'
+    | '/api/auth/$'
+    | '/app/auth/verifyEmail'
+    | '/app/auth'
   id:
     | '__root__'
     | '/'
     | '/$'
+    | '/app/account'
     | '/app/'
     | '/api/auth/$'
     | '/app/auth/verifyEmail'
@@ -97,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
+  AppAccountRoute: typeof AppAccountRoute
   AppIndexRoute: typeof AppIndexRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
   AppAuthVerifyEmailRoute: typeof AppAuthVerifyEmailRoute
@@ -126,6 +144,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/account': {
+      id: '/app/account'
+      path: '/app/account'
+      fullPath: '/app/account'
+      preLoaderRoute: typeof AppAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/auth/$': {
       id: '/api/auth/$'
       path: '/api/auth/$'
@@ -153,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
+  AppAccountRoute: AppAccountRoute,
   AppIndexRoute: AppIndexRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
   AppAuthVerifyEmailRoute: AppAuthVerifyEmailRoute,

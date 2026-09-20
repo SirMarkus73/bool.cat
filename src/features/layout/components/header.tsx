@@ -65,7 +65,7 @@ function UserDropdown() {
 								<ListIcon />
 								Panel de control
 							</DropdownMenuItem>
-							<DropdownMenuItem render={<Link to="/app" />}>
+							<DropdownMenuItem render={<Link to="/app/account" />}>
 								<BadgeCheckIcon />
 								Cuenta
 							</DropdownMenuItem>

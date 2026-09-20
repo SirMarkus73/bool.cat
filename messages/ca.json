@@ -91,5 +91,14 @@
 			"description": "Hem enviat un correu de verificació a {#strong}{email}{/strong}. Si us plau, comprova la teva safata d'entrada i clica l'enllaç de verificació per completar el teu registre. Si no has rebut el correu, si us plau comprova la teva carpeta de spam o pulsa el botó de sota per reenviar el correu de verificació.",
 			"resend_button": "Reenviar correu de verificació"
 		}
+	},
+	"account": {
+		"title": "Compte",
+		"name": "Nom",
+		"unknown_device": "Dispositiu desconegut",
+		"current_session": "Sesió actual",
+		"logout": "Tancar sessió",
+		"revoke_session": "Revocar sessió",
+		"sessions": "Sessions"
 	}
 }
