@@ -1,4 +1,3 @@
-import { Dice1Icon, DicesIcon } from "lucide-react";
 import { useState } from "react";
 import {
 	Card,
@@ -8,20 +7,16 @@ import {
 	CardTitle,
 } from "#/components/ui/card";
 import { Field, FieldLabel } from "#/components/ui/field";
-import { Input } from "#/components/ui/input";
-import {
-	InputGroup,
-	InputGroupAddon,
-	InputGroupInput,
-} from "#/components/ui/input-group";
 import { Switch } from "#/components/ui/switch";
+import { CustomModeForm } from "./customModeForm";
+import { SimpleModeForm } from "./simpleModeForm";
 
 type UrlShortenerProps = {
 	isSignedIn: boolean;
 };
 
 export function UrlShortener({ isSignedIn }: UrlShortenerProps) {
-	const [isChecked, setIsChecked] = useState(true);
+	const [isChecked, setIsChecked] = useState(isSignedIn);
 
 	return (
 		<Card className="mx-8 my-4">
@@ -40,26 +35,7 @@ export function UrlShortener({ isSignedIn }: UrlShortenerProps) {
 				</CardAction>
 			</CardHeader>
 			<CardContent>
-				<div className="grid grid-rows-2 grid-cols-2 gap-5 place-items-center">
-					<Field>
-						<FieldLabel>URL</FieldLabel>
-						<Input placeholder="https://www.your-super-long-url.com" />
-					</Field>
-
-					<Field className="col-span-2">
-						<FieldLabel>Shortened URL</FieldLabel>
-						<InputGroup>
-							<InputGroupInput
-								value="https://bool.cat/A5G3B"
-								readOnly
-								role="status"
-							/>
-							<InputGroupAddon align="inline-end">
-								<DicesIcon />
-							</InputGroupAddon>
-						</InputGroup>
-					</Field>
-				</div>
+				{isChecked && isSignedIn ? <CustomModeForm /> : <SimpleModeForm />}
 			</CardContent>
 		</Card>
 	);
