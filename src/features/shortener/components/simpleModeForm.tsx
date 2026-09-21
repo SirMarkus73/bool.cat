@@ -11,6 +11,7 @@ import {
 	InputGroupInput,
 } from "#/components/ui/input-group";
 import { Skeleton } from "#/components/ui/skeleton";
+import { ShortUrlResult } from "../shortUrlResult";
 
 export function SimpleModeForm() {
 	const [slug, setSlug] = useState(() => nanoid(6));
@@ -46,11 +47,13 @@ export function SimpleModeForm() {
 			</Field>
 
 			<Field className="col-span-2">
-				<FieldLabel>Shortened URL</FieldLabel>
-				<ClientOnly fallback={<Skeleton className="h-8 w-full rounded-lg" />}>
-					<Input value={`https://bool.cat/${slug}`} readOnly role="status" />
-				</ClientOnly>
+				<FieldLabel htmlFor="shortened-url">Shortened URL</FieldLabel>
+				<ShortUrlResult slug={slug} id="shortened-url" />
 			</Field>
+
+			<Button className="col-start-2 justify-self-end" type="submit">
+				Shorten URL
+			</Button>
 		</form>
 	);
 }

@@ -1,13 +1,8 @@
 import { ClientOnly } from "@tanstack/react-router";
 import { format } from "date-fns";
-import {
-	CalendarIcon,
-	ClipboardCheckIcon,
-	ClipboardIcon,
-	DicesIcon,
-} from "lucide-react";
+import { CalendarIcon, DicesIcon } from "lucide-react";
 import { nanoid } from "nanoid";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Button } from "#/components/ui/button";
 import { Calendar } from "#/components/ui/calendar";
 import { Field, FieldLabel } from "#/components/ui/field";
@@ -24,6 +19,7 @@ import {
 } from "#/components/ui/popover";
 import { Skeleton } from "#/components/ui/skeleton";
 import { getUserDateLocale } from "#/lib/getUserDateLocale";
+import { ShortUrlResult } from "../shortUrlResult";
 
 function slugify(input: string): string {
 	return input
@@ -37,10 +33,6 @@ export function CustomModeForm() {
 	const [date, setDate] = useState<Date | undefined>(
 		new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Default to 7 days from now
 	);
-
-	const [isCopied, setIsCopied] = useState(false);
-
-	const resultRef = useRef<HTMLInputElement>(null);
 
 	const today = new Date();
 	today.setHours(0, 0, 0, 0);
@@ -117,38 +109,12 @@ export function CustomModeForm() {
 
 			<Field className="col-span-2">
 				<FieldLabel htmlFor="shortened-url">Shortened URL</FieldLabel>
-				<ClientOnly fallback={<Skeleton className="h-8 w-full rounded-lg" />}>
-					<InputGroup
-						onClick={async (e) => {
-							e.preventDefault();
-							resultRef.current?.select();
-							if (isCopied) return;
-
-							await navigator.clipboard.writeText(
-								`${window.location.origin}/${slug}`,
-							);
-							setIsCopied(true);
-
-							setTimeout(() => {
-								setIsCopied(false);
-							}, 2000);
-						}}
-					>
-						<InputGroupInput
-							ref={resultRef}
-							name="shortened-url"
-							id="shortened-url"
-							className="select-all"
-							value={`${window.location.origin}/${slugify(slug)}`}
-							readOnly
-							role="status"
-						/>
-						<InputGroupAddon align="inline-end">
-							{isCopied ? <ClipboardCheckIcon /> : <ClipboardIcon />}
-						</InputGroupAddon>
-					</InputGroup>
-				</ClientOnly>
+				<ShortUrlResult slug={slugify(slug)} id="shortened-url" />
 			</Field>
+
+			<Button className="col-start-2 justify-self-end" type="submit">
+				Shorten URL
+			</Button>
 		</form>
 	);
 }
