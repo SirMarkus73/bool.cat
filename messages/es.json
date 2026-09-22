@@ -1,0 +1,147 @@
+{
+	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"landing": {
+		"short_links": "Enlaces cortos",
+		"true_simplicity": "Simplicidad verdadera",
+		"app_description": "{#strong}bool.cat{/strong} es un acortador de enlaces que te permite crear URLs cortas y fáciles de recordar. Con nuestra plataforma, puedes compartir tus enlaces de manera rápida y sencilla, sin complicaciones ni distracciones.",
+		"features": {
+			"eyebrow": "Por qué bool.cat",
+			"title": "Todo lo que necesitas, nada de lo que no",
+			"subtitle": "Un acortador de enlaces diseñado para no complicarte la vida.",
+			"fast_title": "Rápido y sencillo",
+			"fast_description": "Acorta cualquier URL en segundos, sin necesidad de cuenta.",
+			"custom_title": "Alias personalizados",
+			"custom_description": "Elige tu propio alias fácil de recordar en lugar de una cadena aleatoria.",
+			"analytics_title": "Estadísticas de clics",
+			"analytics_description": "Consulta cuántas veces se ha hecho clic en cada enlace desde tu panel.",
+			"expiration_title": "Control de expiración",
+			"expiration_description": "Los enlaces de invitado expiran automáticamente. Los enlaces con sesión iniciada duran tanto como quieras."
+		},
+		"how_it_works": {
+			"title": "Cómo funciona",
+			"subtitle": "Tres pasos, sin complicaciones.",
+			"step_1_title": "Pega tu URL",
+			"step_1_description": "Introduce cualquier enlace largo que quieras compartir.",
+			"step_2_title": "Obtén tu enlace corto",
+			"step_2_description": "Generamos un enlace corto y limpio al instante.",
+			"step_3_title": "Comparte y monitoriza",
+			"step_3_description": "Compártelo donde quieras y observa cómo llegan los clics."
+		},
+		"cta": {
+			"title": "¿Listo para simplificar tus enlaces?",
+			"description": "Crea una cuenta gratuita para desbloquear alias personalizados, estadísticas y enlaces que nunca expiran.",
+			"button": "Crear cuenta gratuita"
+		}
+	},
+	"settings": {
+		"lang": "Idioma"
+	},
+	"layout": {
+		"footer": {
+			"tagline": "Enlaces cortos, simplicidad verdadera.",
+			"source_code": "Código fuente",
+			"rights": "Todos los derechos reservados."
+		}
+	},
+	"shortener": {
+		"title": "Acortador de enlaces",
+		"shorten_url": "Acortar URL",
+		"create_short": "Crear un enlace corto",
+		"target_url": "URL de destino",
+		"short_link": "Enlace Corto",
+		"delete_link": "Eliminar enlace",
+		"go_to_link": "Ir al enlace",
+		"copy_link": "Copiar enlace",
+		"expiration_date": "Fecha de expiración",
+		"preview": "Tu enlace será:",
+		"preview_changed": "Cambiado:",
+		"copy": "Copiar",
+		"copied": "¡Copiado!",
+		"copy_error": "Error al copiar al portapapeles. Por favor, inténtalo de nuevo.",
+
+		"guest": {
+			"shorten_first_link": "Acorta tu primer enlace",
+			"description": "Estás en modo invitado. Tus enlaces expirarán después de {expirationHours} horas."
+		}
+	},
+	"forms": {
+		"reset_form": "Reiniciar formulario",
+		"invalid_url": "La URL no es válida",
+		"required_url": "La URL es requerida",
+		"short_url": {
+			"target_url": "URL de destino",
+			"shorten_url": "Acortar URL",
+			"create_short": "Crear un enlace corto",
+			"create_short_description": "Crea un enlace corto ingresando la URL larga a continuación."
+		},
+		"auth": {
+			"invalid_email": "Dirección de correo electrónico inválida",
+			"required_email": "El correo electrónico es requerido",
+			"password_min_length": "La contraseña debe tener al menos {minLength} caracteres",
+			"password_max_length": "La contraseña debe tener como máximo {maxLength} caracteres",
+			"name_min_length": "El nombre debe tener al menos {minLength} caracteres",
+			"name_max_length": "El nombre debe tener como máximo {maxLength} caracteres",
+			"passwords_do_not_match": "Las contraseñas no coinciden",
+			"unknown_error": "Ocurrió un error desconocido, por favor intenta de nuevo más tarde",
+			"login": "Iniciar sesión",
+			"login_description": "Introduce tu correo electrónico y contraseña para iniciar sesión.",
+			"register": "Registrarse",
+			"register_description": "Crea una cuenta para acceder a todas las funciones de bool.cat.",
+			"email": "Correo electrónico",
+			"password": "Contraseña",
+			"password_confirm": "Confirmar contraseña",
+			"name": "Nombre",
+			"your_name": "Tu nombre"
+		},
+		"betterAuth": {
+			"USER_ALREADY_EXISTS_USE_ANOTHER_EMAIL": "El usuario ya existe, por favor utiliza otro correo electrónico",
+			"PASSWORD_TOO_SHORT": "La contraseña es demasiado corta, por favor utiliza una contraseña más larga",
+			"INVALID_EMAIL_OR_PASSWORD": "Correo electrónico o contraseña inválidos, por favor verifica tus credenciales y vuelve a intentarlo"
+		}
+	},
+	"dashboard": {
+		"title": "Panel de control",
+		"links": "Tus enlaces",
+		"create_link": "Crear Enlace",
+		"total_links": "Enlaces totales",
+		"active_links": "Enlaces activos",
+		"no_links": "No tienes ningún enlace aún. ¡Crea tu primer enlace ahora!",
+		"link": "Enlace",
+		"short_link": "Enlace Corto",
+		"clicks": "Clicks",
+		"fetch_links_error": "Ocurrió un error mientras cargaban tus enlaces. Por favor, inténtalo de nuevo más tarde.",
+		"no_links_found": "No se encontraron enlaces para tu búsqueda.",
+		"delete_expired_links": "Eliminar enlaces expirados"
+	},
+
+	"timestamps": {
+		"created_at": "Created at",
+		"updated_at": "Updated at"
+	},
+	"expiration": "Expiración",
+	"expired": "Expirado",
+	"actions": "Acciones",
+	"email_verification": {
+		"email": {
+			"subject": "Verificar correo electrónico en bool.cat",
+			"greeting": "Hola {username},",
+			"body": "Gracias por registrarte en bool.cat! Por favor, verifica tu correo electrónico haciendo clic en el botón de abajo.",
+			"button_text": "Verificar correo electrónico",
+			"footer": "Si no te registraste en bool.cat, por favor ignora este correo."
+		},
+		"page": {
+			"title": "Verificar correo electrónico",
+			"description": "Hemos enviado un correo de verificación a {#strong}{email}{/strong}. Por favor, verifica tu bandeja de entrada y haz clic en el enlace de verificación para completar tu registro. Si no recibiste el correo, por favor verifica tu carpeta de spam o haz clic en el botón de abajo para reenviar el correo de verificación.",
+			"resend_button": "Reenviar correo de verificación"
+		}
+	},
+	"account": {
+		"title": "Cuenta",
+		"name": "Nombre",
+		"unknown_device": "Dispositivo desconocido",
+		"current_session": "Sesión actual",
+		"logout": "Cerrar sesión",
+		"revoke_session": "Revocar sesión",
+		"sessions": "Sesiones"
+	}
+}

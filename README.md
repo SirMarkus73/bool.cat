@@ -1,208 +1,261 @@
-Welcome to your new TanStack Start app!
+# bool.cat ≧◔◡◔≦
 
-# Getting Started
+**[Català](#català) · [Castellano](#castellano) · [English](#english)**
 
-To run this application:
+---
+
+## Català
+
+Aplicació web d'escurçador d'URLs amb tauler d'usuari.
+
+### Descripció
+
+bool.cat és una aplicació web per crear enllaços curts, gestionar-los des d'un panell d'usuari i administrar l'accés mitjançant autenticació.
+
+### Què fa? (funcions principals)
+
+- Registre i inici de sessió d'usuaris (formularis d'autenticació).
+- Creació d'enllaços curts des del client.
+- Tauler d'usuari (dashboard) amb el llistat dels enllaços creats.
+- Redirecció des de la URL curta cap a la destinació original (ruta dinàmica de redirecció).
+- Generació de codis QR per als enllaços curts.
+- Persistència en base de dades per a usuaris i enllaços.
+- Enviament de correus (verificació, recuperació de contrasenya, etc.) via SMTP.
+- Interfície internacionalitzada (català, castellà i anglès).
+
+### Estat del projecte
+
+#### ✅ Implementades
+
+- [x] Autenticació (registre / inici de sessió, gestió de sessió)
+- [x] Creació d'enllaços curts des de la interfície
+- [x] Emmagatzematge d'enllaços a la base de dades
+- [x] Tauler d'usuari amb llistat d'enllaços (`src/features/shortener`, `src/features/url`)
+- [x] Internacionalització (ca / es / en)
+- [x] Enviament de correus transaccionals
+- [x] Expiració d'enllaços
+- [x] Àlies personalitzats
+
+#### ⚠️ Pendents / Per implementar
+- [ ] Generació de codis QR
+- [ ] Protecció d'enllaços sense registre contra abusos
+- [ ] Protecció amb contrasenya
+
+### Tecnologies
+
+- [TanStack Start](https://tanstack.com/start) + [TanStack Router](https://tanstack.com/router) (React 19)
+- [Drizzle ORM](https://orm.drizzle.team/) amb PostgreSQL
+- [better-auth](https://www.better-auth.com/) per a l'autenticació
+- [shadcn/ui](https://ui.shadcn.com/) per als components d'interfície
+- [Inlang / Paraglide JS](https://inlang.com/) per a la internacionalització
+- [React Email](https://react.email/) + Nodemailer per als correus
+- [Biome](https://biomejs.dev/) per a format i lint
+- Gestor de paquets: [pnpm](https://pnpm.io/)
+
+### Posada en marxa
+
+**Requisits previs:** Node.js, pnpm i Docker (per a la base de dades i el servidor de correu locals).
 
 ```bash
+# 1. Instal·la les dependències
 pnpm install
+
+# 2. Copia les variables d'entorn i emplena-les
+cp .env.example .env   # DATABASE_URL, BETTER_AUTH_SECRET, BETTER_AUTH_URL,
+                        # SMTP_HOST/PORT/USER/PASSWORD, JWT_SECRET
+
+# 3. Aixeca PostgreSQL i Mailpit (correu de proves) en local
+docker compose up -d
+
+# 4. Aplica l'esquema a la base de dades
+pnpm db:push
+
+# 5. Arrenca el servidor de desenvolupament
 pnpm dev
 ```
 
-# Building For Production
+L'aplicació queda disponible a `http://localhost:3000` i la interfície de Mailpit (correus de prova) a `http://localhost:8025`.
 
-To build this application for production:
+### Scripts disponibles
+
+| Script | Descripció |
+| --- | --- |
+| `pnpm dev` | Servidor de desenvolupament (port 3000) |
+| `pnpm build` | Compila l'aplicació per a producció |
+| `pnpm preview` | Previsualitza la build de producció |
+| `pnpm check` / `lint` / `format` | Comprovacions de Biome |
+| `pnpm db:push` / `db:studio` / `db:pull` | Gestió de l'esquema amb Drizzle |
+| `pnpm machine-translate` | Traducció automàtica dels missatges (inlang) |
+| `pnpm email:dev` | Previsualitza les plantilles de correu |
+
+---
+
+## Castellano
+
+Aplicación web de acortador de URLs con panel de usuario.
+
+### Descripción
+
+bool.cat es una aplicación web para crear enlaces cortos, gestionarlos desde un panel de usuario y administrar el acceso mediante autenticación.
+
+### ¿Qué hace? (funciones principales)
+
+- Registro e inicio de sesión de usuarios (formularios de autenticación).
+- Creación de enlaces cortos desde el cliente.
+- Panel de usuario (dashboard) con el listado de los enlaces creados.
+- Redirección desde la URL corta al destino original (ruta dinámica de redirección).
+- Generación de códigos QR para los enlaces cortos.
+- Persistencia en base de datos para usuarios y enlaces.
+- Envío de correos (verificación, recuperación de contraseña, etc.) vía SMTP.
+- Interfaz internacionalizada (catalán, castellano e inglés).
+
+### Estado del proyecto
+
+#### ✅ Implementadas
+
+- [x] Autenticación (registro / inicio de sesión, gestión de sesión)
+- [x] Creación de enlaces cortos desde la interfaz
+- [x] Almacenamiento de enlaces en la base de datos
+- [x] Panel de usuario con listado de enlaces (`src/features/shortener`, `src/features/url`)
+- [x] Internacionalización (ca / es / en)
+- [x] Envío de correos transaccionales
+- [x] Expiración de enlaces
+- [x] Alias personalizados
+
+#### ⚠️ Pendientes / Por implementar
+- [ ] Generación de códigos QR
+- [ ] Protección de enlaces sin registro frente a abusos
+- [ ] Protección con contraseña
+
+### Tecnologías
+
+- [TanStack Start](https://tanstack.com/start) + [TanStack Router](https://tanstack.com/router) (React 19)
+- [Drizzle ORM](https://orm.drizzle.team/) con PostgreSQL
+- [better-auth](https://www.better-auth.com/) para la autenticación
+- [shadcn/ui](https://ui.shadcn.com/) para los componentes de interfaz
+- [Inlang / Paraglide JS](https://inlang.com/) para la internacionalización
+- [React Email](https://react.email/) + Nodemailer para los correos
+- [Biome](https://biomejs.dev/) para formato y lint
+- Gestor de paquetes: [pnpm](https://pnpm.io/)
+
+### Puesta en marcha
+
+**Requisitos previos:** Node.js, pnpm y Docker (para la base de datos y el servidor de correo locales).
 
 ```bash
-pnpm build
+# 1. Instala las dependencias
+pnpm install
+
+# 2. Copia las variables de entorno y complétalas
+cp .env.example .env   # DATABASE_URL, BETTER_AUTH_SECRET, BETTER_AUTH_URL,
+                        # SMTP_HOST/PORT/USER/PASSWORD, JWT_SECRET
+
+# 3. Levanta PostgreSQL y Mailpit (correo de pruebas) en local
+docker compose up -d
+
+# 4. Aplica el esquema a la base de datos
+pnpm db:push
+
+# 5. Arranca el servidor de desarrollo
+pnpm dev
 ```
 
-## Styling
+La aplicación queda disponible en `http://localhost:3000` y la interfaz de Mailpit (correos de prueba) en `http://localhost:8025`.
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+### Scripts disponibles
 
-### Removing Tailwind CSS
+| Script | Descripción |
+| --- | --- |
+| `pnpm dev` | Servidor de desarrollo (puerto 3000) |
+| `pnpm build` | Compila la aplicación para producción |
+| `pnpm preview` | Previsualiza la build de producción |
+| `pnpm check` / `lint` / `format` | Comprobaciones de Biome |
+| `pnpm db:push` / `db:studio` / `db:pull` | Gestión del esquema con Drizzle |
+| `pnpm machine-translate` | Traducción automática de los mensajes (inlang) |
+| `pnpm email:dev` | Previsualiza las plantillas de correo |
 
-If you prefer not to use Tailwind CSS:
+---
 
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Remove `@tailwindcss/vite` and `tailwindcss` from `package.json`
+## English
 
-## Linting & Formatting
+A URL shortener web app with a user dashboard.
 
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. The following scripts are available:
+### Description
 
+bool.cat is a web application for creating short links, managing them from a user dashboard, and controlling access through authentication.
+
+### What does it do? (main features)
+
+- User sign-up and login (authentication forms).
+- Short link creation from the client.
+- User dashboard listing all created links.
+- Redirection from the short URL to the original destination (dynamic redirect route).
+- QR code generation for short links.
+- Database persistence for users and links.
+- Transactional email delivery (verification, password reset, etc.) via SMTP.
+- Internationalized interface (Catalan, Spanish and English).
+
+### Project status
+
+#### ✅ Implemented
+
+- [x] Authentication (sign-up / login, session management)
+- [x] Short link creation from the UI
+- [x] Link storage in the database
+- [x] User dashboard with link listing (`src/features/shortener`, `src/features/url`)
+- [x] Internationalization (ca / es / en)
+- [x] Transactional email delivery
+- [x] Link expiration
+- [x] Custom aliases
+
+#### ⚠️ Pending / To be implemented
+- [ ] QR code generation
+- [ ] Abuse protection for links created without an account
+- [ ] Password protection
+
+### Tech stack
+
+- [TanStack Start](https://tanstack.com/start) + [TanStack Router](https://tanstack.com/router) (React 19)
+- [Drizzle ORM](https://orm.drizzle.team/) with PostgreSQL
+- [better-auth](https://www.better-auth.com/) for authentication
+- [shadcn/ui](https://ui.shadcn.com/) for UI components
+- [Inlang / Paraglide JS](https://inlang.com/) for internationalization
+- [React Email](https://react.email/) + Nodemailer for emails
+- [Biome](https://biomejs.dev/) for formatting and linting
+- Package manager: [pnpm](https://pnpm.io/)
+
+### Getting started
+
+**Prerequisites:** Node.js, pnpm, and Docker (for the local database and mail server).
 
 ```bash
-pnpm lint
-pnpm format
-pnpm check
+# 1. Install dependencies
+pnpm install
+
+# 2. Copy the environment variables and fill them in
+cp .env.example .env   # DATABASE_URL, BETTER_AUTH_SECRET, BETTER_AUTH_URL,
+                        # SMTP_HOST/PORT/USER/PASSWORD, JWT_SECRET
+
+# 3. Start PostgreSQL and Mailpit (test mail server) locally
+docker compose up -d
+
+# 4. Push the schema to the database
+pnpm db:push
+
+# 5. Start the development server
+pnpm dev
 ```
 
+The app is available at `http://localhost:3000`, and the Mailpit UI (test emails) at `http://localhost:8025`.
 
-## Deploy with Nitro
+### Available scripts
 
-This project uses Nitro as a generic server adapter, so it can run on any Node-compatible host.
-
-```bash
-npm run build
-node dist/server/index.mjs
-```
-
-The build output is a self-contained Node server. To deploy, push the `dist/` directory to your host (Render, Fly.io, your own VPS, etc.) and run the server command above.
-
-For host-specific presets (Vercel, Netlify, Cloudflare, AWS Lambda, etc.) and tuning, see https://v3.nitro.build/deploy.
-
-
-
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { title: 'My App' },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-})
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from '@tanstack/react-start'
-
-const getServerTime = createServerFn({
-  method: 'GET',
-}).handler(async () => {
-  return new Date().toISOString()
-})
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState('')
-  
-  useEffect(() => {
-    getServerTime().then(setTime)
-  }, [])
-  
-  return <div>Server time: {time}</div>
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-import { json } from '@tanstack/react-start'
-
-export const Route = createFileRoute('/api/hello')({
-  server: {
-    handlers: {
-      GET: () => json({ message: 'Hello, World!' }),
-    },
-  },
-})
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/people')({
-  loader: async () => {
-    const response = await fetch('https://swapi.dev/api/people')
-    return response.json()
-  },
-  component: PeopleComponent,
-})
-
-function PeopleComponent() {
-  const data = Route.useLoaderData()
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  )
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+| Script | Description |
+| --- | --- |
+| `pnpm dev` | Development server (port 3000) |
+| `pnpm build` | Builds the app for production |
+| `pnpm preview` | Previews the production build |
+| `pnpm check` / `lint` / `format` | Biome checks |
+| `pnpm db:push` / `db:studio` / `db:pull` | Schema management with Drizzle |
+| `pnpm machine-translate` | Machine-translates the message catalogs (inlang) |
+| `pnpm email:dev` | Preview email templates |

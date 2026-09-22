@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SplatRouteImport } from './routes/$'
+import { Route as AppIndexRouteImport } from './routes/app/index'
+import { Route as AppAccountRouteImport } from './routes/app/account'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as AppAuthIndexRouteImport } from './routes/app/auth/index'
+import { Route as AppAuthVerifyEmailRouteImport } from './routes/app/auth/verifyEmail'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SplatRoute = SplatRouteImport.update({
+  id: '/$',
+  path: '/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/app/',
+  path: '/app/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppAccountRoute = AppAccountRouteImport.update({
+  id: '/app/account',
+  path: '/app/account',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppAuthIndexRoute = AppAuthIndexRouteImport.update({
+  id: '/app/auth/',
+  path: '/app/auth/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppAuthVerifyEmailRoute = AppAuthVerifyEmailRouteImport.update({
+  id: '/app/auth/verifyEmail',
+  path: '/app/auth/verifyEmail',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/app/account': typeof AppAccountRoute
+  '/app/': typeof AppIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
+  '/app/auth/verifyEmail': typeof AppAuthVerifyEmailRoute
+  '/app/auth/': typeof AppAuthIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/app/account': typeof AppAccountRoute
+  '/app': typeof AppIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
+  '/app/auth/verifyEmail': typeof AppAuthVerifyEmailRoute
+  '/app/auth': typeof AppAuthIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$': typeof SplatRoute
+  '/app/account': typeof AppAccountRoute
+  '/app/': typeof AppIndexRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
+  '/app/auth/verifyEmail': typeof AppAuthVerifyEmailRoute
+  '/app/auth/': typeof AppAuthIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/$'
+    | '/app/account'
+    | '/app/'
+    | '/api/auth/$'
+    | '/app/auth/verifyEmail'
+    | '/app/auth/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/$'
+    | '/app/account'
+    | '/app'
+    | '/api/auth/$'
+    | '/app/auth/verifyEmail'
+    | '/app/auth'
+  id:
+    | '__root__'
+    | '/'
+    | '/$'
+    | '/app/account'
+    | '/app/'
+    | '/api/auth/$'
+    | '/app/auth/verifyEmail'
+    | '/app/auth/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SplatRoute: typeof SplatRoute
+  AppAccountRoute: typeof AppAccountRoute
+  AppIndexRoute: typeof AppIndexRoute
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  AppAuthVerifyEmailRoute: typeof AppAuthVerifyEmailRoute
+  AppAuthIndexRoute: typeof AppAuthIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$': {
+      id: '/$'
+      path: '/$'
+      fullPath: '/$'
+      preLoaderRoute: typeof SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/app'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/account': {
+      id: '/app/account'
+      path: '/app/account'
+      fullPath: '/app/account'
+      preLoaderRoute: typeof AppAccountRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/auth/': {
+      id: '/app/auth/'
+      path: '/app/auth'
+      fullPath: '/app/auth/'
+      preLoaderRoute: typeof AppAuthIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app/auth/verifyEmail': {
+      id: '/app/auth/verifyEmail'
+      path: '/app/auth/verifyEmail'
+      fullPath: '/app/auth/verifyEmail'
+      preLoaderRoute: typeof AppAuthVerifyEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SplatRoute: SplatRoute,
+  AppAccountRoute: AppAccountRoute,
+  AppIndexRoute: AppIndexRoute,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
+  AppAuthVerifyEmailRoute: AppAuthVerifyEmailRoute,
+  AppAuthIndexRoute: AppAuthIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
