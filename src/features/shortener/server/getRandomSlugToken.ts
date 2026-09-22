@@ -16,7 +16,7 @@ export const getRandomSlugToken = createServerFn({ method: "GET" }).handler(
 		if (!randomSlugResponse.success) return randomSlugResponse;
 
 		try {
-			const jwt = await new SignJWT({ slug: randomSlugResponse.data })
+			const jwt = await new SignJWT({ slug: randomSlugResponse.data.slug })
 				.setProtectedHeader({ alg: "HS256" })
 				.setIssuedAt()
 				.setExpirationTime("5m")

@@ -1,5 +1,4 @@
 import { formOptions } from "@tanstack/react-form";
-import type { useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
 import { createSimpleShortUrl } from "../../server/createSimpleShortUrl";
 
@@ -14,7 +13,7 @@ const formSchema = z.object({
 		.required(),
 });
 
-type Navigate = ReturnType<typeof useNavigate> | undefined;
+type OnSuccess = ((slug: string) => void) | undefined;
 
 const defaultValues: z.infer<typeof formSchema> = {
 	targetUrl: "",
@@ -31,7 +30,7 @@ export const simpleModeFormOptions = formOptions({
 		onChange: formSchema,
 	},
 	onSubmitMeta: {
-		navigate: undefined as Navigate,
+		onSuccess: undefined as OnSuccess,
 	},
 
 	onSubmit: async ({ value: { slugField, targetUrl }, formApi, meta }) => {
@@ -49,6 +48,6 @@ export const simpleModeFormOptions = formOptions({
 			return;
 		}
 
-		meta.navigate?.({ to: "/app", search: { preview: slugField.slug } });
+		meta.onSuccess?.(slugField.slug);
 	},
 });

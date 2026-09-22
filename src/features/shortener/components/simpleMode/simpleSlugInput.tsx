@@ -1,24 +1,18 @@
 import { useMutation } from "@tanstack/react-query";
 import { ClientOnly } from "@tanstack/react-router";
 import { DicesIcon } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "#/components/ui/button";
-import {
-	Field,
-	FieldDescription,
-	FieldError,
-	FieldLabel,
-} from "#/components/ui/field";
+import { Field, FieldError, FieldLabel } from "#/components/ui/field";
 import {
 	InputGroup,
 	InputGroupAddon,
 	InputGroupInput,
 } from "#/components/ui/input-group";
 import { Skeleton } from "#/components/ui/skeleton";
+import { Spinner } from "#/components/ui/spinner";
 import { withForm } from "#/features/appForm/hooks/useAppForm";
-import { getSlugSegments, slugify } from "#/features/shortener/lib/slugify";
 import { getRandomSlugToken } from "#/features/shortener/server/getRandomSlugToken";
-import { m } from "#/paraglide/messages";
 import { simpleModeFormOptions } from "./simpleModeFormOptions";
 
 export const SimpleSlugInput = withForm({
@@ -28,7 +22,11 @@ export const SimpleSlugInput = withForm({
 			mutationFn: () => getRandomSlugToken(),
 		});
 
+		const hasGeneratedRef = useRef(false);
+
 		useEffect(() => {
+			if (hasGeneratedRef.current) return;
+			hasGeneratedRef.current = true;
 			mutate();
 		}, [mutate]);
 
@@ -51,11 +49,6 @@ export const SimpleSlugInput = withForm({
 					const isError = field.state.meta.errors.length > 0;
 					const isDirty = field.state.meta.isDirty;
 					const value = field.state.value;
-					const changes = value
-						? getSlugSegments(value.slug).filter(
-								(segment) => segment.kind === "changed",
-							)
-						: [];
 
 					return (
 						<Field data-invalid={isError}>
@@ -84,54 +77,12 @@ export const SimpleSlugInput = withForm({
 											disabled={isPending}
 											onClick={() => mutate()}
 										>
-											<DicesIcon />
+											{isPending ? <Spinner /> : <DicesIcon />}
 										</Button>
 									</InputGroupAddon>
 								</InputGroup>
 							</ClientOnly>
-							<ClientOnly
-								fallback={
-									<FieldDescription>
-										{m["shortener.preview"]()}
-									</FieldDescription>
-								}
-							>
-								{value && (
-									<FieldDescription className="flex flex-col gap-1">
-										<span className="flex flex-wrap items-baseline gap-x-1.5 gap-y-0.5">
-											<span>{m["shortener.preview"]()}</span>
-											<span className="break-all rounded-md bg-muted px-1.5 py-0.5 font-mono text-xs text-foreground">
-												<span className="text-muted-foreground">
-													{window.location.origin}/
-												</span>
-												{slugify(value.slug)}
-											</span>
-										</span>
-										{changes.length > 0 && (
-											<span className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-												<span>{m["shortener.preview_changed"]()}</span>
-												{changes.map((segment) => (
-													<span
-														key={segment.id}
-														className="inline-flex items-center gap-1 font-mono"
-													>
-														<span
-															className="text-destructive line-through decoration-2"
-															title="Removed"
-														>
-															{segment.removed}
-														</span>
-														<span aria-hidden="true">→</span>
-														<span className="text-primary" title="Added">
-															{segment.added}
-														</span>
-													</span>
-												))}
-											</span>
-										)}
-									</FieldDescription>
-								)}
-							</ClientOnly>
+
 							{isDirty && isError && (
 								<FieldError>
 									{typeof field.state.meta.errors[0] === "string"

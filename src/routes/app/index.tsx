@@ -1,11 +1,20 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
+import { z } from "zod";
 import { getSession } from "#/features/auth/server/session";
+import { PreviewShortUrlDialog } from "#/features/shortener/components/previewShortUrlDialog";
 import { UrlShortener } from "#/features/shortener/components/urlShortener";
 import { ShortUrlList } from "#/features/url/components/shortUrlList";
+import { listUrlsQuery } from "#/features/url/query/list";
 import { m } from "#/paraglide/messages";
+
+const searchParamSchema = z.object({
+	preview: z.string().optional(),
+});
 
 export const Route = createFileRoute("/app/")({
 	component: RouteComponent,
+	validateSearch: searchParamSchema,
 	beforeLoad: async () => {
 		const session = await getSession();
 
@@ -18,6 +27,10 @@ export const Route = createFileRoute("/app/")({
 });
 
 function RouteComponent() {
+	const queryClient = useQueryClient();
+	const navigate = Route.useNavigate();
+	const { preview } = Route.useSearch();
+
 	return (
 		<main className="mx-4 my-6">
 			<h1 className="text-2xl font-bold">{m["dashboard.title"]()}</h1>
@@ -28,9 +41,26 @@ function RouteComponent() {
 				</section>
 
 				<section>
-					<UrlShortener isSignedIn />
+					<UrlShortener
+						isSignedIn
+						onSuccess={(slug) => {
+							queryClient.invalidateQueries({
+								queryKey: listUrlsQuery.queryKey,
+							});
+							navigate({ search: (old) => ({ ...old, preview: slug }) });
+						}}
+					/>
 				</section>
 			</div>
+
+			<PreviewShortUrlDialog
+				slug={preview}
+				onOpenChange={(state) => {
+					if (!state) {
+						navigate({ search: (old) => ({ ...old, preview: undefined }) });
+					}
+				}}
+			/>
 		</main>
 	);
 }

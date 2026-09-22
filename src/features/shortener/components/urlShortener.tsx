@@ -13,9 +13,13 @@ import { SimpleModeForm } from "#/features/shortener/components/simpleMode/simpl
 
 type UrlShortenerProps = {
 	isSignedIn?: boolean;
+	onSuccess?: (slug: string) => void;
 };
 
-export function UrlShortener({ isSignedIn = false }: UrlShortenerProps) {
+export function UrlShortener({
+	isSignedIn = false,
+	onSuccess,
+}: UrlShortenerProps) {
 	const [isChecked, setIsChecked] = useState(isSignedIn);
 
 	return (
@@ -36,10 +40,10 @@ export function UrlShortener({ isSignedIn = false }: UrlShortenerProps) {
 			</CardHeader>
 			<CardContent>
 				<Activity mode={isChecked && isSignedIn ? "visible" : "hidden"}>
-					<CustomModeForm />
+					<CustomModeForm onSuccess={onSuccess} />
 				</Activity>
 				<Activity mode={!isChecked ? "visible" : "hidden"}>
-					<SimpleModeForm />
+					<SimpleModeForm onSuccess={onSuccess} />
 				</Activity>
 			</CardContent>
 		</Card>

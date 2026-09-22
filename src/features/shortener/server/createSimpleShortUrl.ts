@@ -22,11 +22,14 @@ export const createSimpleShortUrl = createServerFn({ method: "POST" })
 			context: { auth },
 		}): Promise<ApiResponse<null>> => {
 			let slug: string;
+
 			try {
 				const decodedToken = await jwtVerify(
 					slugToken,
 					new TextEncoder().encode(serverEnv.JWT_SECRET),
 				);
+
+				console.log("Decoded Token:", decodedToken);
 
 				if (
 					!decodedToken.payload.slug ||

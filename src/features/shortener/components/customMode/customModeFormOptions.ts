@@ -1,5 +1,4 @@
 import { formOptions } from "@tanstack/react-form";
-import type { useNavigate } from "@tanstack/react-router";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import { slugify } from "#/features/shortener/lib/slugify";
@@ -11,7 +10,7 @@ const formSchema = z.object({
 	expirationDate: z.date(),
 });
 
-type Navigate = ReturnType<typeof useNavigate> | undefined;
+type OnSuccess = ((slug: string) => void) | undefined;
 
 const defaultValues: z.infer<typeof formSchema> = {
 	targetUrl: "",
@@ -25,7 +24,7 @@ export const customModeFormOptions = formOptions({
 		onChange: formSchema,
 	},
 	onSubmitMeta: {
-		navigate: undefined as Navigate,
+		onSuccess: undefined as OnSuccess,
 	},
 
 	onSubmit: async ({
@@ -49,6 +48,6 @@ export const customModeFormOptions = formOptions({
 			return;
 		}
 
-		meta.navigate?.({ to: "/app", search: { preview: sluggedSlug } });
+		meta.onSuccess?.(sluggedSlug);
 	},
 });

@@ -1,14 +1,28 @@
+import type { SubmitEventHandler } from "react";
 import { useAppForm } from "#/features/appForm/hooks/useAppForm";
 import { m } from "#/paraglide/messages";
 import { simpleModeFormOptions } from "./simpleModeFormOptions";
 import { SimpleSlugInput } from "./simpleSlugInput";
 
-export function SimpleModeForm() {
+type SimpleModeFormProps = {
+	onSuccess?: (slug: string) => void;
+};
+
+export function SimpleModeForm({ onSuccess }: SimpleModeFormProps) {
 	const form = useAppForm(simpleModeFormOptions);
+
+	const onSubmit: SubmitEventHandler = async (e) => {
+		e.preventDefault();
+		await form.handleSubmit({ onSuccess });
+	};
 
 	return (
 		<div className="@container">
-			<form className="grid @xl:grid-cols-2 gap-3">
+			<form
+				className="grid @xl:grid-cols-2 gap-3"
+				id={form.formId}
+				onSubmit={onSubmit}
+			>
 				<form.AppField name="targetUrl">
 					{({ InputField }) => (
 						<InputField

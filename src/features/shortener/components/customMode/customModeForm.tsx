@@ -1,11 +1,10 @@
-import { ClientOnly, useNavigate } from "@tanstack/react-router";
+import { ClientOnly } from "@tanstack/react-router";
 import { format } from "date-fns";
 import { CalendarIcon } from "lucide-react";
-import { type SubmitEventHandler, useState } from "react";
+import type { SubmitEventHandler } from "react";
 import { Button } from "#/components/ui/button";
 import { Calendar } from "#/components/ui/calendar";
 import { Field, FieldLabel } from "#/components/ui/field";
-
 import {
 	Popover,
 	PopoverContent,
@@ -18,19 +17,16 @@ import { m } from "#/paraglide/messages";
 import { customModeFormOptions } from "./customModeFormOptions";
 import { CustomSlugInput } from "./customSlugInput";
 
-export function CustomModeForm() {
-	const form = useAppForm(customModeFormOptions);
+type CustomModeFormProps = {
+	onSuccess?: (slug: string) => void;
+};
 
-	const [date, setDate] = useState<Date | undefined>(
-		new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // Default to 7 days from now
-	);
-	const navigate = useNavigate();
+export function CustomModeForm({ onSuccess }: CustomModeFormProps) {
+	const form = useAppForm(customModeFormOptions);
 
 	const onSubmit: SubmitEventHandler = async (e) => {
 		e.preventDefault();
-		console.log("Submit");
-		await form.handleSubmit({ navigate });
-		console.log("Submit done");
+		await form.handleSubmit({ onSuccess });
 	};
 
 	const today = new Date();
@@ -59,49 +55,57 @@ export function CustomModeForm() {
 
 				<CustomSlugInput form={form} />
 
-				<Field>
-					<ClientOnly
-						fallback={<span>{m["shortener.expiration_date"]()}</span>}
-					>
-						<FieldLabel htmlFor="expiration-date-picker">
-							{m["shortener.expiration_date"]()}
-						</FieldLabel>
-					</ClientOnly>
-					<ClientOnly fallback={<Skeleton className="h-8 w-full rounded-lg" />}>
-						<Popover>
-							<PopoverTrigger
-								render={
-									<Button
-										id="expiration-date-picker"
-										name="expiration-date-picker"
-										variant="outline"
-										data-empty={!date}
-										className="justify-start text-left font-normal data-[empty=true]:text-muted-foreground"
-									/>
-								}
+				<form.Field name="expirationDate">
+					{({ state, handleChange }) => (
+						<Field>
+							<ClientOnly
+								fallback={<span>{m["shortener.expiration_date"]()}</span>}
 							>
-								<CalendarIcon />
-								{date ? (
-									format(date, "PPP", { locale: getUserDateLocale() })
-								) : (
-									<span>Pick a date</span>
-								)}
-							</PopoverTrigger>
-							<PopoverContent className="w-auto p-0">
-								<Calendar
-									mode="single"
-									selected={date}
-									onSelect={setDate}
-									startMonth={today}
-									disabled={(date) => {
-										return date < today;
-									}}
-									endMonth={twoYearsFromNow}
-								/>
-							</PopoverContent>
-						</Popover>
-					</ClientOnly>
-				</Field>
+								<FieldLabel htmlFor="expiration-date-picker">
+									{m["shortener.expiration_date"]()}
+								</FieldLabel>
+							</ClientOnly>
+							<ClientOnly
+								fallback={<Skeleton className="h-8 w-full rounded-lg" />}
+							>
+								<Popover>
+									<PopoverTrigger
+										render={
+											<Button
+												id="expiration-date-picker"
+												name="expiration-date-picker"
+												variant="outline"
+												data-empty={!state.value}
+												className="justify-start text-left font-normal data-[empty=true]:text-muted-foreground"
+											/>
+										}
+									>
+										<CalendarIcon />
+										{state.value ? (
+											format(state.value, "PPP", {
+												locale: getUserDateLocale(),
+											})
+										) : (
+											<span>Pick a date</span>
+										)}
+									</PopoverTrigger>
+									<PopoverContent className="w-auto p-0">
+										<Calendar
+											mode="single"
+											selected={state.value}
+											onSelect={(date) => date && handleChange(date)}
+											startMonth={today}
+											disabled={(date) => {
+												return date < today;
+											}}
+											endMonth={twoYearsFromNow}
+										/>
+									</PopoverContent>
+								</Popover>
+							</ClientOnly>
+						</Field>
+					)}
+				</form.Field>
 
 				<form.AppForm>
 					<form.FormRootError />
