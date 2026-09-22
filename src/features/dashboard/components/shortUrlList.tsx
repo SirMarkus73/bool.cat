@@ -15,7 +15,10 @@ import {
 } from "#/components/ui/input-group";
 import { ScrollArea } from "#/components/ui/scroll-area";
 import { Skeleton } from "#/components/ui/skeleton";
-import { createListUrlsQuery, listUrlsQuery } from "#/features/url/query/list";
+import {
+	createListUrlsQuery,
+	listUrlsQuery,
+} from "#/features/dashboard/query/list";
 import { cn } from "#/lib/utils";
 import { m } from "#/paraglide/messages";
 import { deleteExpiredShortUrls } from "../server/deleteExpiredShortUrls";

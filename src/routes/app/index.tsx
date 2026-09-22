@@ -2,10 +2,10 @@ import { useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { z } from "zod";
 import { getSession } from "#/features/auth/server/session";
+import { ShortUrlList } from "#/features/dashboard/components/shortUrlList";
+import { listUrlsQuery } from "#/features/dashboard/query/list";
 import { PreviewShortUrlDialog } from "#/features/shortener/components/previewShortUrlDialog";
 import { UrlShortener } from "#/features/shortener/components/urlShortener";
-import { ShortUrlList } from "#/features/url/components/shortUrlList";
-import { listUrlsQuery } from "#/features/url/query/list";
 import { m } from "#/paraglide/messages";
 
 const searchParamSchema = z.object({

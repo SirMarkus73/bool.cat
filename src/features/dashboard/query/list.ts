@@ -1,5 +1,5 @@
 import { queryOptions } from "@tanstack/react-query";
-import { listUrls } from "#/features/url/server/list";
+import { listUrls } from "#/features/dashboard/server/list";
 
 export const createListUrlsQuery = ({ q }: { q?: string }) =>
 	queryOptions({

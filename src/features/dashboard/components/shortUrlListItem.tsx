@@ -20,7 +20,7 @@ import {
 	ItemDescription,
 	ItemTitle,
 } from "#/components/ui/item";
-import type { ShortUrl } from "#/features/url/interfaces/shortUrl";
+import type { ShortUrl } from "#/features/dashboard/interfaces/shortUrl";
 import { getUserDateLocale } from "#/lib/getUserDateLocale";
 import { m } from "#/paraglide/messages";
 import { listUrlsQuery } from "../query/list";

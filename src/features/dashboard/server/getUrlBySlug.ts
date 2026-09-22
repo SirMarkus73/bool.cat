@@ -1,7 +1,7 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { db } from "#/db";
-import type { ShortUrl } from "#/features/url/interfaces/shortUrl";
+import type { ShortUrl } from "#/features/dashboard/interfaces/shortUrl";
 import type { ApiResponse } from "#/interfaces/api";
 
 const getUrlBySlugSchema = z.object({

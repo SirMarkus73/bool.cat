@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { getSession } from "#/features/auth/server/session";
 import { HeroSection } from "#/features/landing/components/heroSection";
-import { TryTheProduct } from "#/features/landing/components/tryTheProduct";
 import { PreviewShortUrlDialog } from "#/features/shortener/components/previewShortUrlDialog";
 import { UrlShortener } from "#/features/shortener/components/urlShortener";
 
@@ -29,9 +28,6 @@ function Home() {
 
 	return (
 		<main>
-			{/* Actualmente hay un error con esto, siempre supone que el usuario no está autenticado. TODO: Arreglar este problema mas tarde */}
-			<TryTheProduct />
-
 			<section>
 				<UrlShortener
 					isSignedIn={isSignedIn}
