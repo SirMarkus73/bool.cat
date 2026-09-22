@@ -2,16 +2,18 @@ import { createServerFn } from "@tanstack/react-start";
 import { and, eq, lt } from "drizzle-orm";
 import { db } from "#/db";
 import { shortUrl } from "#/db/schema";
-import { ensureAuthenticated } from "#/features/auth/server/middleware";
+import { withAuthContext } from "#/features/auth/server/middleware";
 import type { ApiResponse } from "#/interfaces/api";
 import { isDatabaseError } from "#/lib/isDatabaseError";
 
 export const deleteExpiredShortUrls = createServerFn({
 	method: "POST",
 })
-	.middleware([ensureAuthenticated])
+	.middleware([withAuthContext])
 	.handler(async ({ context }): Promise<ApiResponse<null>> => {
-		const { user } = context;
+		if (!context.auth.success) return context.auth;
+
+		const { user } = context.auth.data;
 
 		try {
 			await db
