@@ -61,7 +61,7 @@
     "@inlang/paraglide-js": "^2.23.1",
     "@react-email/ui": "6.9.5",
     "@tanstack/devtools-vite": "latest",
-    "@tanstack/react-router-ssr-query": "^1.167.1",
+    "@tanstack/react-router-ssr-query": "latest",
     "@tanstack/router-cli": "^1.132.0",
     "@types/node": "^22.10.2",
     "@types/pg": "^8.20.0",

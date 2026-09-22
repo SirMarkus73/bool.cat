@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { getSession } from "#/features/auth/server/session";
 import { HeroSection } from "#/features/landing/components/heroSection";
 import { TryTheProduct } from "#/features/landing/components/tryTheProduct";
-import { UrlShortener } from "#/features/shortener/components/UrlShortener";
+import { UrlShortener } from "#/features/shortener/components/urlShortener";
 
 export const Route = createFileRoute("/")({
 	component: Home,
@@ -17,8 +17,6 @@ export const Route = createFileRoute("/")({
 
 function Home() {
 	const { isSignedIn } = Route.useLoaderData();
-
-	console.log("isSignedIn", isSignedIn);
 
 	return (
 		<main>

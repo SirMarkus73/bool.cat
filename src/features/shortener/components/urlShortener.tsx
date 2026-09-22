@@ -8,14 +8,14 @@ import {
 } from "#/components/ui/card";
 import { Field, FieldLabel } from "#/components/ui/field";
 import { Switch } from "#/components/ui/switch";
-import { CustomModeForm } from "./customModeForm";
-import { SimpleModeForm } from "./simpleModeForm";
+import { CustomModeForm } from "#/features/shortener/components/customMode/customModeForm";
+import { SimpleModeForm } from "#/features/shortener/components/simpleModeForm";
 
 type UrlShortenerProps = {
-	isSignedIn: boolean;
+	isSignedIn?: boolean;
 };
 
-export function UrlShortener({ isSignedIn }: UrlShortenerProps) {
+export function UrlShortener({ isSignedIn = false }: UrlShortenerProps) {
 	const [isChecked, setIsChecked] = useState(isSignedIn);
 
 	return (

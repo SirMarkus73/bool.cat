@@ -1,12 +1,14 @@
 import { ClientOnly } from "@tanstack/react-router";
 import { ClipboardCheckIcon, ClipboardIcon } from "lucide-react";
 import { useRef, useState } from "react";
+import { Button } from "#/components/ui/button";
 import {
 	InputGroup,
 	InputGroupAddon,
 	InputGroupInput,
 } from "#/components/ui/input-group";
 import { Skeleton } from "#/components/ui/skeleton";
+import { m } from "#/paraglide/messages";
 
 type ShortUrlResultProps = {
 	slug: string;
@@ -37,15 +39,22 @@ export function ShortUrlResult({ slug, id }: ShortUrlResultProps) {
 			>
 				<InputGroupInput
 					ref={resultRef}
-					name="shortened-url"
+					name={id}
 					id={id}
-					className="select-all"
+					className="select-all cursor-copy"
 					value={`${window.location.origin}/${slug}`}
 					readOnly
 					role="status"
 				/>
-				<InputGroupAddon align="inline-end">
-					{isCopied ? <ClipboardCheckIcon /> : <ClipboardIcon />}
+				<InputGroupAddon align="inline-end" className="cursor-copy">
+					<Button
+						variant="ghost"
+						size="icon"
+						aria-label={m["shortener.copy_link"]()}
+						title={m["shortener.copy_link"]()}
+					>
+						{isCopied ? <ClipboardCheckIcon /> : <ClipboardIcon />}
+					</Button>
 				</InputGroupAddon>
 			</InputGroup>
 		</ClientOnly>

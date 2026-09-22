@@ -11,7 +11,7 @@ import {
 	InputGroupInput,
 } from "#/components/ui/input-group";
 import { Skeleton } from "#/components/ui/skeleton";
-import { ShortUrlResult } from "../shortUrlResult";
+import { ShortUrlResult } from "#/features/shortener/components/shortUrlResult";
 
 export function SimpleModeForm() {
 	const [slug, setSlug] = useState(() => nanoid(6));

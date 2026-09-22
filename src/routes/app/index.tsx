@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import { getSession } from "#/features/auth/server/session";
-import { CreateShortUrlCard } from "#/features/url/components/form/createShortUrlCard";
+import { UrlShortener } from "#/features/shortener/components/urlShortener";
 import { ShortUrlList } from "#/features/url/components/shortUrlList";
 import { m } from "#/paraglide/messages";
 
@@ -28,7 +28,7 @@ function RouteComponent() {
 				</section>
 
 				<section>
-					<CreateShortUrlCard />
+					<UrlShortener isSignedIn />
 				</section>
 			</div>
 		</main>
