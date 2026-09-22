@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Activity, useState } from "react";
 import {
 	Card,
 	CardAction,
@@ -9,7 +9,7 @@ import {
 import { Field, FieldLabel } from "#/components/ui/field";
 import { Switch } from "#/components/ui/switch";
 import { CustomModeForm } from "#/features/shortener/components/customMode/customModeForm";
-import { SimpleModeForm } from "#/features/shortener/components/simpleModeForm";
+import { SimpleModeForm } from "#/features/shortener/components/simpleMode/simpleModeForm";
 
 type UrlShortenerProps = {
 	isSignedIn?: boolean;
@@ -35,7 +35,12 @@ export function UrlShortener({ isSignedIn = false }: UrlShortenerProps) {
 				</CardAction>
 			</CardHeader>
 			<CardContent>
-				{isChecked && isSignedIn ? <CustomModeForm /> : <SimpleModeForm />}
+				<Activity mode={isChecked && isSignedIn ? "visible" : "hidden"}>
+					<CustomModeForm />
+				</Activity>
+				<Activity mode={!isChecked ? "visible" : "hidden"}>
+					<SimpleModeForm />
+				</Activity>
 			</CardContent>
 		</Card>
 	);

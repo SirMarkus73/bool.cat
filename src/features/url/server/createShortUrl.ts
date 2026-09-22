@@ -5,7 +5,7 @@ import { db } from "#/db";
 import { shortUrl } from "#/db/schema";
 import { getSession } from "#/features/auth/server/session";
 import type { ApiResponse } from "#/interfaces/api";
-import { UNAUTHENTICATED_SHORT_URL_EXPIRATION_HOURS } from "#/lib/constants";
+import { SIMPLE_SHORT_URL_EXPIRATION_HOURS } from "#/lib/constants";
 import { isDatabaseError } from "#/lib/isDatabaseError";
 
 const createShortUrlSchema = z.discriminatedUnion("mode", [
@@ -24,7 +24,7 @@ const createGuestShortUrl = createServerOnlyFn(
 	async (longUrl: string): Promise<string> => {
 		const expirationDate = new Date();
 		expirationDate.setHours(
-			expirationDate.getHours() + UNAUTHENTICATED_SHORT_URL_EXPIRATION_HOURS,
+			expirationDate.getHours() + SIMPLE_SHORT_URL_EXPIRATION_HOURS,
 		);
 		const retries = 5;
 

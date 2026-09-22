@@ -15,7 +15,8 @@ import { Skeleton } from "#/components/ui/skeleton";
 import { useAppForm } from "#/features/appForm/hooks/useAppForm";
 import { getUserDateLocale } from "#/lib/getUserDateLocale";
 import { m } from "#/paraglide/messages";
-import { customModeFormOptions } from "./customModeFormOption";
+import { customModeFormOptions } from "./customModeFormOptions";
+import { CustomSlugInput } from "./customSlugInput";
 
 export function CustomModeForm() {
 	const form = useAppForm(customModeFormOptions);
@@ -56,9 +57,7 @@ export function CustomModeForm() {
 					)}
 				</form.AppField>
 
-				<form.AppField name="slug">
-					{({ SlugField }) => <SlugField />}
-				</form.AppField>
+				<CustomSlugInput form={form} />
 
 				<Field>
 					<ClientOnly
