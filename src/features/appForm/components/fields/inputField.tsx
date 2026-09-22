@@ -9,14 +9,14 @@ type Props = {
 	"id" | "name" | "value" | "onChange"
 >;
 
-export function InputField({ label, ...inputProps }: Props) {
+export function InputField({ label, className, ...inputProps }: Props) {
 	const field = useFieldContext<string>();
 
 	const isError = field.state.meta.errors.length > 0;
 	const isDirty = field.state.meta.isDirty;
 
 	return (
-		<Field data-invalid={isError}>
+		<Field data-invalid={isError} className={className}>
 			<FieldLabel htmlFor={field.name}>{label}</FieldLabel>
 			<Input
 				id={field.name}

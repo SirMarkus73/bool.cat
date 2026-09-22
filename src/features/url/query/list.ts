@@ -5,8 +5,13 @@ export const createListUrlsQuery = ({ q }: { q?: string }) =>
 	queryOptions({
 		queryKey: q ? ["urls", { data: { q } }] : ["urls"],
 		queryFn: async () => {
-			const urls = listUrls({ data: { q } }) || [];
-			return urls;
+			const result = (await listUrls({ data: { q } })) || [];
+
+			if (!result.success) {
+				throw new Error(result.message);
+			}
+
+			return result.data;
 		},
 	});
 

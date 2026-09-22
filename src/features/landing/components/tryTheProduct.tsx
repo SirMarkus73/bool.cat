@@ -13,7 +13,7 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from "#/components/ui/field";
 import { Input } from "#/components/ui/input";
 import { useAppForm } from "#/features/appForm/hooks/useAppForm";
 import { createShortUrl } from "#/features/url/server/createShortUrl";
-import { UNAUTHENTICATED_SHORT_URL_EXPIRATION_HOURS } from "#/lib/constants";
+import { SIMPLE_SHORT_URL_EXPIRATION_HOURS } from "#/lib/constants";
 import { m } from "#/paraglide/messages";
 
 const formValidator = z.object({
@@ -67,7 +67,7 @@ export function TryTheProduct() {
 					<CardTitle>{m["shortener.guest.shorten_first_link"]()}</CardTitle>
 					<CardDescription>
 						{m["shortener.guest.description"]({
-							expirationHours: UNAUTHENTICATED_SHORT_URL_EXPIRATION_HOURS,
+							expirationHours: SIMPLE_SHORT_URL_EXPIRATION_HOURS,
 						})}
 					</CardDescription>
 				</CardHeader>

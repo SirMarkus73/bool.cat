@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useRouter } from "@tanstack/react-router";
 import {
 	BadgeCheckIcon,
 	ChevronDownIcon,
@@ -30,6 +30,7 @@ import { getLocale, isLocale, locales, setLocale } from "#/paraglide/runtime";
 
 function UserDropdown() {
 	const navigate = useNavigate();
+	const router = useRouter();
 
 	const { data: session, isPending } = authClient.useSession();
 	const userName =
@@ -72,9 +73,10 @@ function UserDropdown() {
 						</DropdownMenuGroup>
 						<DropdownMenuSeparator />
 						<DropdownMenuItem
-							onClick={() => {
-								authClient.signOut();
-								navigate({ to: "/" });
+							onClick={async () => {
+								await authClient.signOut();
+								await router.invalidate();
+								await navigate({ to: "/" });
 							}}
 						>
 							<LogOutIcon />

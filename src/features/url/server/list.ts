@@ -1,17 +1,23 @@
 import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { db } from "#/db";
-import { ensureAuthenticated } from "#/features/auth/server/middleware";
+import type { shortUrl } from "#/db/schema";
+import { withAuthContext } from "#/features/auth/server/middleware";
+import type { ApiResponse } from "#/interfaces/api";
 
 const validationSchema = z.object({
 	q: z.string().optional(),
 });
 
+type UrlList = (typeof shortUrl.$inferSelect)[];
+
 export const listUrls = createServerFn({ method: "GET" })
-	.middleware([ensureAuthenticated])
+	.middleware([withAuthContext])
 	.validator(validationSchema)
-	.handler(async ({ context, data }) => {
-		const { user } = context;
+	.handler(async ({ context, data }): Promise<ApiResponse<UrlList>> => {
+		if (!context.auth.success) return context.auth;
+
+		const { user } = context.auth.data;
 		const { q } = data;
 
 		const ilikeQuery = (q?.trim().length ?? 0) === 0 ? undefined : `%${q}%`;
@@ -42,5 +48,8 @@ export const listUrls = createServerFn({ method: "GET" })
 			},
 		});
 
-		return urls;
+		return {
+			success: true,
+			data: urls,
+		};
 	});

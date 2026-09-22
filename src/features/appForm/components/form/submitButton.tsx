@@ -4,9 +4,9 @@ import { useFormContext } from "#/features/appForm/hooks/useAppForm";
 
 type Props = {
 	label: string;
-};
+} & Omit<React.ComponentProps<typeof Button>, "type" | "form">;
 
-export function SubmitButton({ label }: Props) {
+export function SubmitButton({ label, disabled, ...props }: Props) {
 	const form = useFormContext();
 
 	return (
@@ -19,9 +19,10 @@ export function SubmitButton({ label }: Props) {
 		>
 			{({ isSubmitting, isValid, isValidating }) => (
 				<Button
+					{...props}
 					type="submit"
 					form={form.formId}
-					disabled={isSubmitting || !isValid || isValidating}
+					disabled={disabled || isSubmitting || !isValid || isValidating}
 				>
 					{isSubmitting}
 					{isValid}

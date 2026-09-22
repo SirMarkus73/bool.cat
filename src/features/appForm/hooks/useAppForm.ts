@@ -1,7 +1,7 @@
 import { createFormHook, createFormHookContexts } from "@tanstack/react-form";
-import { FormRootError } from "#/features/appForm/components/formRootError";
-import { InputField } from "#/features/appForm/components/inputField";
-import { SubmitButton } from "#/features/appForm/components/submitButton";
+import { InputField } from "#/features/appForm/components/fields/inputField";
+import { FormRootError } from "#/features/appForm/components/form/formRootError";
+import { SubmitButton } from "#/features/appForm/components/form/submitButton";
 
 // export useFieldContext for use in your custom components
 const { fieldContext, formContext, useFieldContext, useFormContext } =

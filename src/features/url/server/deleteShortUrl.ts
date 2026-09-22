@@ -3,7 +3,7 @@ import { and, eq } from "drizzle-orm";
 import { z } from "zod";
 import { db } from "#/db";
 import { shortUrl } from "#/db/schema";
-import { ensureAuthenticated } from "#/features/auth/server/middleware";
+import { withAuthContext } from "#/features/auth/server/middleware";
 import type { ApiResponse } from "#/interfaces/api";
 import { isDatabaseError } from "#/lib/isDatabaseError";
 
@@ -15,10 +15,12 @@ export const deleteShortUrl = createServerFn({
 	method: "POST",
 })
 
-	.middleware([ensureAuthenticated])
+	.middleware([withAuthContext])
 	.validator(deleteShortUrlSchema)
 	.handler(async ({ context, data }): Promise<ApiResponse<null>> => {
-		const { user } = context;
+		if (!context.auth.success) return context.auth;
+
+		const { user } = context.auth.data;
 		const { slug } = data;
 
 		try {
