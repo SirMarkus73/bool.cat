@@ -1,3 +1,12 @@
 allowBuilds:
   esbuild: true
   lightningcss: true
+supportedArchitectures:
+  os:
+    - current
+    - linux
+  cpu:
+    - current
+    - x64
+  libc:
+    - glibc
