@@ -5,6 +5,7 @@ import {
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { Footer } from "#/features/layout/components/footer";
 import { Header } from "#/features/layout/components/header";
 import { getLocale } from "#/paraglide/runtime";
 import type { getContext } from "#/router";
@@ -43,9 +44,10 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 				<HeadContent />
 			</head>
 			<body>
-				<div className="grid grid-rows-[auto_1fr] min-h-dvh">
+				<div className="grid grid-rows-[auto_1fr_auto] min-h-dvh">
 					<Header />
 					{children}
+					<Footer />
 				</div>
 				<TanStackDevtools
 					config={{

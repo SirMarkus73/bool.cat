@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { getSession } from "#/features/auth/server/session";
+import { CtaSection } from "#/features/landing/components/ctaSection";
+import { FeaturesSection } from "#/features/landing/components/featuresSection";
 import { HeroSection } from "#/features/landing/components/heroSection";
+import { HowItWorksSection } from "#/features/landing/components/howItWorksSection";
 import { PreviewShortUrlDialog } from "#/features/shortener/components/previewShortUrlDialog";
-import { UrlShortener } from "#/features/shortener/components/urlShortener";
 
 const searchParamSchema = z.object({
 	preview: z.string().optional(),
@@ -28,16 +30,18 @@ function Home() {
 
 	return (
 		<main>
-			<section>
-				<UrlShortener
-					isSignedIn={isSignedIn}
-					onSuccess={(slug) =>
-						navigate({ search: (old) => ({ ...old, preview: slug }) })
-					}
-				/>
-			</section>
+			<HeroSection
+				isSignedIn={isSignedIn}
+				onSuccess={(slug) =>
+					navigate({ search: (old) => ({ ...old, preview: slug }) })
+				}
+			/>
 
-			<HeroSection />
+			<FeaturesSection />
+
+			<HowItWorksSection />
+
+			<CtaSection />
 
 			<PreviewShortUrlDialog
 				slug={preview}

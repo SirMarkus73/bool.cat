@@ -56,16 +56,16 @@ export function ShortUrlListItem({ shortUrl }: Props) {
 	return (
 		<Item
 			id={shortUrl.slug}
-			className={`relative ${isPending ? "opacity-50 animate-pulse" : ""} `}
+			className={`relative @container ${isPending ? "opacity-50 animate-pulse" : ""} `}
 		>
 			<ItemContent>
-				<ItemTitle>
-					{getShortUrl(shortUrl.slug)}
-
+				<ItemTitle className="flex gap-2 flex-col @lg:flex-row @lg:items-center @lg:justify-between">
 					{isExpired ? (
-						<Badge variant="destructive">{m.expired()}</Badge>
+						<Badge className="self-start @lg:order-2" variant="destructive">
+							{m.expired()}
+						</Badge>
 					) : (
-						<Badge>
+						<Badge className="self-start @lg:order-2" variant="secondary">
 							{m.expiration()}{" "}
 							{formatDistanceToNow(shortUrl.expirationDate, {
 								addSuffix: true,
@@ -73,6 +73,7 @@ export function ShortUrlListItem({ shortUrl }: Props) {
 							})}
 						</Badge>
 					)}
+					{getShortUrl(shortUrl.slug)}
 				</ItemTitle>
 				<ItemDescription>
 					<a

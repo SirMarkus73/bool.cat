@@ -35,7 +35,7 @@ export default function VerificationEmail({
 						<Section>
 							<Row>
 								<Column>
-									<Heading className="text-3xl">
+									<Heading className="text-3xl" as="h2">
 										{m["email_verification.email.greeting"]({ username })}
 									</Heading>
 								</Column>

@@ -50,13 +50,17 @@ export function ShortUrlList({ className }: Props) {
 
 	if (isLoading) {
 		return (
-			<Skeleton className={cn("rounded-md border border-border", className)} />
+			<Skeleton
+				className={cn("rounded-xl border border-border bg-card", className)}
+			/>
 		);
 	}
 
 	if (isError) {
 		return (
-			<div className={cn("rounded-md border border-border p-4", className)}>
+			<div
+				className={cn("rounded-xl border border-border bg-card p-4", className)}
+			>
 				<p className="text-sm text-destructive">
 					{m["dashboard.fetch_links_error"]()}
 				</p>
@@ -66,7 +70,9 @@ export function ShortUrlList({ className }: Props) {
 
 	if (!urls || urls.length === 0) {
 		return (
-			<div className={cn("rounded-md border border-border", className)}>
+			<div
+				className={cn("rounded-xl border border-border bg-card p-3", className)}
+			>
 				<InputGroup>
 					<InputGroupInput
 						placeholder="Search..."
@@ -90,7 +96,7 @@ export function ShortUrlList({ className }: Props) {
 	return (
 		<div
 			className={cn(
-				"rounded-md border border-border flex flex-col gap-2",
+				"rounded-xl border border-border bg-card flex flex-col gap-3 p-3",
 				className,
 			)}
 		>

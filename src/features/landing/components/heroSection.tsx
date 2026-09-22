@@ -1,39 +1,33 @@
-import { MoveDown } from "lucide-react";
-import catImage from "#/assets/code_cat.png";
-import { Button } from "#/components/ui/button";
-import { Card, CardContent } from "#/components/ui/card";
+import { UrlShortener } from "#/features/shortener/components/urlShortener";
 import { m } from "#/paraglide/messages";
-export function HeroSection() {
+
+type HeroSectionProps = {
+	isSignedIn?: boolean;
+	onSuccess?: (slug: string) => void;
+};
+
+export function HeroSection({ isSignedIn, onSuccess }: HeroSectionProps) {
 	return (
-		<div className="flex flex-col md:flex-row justify-between items-center *:flex-1 py-32 px-6 gap-4 bg-linear-to-br from-background via-primary/20 to-primary/80">
-			<div className="flex flex-col gap-4 justify-center">
-				<h1 className="text-6xl font-bold text-balance">
+		<div className="relative flex flex-col items-center gap-10 overflow-hidden px-6 py-24 text-center lg:py-32">
+			<div
+				aria-hidden
+				className="absolute top-16 size-136 rounded-full bg-primary/20 blur-3xl"
+			/>
+
+			<div className="relative flex flex-col items-center gap-4">
+				<h1 className="text-5xl font-bold leading-[0.95] tracking-tight text-balance lg:text-7xl">
 					{m["landing.short_links"]()}
 					<br />
 					{m["landing.true_simplicity"]()}
 				</h1>
-				<p className="mt-4 text-lg text-gray-500 text-pretty">
+				<p className="max-w-lg text-lg text-muted-foreground text-pretty">
 					{m["landing.app_description"]({ app_name: "bool.cat" })}
 				</p>
-				<Button type="button">Crear enlace corto</Button>
 			</div>
-			<Card className="relative overflow-visible">
-				<img
-					src={catImage}
-					alt="code cat"
-					className="absolute -top-2 size-96 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 select-none"
-				/>
-				<CardContent className="flex flex-col gap-4 p-4 text-start z-20 bg-card">
-					<code className="outline outline-primary rounded p-2">
-						www.dummy.cat/tu/enlace/largo
-					</code>
 
-					<MoveDown />
-					<code className="outline outline-primary rounded p-2">
-						bool.cat/AFRGYT
-					</code>
-				</CardContent>
-			</Card>
+			<div className="relative w-full max-w-xl text-left">
+				<UrlShortener isSignedIn={isSignedIn} onSuccess={onSuccess} />
+			</div>
 		</div>
 	);
 }

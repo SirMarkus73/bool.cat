@@ -10,22 +10,26 @@ import { Field, FieldLabel } from "#/components/ui/field";
 import { Switch } from "#/components/ui/switch";
 import { CustomModeForm } from "#/features/shortener/components/customMode/customModeForm";
 import { SimpleModeForm } from "#/features/shortener/components/simpleMode/simpleModeForm";
+import { cn } from "#/lib/utils";
+import { m } from "#/paraglide/messages";
 
 type UrlShortenerProps = {
 	isSignedIn?: boolean;
 	onSuccess?: (slug: string) => void;
+	className?: string;
 };
 
 export function UrlShortener({
 	isSignedIn = false,
 	onSuccess,
+	className,
 }: UrlShortenerProps) {
 	const [isChecked, setIsChecked] = useState(isSignedIn);
 
 	return (
-		<Card className="mx-8 my-4">
+		<Card className={cn("mx-8 my-4", className)}>
 			<CardHeader>
-				<CardTitle>Shorten your URL</CardTitle>
+				<CardTitle>{m["shortener.title"]()}</CardTitle>
 				<CardAction>
 					<Field orientation="horizontal" className="flex justify-end">
 						<Switch

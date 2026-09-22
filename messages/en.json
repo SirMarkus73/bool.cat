@@ -3,12 +3,48 @@
 	"landing": {
 		"short_links": "Short links",
 		"true_simplicity": "True simplicity",
-		"app_description": "{#strong}bool.cat{/strong} is a simple and fast URL shortener that allows you to create short links in seconds. With our intuitive interface, you can easily shorten your URLs and share them with others."
+		"app_description": "{#strong}bool.cat{/strong} is a simple and fast URL shortener that allows you to create short links in seconds. With our intuitive interface, you can easily shorten your URLs and share them with others.",
+		"features": {
+			"eyebrow": "Why bool.cat",
+			"title": "Everything you need, nothing you don't",
+			"subtitle": "A link shortener built to get out of your way.",
+			"fast_title": "Fast & simple",
+			"fast_description": "Shorten any URL in seconds, no account required.",
+			"custom_title": "Custom aliases",
+			"custom_description": "Pick your own memorable slug instead of a random string.",
+			"analytics_title": "Click analytics",
+			"analytics_description": "See how many times each link was clicked from your dashboard.",
+			"expiration_title": "Expiration control",
+			"expiration_description": "Guest links expire automatically. Signed-in links last as long as you want."
+		},
+		"how_it_works": {
+			"title": "How it works",
+			"subtitle": "Three steps, no friction.",
+			"step_1_title": "Paste your URL",
+			"step_1_description": "Drop in any long link you want to share.",
+			"step_2_title": "Get your short link",
+			"step_2_description": "We generate a clean, short link instantly.",
+			"step_3_title": "Share & track",
+			"step_3_description": "Share it anywhere and watch the clicks roll in."
+		},
+		"cta": {
+			"title": "Ready to simplify your links?",
+			"description": "Create a free account to unlock custom aliases, analytics, and links that never expire.",
+			"button": "Create a free account"
+		}
 	},
 	"settings": {
 		"lang": "Language"
 	},
+	"layout": {
+		"footer": {
+			"tagline": "Short links, true simplicity.",
+			"source_code": "Source code",
+			"rights": "All rights reserved."
+		}
+	},
 	"shortener": {
+		"title": "Link Shortener",
 		"shorten_url": "Shorten URL",
 		"create_short": "Create a short link",
 		"target_url": "Target URL",
@@ -67,6 +103,8 @@
 		"title": "Dashboard",
 		"links": "Your links",
 		"create_link": "Create Link",
+		"total_links": "Total links",
+		"active_links": "Active links",
 		"no_links": "You don't have any links yet. Create your first link now!",
 		"link": "Link",
 		"short_link": "Short Link",

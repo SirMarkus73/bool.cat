@@ -3,12 +3,48 @@
 	"landing": {
 		"short_links": "Enllaços curts",
 		"true_simplicity": "Simplicitat veritable",
-		"app_description": "{#strong}bool.cat{/strong} és un escorçador d'enllaços que et permet crear URLs curtes i fàcils de recordar. Amb la nostra plataforma, pots compartir els teus enllaços de manera ràpida i senzilla, sense complicacions ni distraccions."
+		"app_description": "{#strong}bool.cat{/strong} és un escorçador d'enllaços que et permet crear URLs curtes i fàcils de recordar. Amb la nostra plataforma, pots compartir els teus enllaços de manera ràpida i senzilla, sense complicacions ni distraccions.",
+		"features": {
+			"eyebrow": "Per què bool.cat",
+			"title": "Tot el que necessites, res del que no",
+			"subtitle": "Un escurçador d'enllaços dissenyat per no complicar-te la vida.",
+			"fast_title": "Ràpid i senzill",
+			"fast_description": "Escurça qualsevol URL en segons, sense necessitat de compte.",
+			"custom_title": "Àlies personalitzats",
+			"custom_description": "Tria el teu propi àlies fàcil de recordar en lloc d'una cadena aleatòria.",
+			"analytics_title": "Estadístiques de clics",
+			"analytics_description": "Consulta quantes vegades s'ha fet clic a cada enllaç des del teu tauler.",
+			"expiration_title": "Control d'expiració",
+			"expiration_description": "Els enllaços de convidat expiren automàticament. Els enllaços amb sessió iniciada duren tant com vulguis."
+		},
+		"how_it_works": {
+			"title": "Com funciona",
+			"subtitle": "Tres passos, sense complicacions.",
+			"step_1_title": "Enganxa la teva URL",
+			"step_1_description": "Introdueix qualsevol enllaç llarg que vulguis compartir.",
+			"step_2_title": "Obtén el teu enllaç curt",
+			"step_2_description": "Generem un enllaç curt i net a l'instant.",
+			"step_3_title": "Comparteix i monitoritza",
+			"step_3_description": "Comparteix-lo on vulguis i observa com arriben els clics."
+		},
+		"cta": {
+			"title": "Preparat per simplificar els teus enllaços?",
+			"description": "Crea un compte gratuït per desbloquejar àlies personalitzats, estadístiques i enllaços que mai expiren.",
+			"button": "Crear compte gratuït"
+		}
 	},
 	"settings": {
 		"lang": "Idioma"
 	},
+	"layout": {
+		"footer": {
+			"tagline": "Enllaços curts, simplicitat autèntica.",
+			"source_code": "Codi font",
+			"rights": "Tots els drets reservats."
+		}
+	},
 	"shortener": {
+		"title": "Escurçador d'enllaços",
 		"shorten_url": "Escurçar URL",
 		"create_short": "Crear un enllaç curt",
 		"target_url": "URL de destinació",
@@ -67,6 +103,8 @@
 		"title": "Tauler de control",
 		"links": "Els teus enllaços",
 		"create_link": "Crear enllaç",
+		"total_links": "Enllaços totals",
+		"active_links": "Enllaços actius",
 		"no_links": "No tens enllaços encara. Crea el teu primer enllaç ara!",
 		"link": "Enllaç",
 		"short_link": "Enllaç curt",

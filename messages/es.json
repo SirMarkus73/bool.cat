@@ -3,12 +3,48 @@
 	"landing": {
 		"short_links": "Enlaces cortos",
 		"true_simplicity": "Simplicidad verdadera",
-		"app_description": "{#strong}bool.cat{/strong} es un acortador de enlaces que te permite crear URLs cortas y fáciles de recordar. Con nuestra plataforma, puedes compartir tus enlaces de manera rápida y sencilla, sin complicaciones ni distracciones."
+		"app_description": "{#strong}bool.cat{/strong} es un acortador de enlaces que te permite crear URLs cortas y fáciles de recordar. Con nuestra plataforma, puedes compartir tus enlaces de manera rápida y sencilla, sin complicaciones ni distracciones.",
+		"features": {
+			"eyebrow": "Por qué bool.cat",
+			"title": "Todo lo que necesitas, nada de lo que no",
+			"subtitle": "Un acortador de enlaces diseñado para no complicarte la vida.",
+			"fast_title": "Rápido y sencillo",
+			"fast_description": "Acorta cualquier URL en segundos, sin necesidad de cuenta.",
+			"custom_title": "Alias personalizados",
+			"custom_description": "Elige tu propio alias fácil de recordar en lugar de una cadena aleatoria.",
+			"analytics_title": "Estadísticas de clics",
+			"analytics_description": "Consulta cuántas veces se ha hecho clic en cada enlace desde tu panel.",
+			"expiration_title": "Control de expiración",
+			"expiration_description": "Los enlaces de invitado expiran automáticamente. Los enlaces con sesión iniciada duran tanto como quieras."
+		},
+		"how_it_works": {
+			"title": "Cómo funciona",
+			"subtitle": "Tres pasos, sin complicaciones.",
+			"step_1_title": "Pega tu URL",
+			"step_1_description": "Introduce cualquier enlace largo que quieras compartir.",
+			"step_2_title": "Obtén tu enlace corto",
+			"step_2_description": "Generamos un enlace corto y limpio al instante.",
+			"step_3_title": "Comparte y monitoriza",
+			"step_3_description": "Compártelo donde quieras y observa cómo llegan los clics."
+		},
+		"cta": {
+			"title": "¿Listo para simplificar tus enlaces?",
+			"description": "Crea una cuenta gratuita para desbloquear alias personalizados, estadísticas y enlaces que nunca expiran.",
+			"button": "Crear cuenta gratuita"
+		}
 	},
 	"settings": {
 		"lang": "Idioma"
 	},
+	"layout": {
+		"footer": {
+			"tagline": "Enlaces cortos, simplicidad verdadera.",
+			"source_code": "Código fuente",
+			"rights": "Todos los derechos reservados."
+		}
+	},
 	"shortener": {
+		"title": "Acortador de enlaces",
 		"shorten_url": "Acortar URL",
 		"create_short": "Crear un enlace corto",
 		"target_url": "URL de destino",
@@ -67,6 +103,8 @@
 		"title": "Panel de control",
 		"links": "Tus enlaces",
 		"create_link": "Crear Enlace",
+		"total_links": "Enlaces totales",
+		"active_links": "Enlaces activos",
 		"no_links": "No tienes ningún enlace aún. ¡Crea tu primer enlace ahora!",
 		"link": "Enlace",
 		"short_link": "Enlace Corto",
