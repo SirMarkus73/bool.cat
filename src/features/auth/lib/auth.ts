@@ -6,7 +6,6 @@ import * as schema from "#/db/schema/auth";
 import VerificationEmail from "#/features/emails/components/auth/verificationEmail";
 import { sendEmail } from "#/features/emails/lib/sendEmail";
 import { m } from "#/paraglide/messages";
-import { getLocale } from "#/paraglide/runtime";
 
 function getTrustedOrigins() {
 	if (process.env.NODE_ENV === "production") {
@@ -30,12 +29,7 @@ export const auth = betterAuth({
 		autoSignInAfterVerification: true,
 		sendOnSignIn: false,
 		sendOnSignUp: false,
-		sendVerificationEmail: async ({ url, user }, request) => {
-			console.log("Locale from paraglide", getLocale());
-
-			const lang = request?.headers.get("Accept-Language");
-			console.log("Locale from request header", lang);
-
+		sendVerificationEmail: async ({ url, user }) => {
 			sendEmail({
 				to: user.email,
 				subject: m["email_verification.email.subject"](),

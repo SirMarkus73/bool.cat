@@ -1,6 +1,6 @@
 import { formOptions } from "@tanstack/react-form";
 import { z } from "zod";
-import { createSimpleShortUrl } from "../../server/createSimpleShortUrl";
+import { createSimpleShortUrl } from "../../serverFn/createSimpleShortUrl";
 
 const formSchema = z.object({
 	targetUrl: z.url().min(1, { error: "Please enter a valid URL." }),

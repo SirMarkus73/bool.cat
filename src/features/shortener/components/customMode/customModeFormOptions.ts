@@ -2,7 +2,7 @@ import { formOptions } from "@tanstack/react-form";
 import { nanoid } from "nanoid";
 import { z } from "zod";
 import { slugify } from "#/features/shortener/lib/slugify";
-import { createCustomShortUrl } from "#/features/shortener/server/createCustomShortUrl";
+import { createCustomShortUrl } from "#/features/shortener/serverFn/createCustomShortUrl";
 
 const formSchema = z.object({
 	targetUrl: z.url(),

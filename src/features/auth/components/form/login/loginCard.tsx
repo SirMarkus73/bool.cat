@@ -36,7 +36,6 @@ export function LoginCard({ className }: Props) {
 			}
 
 			if (res.error) {
-				console.log(res.error.code);
 				switch (res.error.code) {
 					case "INVALID_EMAIL_OR_PASSWORD": {
 						formApi.setErrorMap({

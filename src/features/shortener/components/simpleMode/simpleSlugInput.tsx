@@ -12,7 +12,7 @@ import {
 import { Skeleton } from "#/components/ui/skeleton";
 import { Spinner } from "#/components/ui/spinner";
 import { withForm } from "#/features/appForm/hooks/useAppForm";
-import { getRandomSlugToken } from "#/features/shortener/server/getRandomSlugToken";
+import { getRandomSlugToken } from "#/features/shortener/serverFn/getRandomSlugToken";
 import { simpleModeFormOptions } from "./simpleModeFormOptions";
 
 export const SimpleSlugInput = withForm({
