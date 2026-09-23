@@ -24,10 +24,14 @@ export async function sendEmail<C extends React.ElementType>({
 	subject,
 	params,
 }: SendEmailParams<C>) {
-	await transporter.sendMail({
-		from: process.env.SMTP_USER,
-		to,
-		subject,
-		html: await render(<Component {...params} />),
-	});
+	try {
+		await transporter.sendMail({
+			from: process.env.SMTP_USER,
+			to,
+			subject,
+			html: await render(<Component {...params} />),
+		});
+	} catch (error) {
+		console.error("Error sending email:", error);
+	}
 }
