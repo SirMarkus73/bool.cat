@@ -34,7 +34,11 @@
 		}
 	},
 	"settings": {
-		"lang": "Idioma"
+		"lang": "Idioma",
+		"theme": "Tema",
+		"theme_light": "Claro",
+		"theme_dark": "Oscuro",
+		"theme_system": "Sistema"
 	},
 	"layout": {
 		"footer": {
@@ -60,7 +64,6 @@
 		"copy": "Copiar",
 		"copied": "¡Copiado!",
 		"copy_error": "Error al copiar al portapapeles. Por favor, inténtalo de nuevo.",
-
 		"preview_dialog": {
 			"title": "Tu enlace corto está listo",
 			"description": "Cópialo, ábrelo o escanea el código QR con tu móvil."
@@ -131,7 +134,6 @@
 		"no_links_found": "No se encontraron enlaces para tu búsqueda.",
 		"delete_expired_links": "Eliminar enlaces expirados"
 	},
-
 	"timestamps": {
 		"created_at": "Created at",
 		"updated_at": "Updated at"

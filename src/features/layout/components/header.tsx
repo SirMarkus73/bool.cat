@@ -27,6 +27,7 @@ import {
 } from "#/components/ui/select";
 import { Skeleton } from "#/components/ui/skeleton";
 import { authClient } from "#/features/auth/lib/auth-client";
+import { ThemeSwitcher } from "#/features/theme/components/themeSwitcher";
 import { m } from "#/paraglide/messages";
 import { getLocale, isLocale, locales, setLocale } from "#/paraglide/runtime";
 
@@ -99,23 +100,20 @@ function HeaderLogo() {
 	return (
 		<div className="flex items-center gap-2">
 			<Link to="/app" className="text-2xl font-bold">
-				<picture>
-					<source
-						srcSet={LogoHorizontalDarkMode}
-						media="(prefers-color-scheme: dark)"
-					/>
-					<source
-						srcSet={LogoHorizontal}
-						media="(prefers-color-scheme: light)"
-					/>
-					<img
-						src={LogoHorizontal}
-						alt="bool.cat"
-						className="h-10 w-auto"
-						width={120}
-						height={32}
-					/>
-				</picture>{" "}
+				<img
+					src={LogoHorizontal}
+					alt="bool.cat"
+					className="h-10 w-auto dark:hidden"
+					width={120}
+					height={32}
+				/>
+				<img
+					src={LogoHorizontalDarkMode}
+					alt="bool.cat"
+					className="hidden h-10 w-auto dark:block"
+					width={120}
+					height={32}
+				/>
 			</Link>
 		</div>
 	);
@@ -171,6 +169,7 @@ export function Header() {
 		<header className="flex flex-col lg:flex-row items-center justify-between p-4 bg-accent/85 backdrop-blur-lg text-accent-foreground sticky top-0 left-0 right-0 z-50 ">
 			<HeaderLogo />
 			<div className="flex gap-1 items-center">
+				<ThemeSwitcher />
 				<LocaleSwitcher />
 				<UserDropdown />
 			</div>

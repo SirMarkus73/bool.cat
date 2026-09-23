@@ -34,7 +34,11 @@
 		}
 	},
 	"settings": {
-		"lang": "Idioma"
+		"lang": "Idioma",
+		"theme": "Tema",
+		"theme_light": "Clar",
+		"theme_dark": "Fosc",
+		"theme_system": "Sistema"
 	},
 	"layout": {
 		"footer": {
@@ -60,7 +64,6 @@
 		"copy": "Copiar",
 		"copied": "¡Copiat!",
 		"copy_error": "Error al copiar al portapapers. Si us plau, intenta-ho de nou.",
-
 		"preview_dialog": {
 			"title": "El teu enllaç curt és a punt",
 			"description": "Copia'l, obre'l o escaneja el codi QR amb el mòbil."
