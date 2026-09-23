@@ -6,7 +6,7 @@ import { DashboardHeader } from "#/features/dashboard/components/dashboardHeader
 import { DashboardStats } from "#/features/dashboard/components/dashboardStats";
 import { ShortUrlList } from "#/features/dashboard/components/shortUrlList";
 import { listUrlsQuery } from "#/features/dashboard/query/list";
-import { PreviewShortUrlDialog } from "#/features/shortener/components/previewShortUrlDialog";
+import { PreviewShortUrlDialog } from "#/features/shortener/components/preview/previewShortUrlDialog";
 import { m } from "#/paraglide/messages";
 
 const searchParamSchema = z.object({
