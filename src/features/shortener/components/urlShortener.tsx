@@ -1,3 +1,4 @@
+import { Tooltip as BaseToolTip } from "@base-ui/react";
 import { Activity, useState } from "react";
 import {
 	Card,
@@ -24,6 +25,8 @@ type UrlShortenerProps = {
 	className?: string;
 };
 
+const handle = BaseToolTip.createHandle();
+
 export function UrlShortener({
 	isSignedIn = false,
 	onSuccess,
@@ -39,32 +42,41 @@ export function UrlShortener({
 					<Field orientation="horizontal" className="flex justify-end">
 						{isSignedIn ? (
 							<Switch
+								id="custom-mode-switch"
 								defaultChecked
 								disabled={false}
 								checked={isChecked}
 								onCheckedChange={setIsChecked}
 							/>
 						) : (
-							<Tooltip>
+							<Tooltip handle={handle}>
 								<TooltipTrigger
+									id="custom-mode-switch"
+									handle={handle}
 									render={
-										<span>
+										<button
+											type="button"
+											onClick={() => handle.open("custom-mode-switch")}
+										>
 											<Switch
 												defaultChecked={false}
 												disabled
 												checked={false}
 												onCheckedChange={setIsChecked}
 											/>
-										</span>
+										</button>
 									}
 								/>
+
 								<TooltipContent>
 									{m["shortener.custom_mode_signin_hint"]()}
 								</TooltipContent>
 							</Tooltip>
 						)}
 
-						<FieldLabel>{m["shortener.custom_mode"]()}</FieldLabel>
+						<FieldLabel htmlFor="custom-mode-switch">
+							{m["shortener.custom_mode"]()}
+						</FieldLabel>
 					</Field>
 				</CardAction>
 			</CardHeader>
