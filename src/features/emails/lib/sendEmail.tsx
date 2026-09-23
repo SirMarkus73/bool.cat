@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { render } from "react-email";
+import { serverEnv } from "#/lib/env/server";
 
 type SendEmailParams<C extends React.ElementType> = {
 	to: string;
@@ -9,12 +10,12 @@ type SendEmailParams<C extends React.ElementType> = {
 };
 
 const transporter = nodemailer.createTransport({
-	host: process.env.SMTP_HOST,
-	port: process.env.SMTP_PORT,
+	host: serverEnv.SMTP_HOST,
+	port: serverEnv.SMTP_PORT,
 	secure: false, // use STARTTLS (upgrade connection to TLS after connecting)
 	auth: {
-		user: process.env.SMTP_USER,
-		pass: process.env.SMTP_PASSWORD,
+		user: serverEnv.SMTP_USER,
+		pass: serverEnv.SMTP_PASSWORD,
 	},
 });
 
@@ -26,12 +27,13 @@ export async function sendEmail<C extends React.ElementType>({
 }: SendEmailParams<C>) {
 	try {
 		await transporter.sendMail({
-			from: process.env.SMTP_USER,
+			from: `"Marcos" <${serverEnv.SMTP_USER}>`,
 			to,
 			subject,
 			html: await render(<Component {...params} />),
 		});
 	} catch (error) {
 		console.error("Error sending email:", error);
+		throw error;
 	}
 }
