@@ -1,3 +1,9 @@
+## [1.1.0](https://github.com/SirMarkus73/bool.cat/compare/v1.0.0...v1.1.0) (2026-09-23)
+
+### Features
+
+* **shortener:** añadir código QR al diálogo de vista previa del enlace ([22b81fc](https://github.com/SirMarkus73/bool.cat/commit/22b81fc1ace9ebf8be62ad02dee9a0f5e1a4e7f2)), closes [#25](https://github.com/SirMarkus73/bool.cat/issues/25)
+
 ## 1.0.0 (2026-09-23)
 
 ### Features
