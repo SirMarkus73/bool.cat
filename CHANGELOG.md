@@ -1,3 +1,9 @@
+## [1.2.0](https://github.com/SirMarkus73/bool.cat/compare/v1.1.0...v1.2.0) (2026-09-23)
+
+### Features
+
+* **shortener:** añadir tooltip al modo personalizado sin sesión y traducir la etiqueta ([88919bb](https://github.com/SirMarkus73/bool.cat/commit/88919bb579eb70f98d65ba96686203b70161a2f8))
+
 ## [1.1.0](https://github.com/SirMarkus73/bool.cat/compare/v1.0.0...v1.1.0) (2026-09-23)
 
 ### Features
