@@ -5,6 +5,8 @@ import {
 	ListIcon,
 	LogOutIcon,
 } from "lucide-react";
+import LogoHorizontal from "#/assets/logo/boolcat-logo-horizontal-color.svg";
+import LogoHorizontalDarkMode from "#/assets/logo/boolcat-logo-horizontal-reversed.svg";
 import { Avatar, AvatarFallback, AvatarImage } from "#/components/ui/avatar";
 import { Button, buttonVariants } from "#/components/ui/button";
 import {
@@ -97,7 +99,23 @@ function HeaderLogo() {
 	return (
 		<div className="flex items-center gap-2">
 			<Link to="/app" className="text-2xl font-bold">
-				bool.cat
+				<picture>
+					<source
+						srcSet={LogoHorizontalDarkMode}
+						media="(prefers-color-scheme: dark)"
+					/>
+					<source
+						srcSet={LogoHorizontal}
+						media="(prefers-color-scheme: light)"
+					/>
+					<img
+						src={LogoHorizontal}
+						alt="bool.cat"
+						className="h-10 w-auto"
+						width={120}
+						height={32}
+					/>
+				</picture>{" "}
 			</Link>
 		</div>
 	);

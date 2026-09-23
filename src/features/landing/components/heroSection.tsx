@@ -1,3 +1,4 @@
+import logoIcon from "#/assets/logo/boolcat-icon-color.svg";
 import { UrlShortener } from "#/features/shortener/components/urlShortener";
 import { m } from "#/paraglide/messages";
 
@@ -15,6 +16,7 @@ export function HeroSection({ isSignedIn, onSuccess }: HeroSectionProps) {
 			/>
 
 			<div className="relative flex flex-col items-center gap-4">
+				<img src={logoIcon} alt="" className="size-14 lg:size-16" />
 				<h1 className="text-5xl font-bold leading-[0.95] tracking-tight text-balance lg:text-7xl">
 					{m["landing.short_links"]()}
 					<br />

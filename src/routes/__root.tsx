@@ -24,13 +24,57 @@ export const Route = createRootRouteWithContext<
 				content: "width=device-width, initial-scale=1",
 			},
 			{
-				title: "TanStack Start Starter",
+				title: "bool.cat - A simple URL shortener",
+			},
+			{
+				name: "og:title",
+				content: "bool.cat - A simple URL shortener",
+			},
+			{
+				name: "twitter:title",
+				content: "bool.cat - A simple URL shortener",
+			},
+			{
+				name: "twitter:description",
+				content:
+					"bool.cat is a simple URL shortener that helps you create shorter links for your web content.",
+			},
+			{
+				name: "description",
+				content:
+					"bool.cat is a simple URL shortener that helps you create shorter links for your web content.",
+			},
+			{
+				name: "og:description",
+				content:
+					"bool.cat is a simple URL shortener that helps you create shorter links for your web content.",
+			},
+			{
+				name: "og:url",
+				content: "https://bool.cat",
+			},
+			{
+				name: "twitter:url",
+				content: "https://bool.cat",
+			},
+			{
+				name: "og:image",
+				content: "https://bool.cat/landing-preview.png",
+			},
+			{
+				name: "twitter:image",
+				content: "https://bool.cat/landing-preview.png",
 			},
 		],
+
 		links: [
 			{
 				rel: "stylesheet",
 				href: appCss,
+			},
+			{
+				rel: "icon",
+				href: "/favicon.svg",
 			},
 		],
 	}),
