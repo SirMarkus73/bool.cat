@@ -11,3 +11,13 @@ supportedArchitectures:
     - x64
   libc:
     - glibc
+
+# semantic-release plugins still use conventional-changelog-writer@8, which can't
+# render conventionalcommits@9+ (hoisted here by @commitlint/config-conventional)
+packageExtensions:
+  "@semantic-release/commit-analyzer":
+    dependencies:
+      conventional-changelog-conventionalcommits: ^8.0.0
+  "@semantic-release/release-notes-generator":
+    dependencies:
+      conventional-changelog-conventionalcommits: ^8.0.0
