@@ -5,6 +5,7 @@
   "imports": {
     "#/*": "./src/*"
   },
+  "version": "1.0.0",
   "scripts": {
     "dev": "vite dev --port 3000",
     "generate-routes": "tsr generate",
@@ -63,6 +64,8 @@
     "@inlang/cli": "^3.0.0",
     "@inlang/paraglide-js": "^2.23.1",
     "@react-email/ui": "6.9.5",
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/git": "^11.0.1",
     "@tanstack/devtools-vite": "latest",
     "@tanstack/react-router-ssr-query": "latest",
     "@tanstack/router-cli": "^1.132.0",
@@ -74,6 +77,7 @@
     "cz-conventional-changelog": "^3.3.0",
     "drizzle-kit": "1.0.0-rc.4",
     "husky": "^9.1.7",
+    "semantic-release": "^25.0.9",
     "typescript": "^6.0.2",
     "vite": "^8.0.0",
     "vitest": "^5.0.1"
@@ -83,5 +87,47 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/release-notes-generator",
+        {
+          "preset": "conventionalcommits"
+        }
+      ],
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "package.json",
+            "CHANGELOG.md"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]"
+        }
+      ],
+      "@semantic-release/github"
+    ]
   }
 }
