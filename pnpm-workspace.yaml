@@ -1,6 +1,16 @@
 allowBuilds:
   esbuild: true
   lightningcss: true
+  rollup: true
+supportedArchitectures:
+  os:
+    - current
+    - linux
+  cpu:
+    - current
+    - x64
+  libc:
+    - glibc
 
 # semantic-release plugins still use conventional-changelog-writer@8, which can't
 # render conventionalcommits@9+ (hoisted here by @commitlint/config-conventional)
