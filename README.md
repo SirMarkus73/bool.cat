@@ -18,9 +18,8 @@ bool.cat és una aplicació web per crear enllaços curts, gestionar-los des d'u
 - Creació d'enllaços curts des del client.
 - Tauler d'usuari (dashboard) amb el llistat dels enllaços creats.
 - Redirecció des de la URL curta cap a la destinació original (ruta dinàmica de redirecció).
-- Generació de codis QR per als enllaços curts.
 - Persistència en base de dades per a usuaris i enllaços.
-- Enviament de correus (verificació, recuperació de contrasenya, etc.) via SMTP.
+- Enviament de correus de verificació del compte via SMTP.
 - Interfície internacionalitzada (català, castellà i anglès).
 
 ### Estat del projecte
@@ -28,18 +27,26 @@ bool.cat és una aplicació web per crear enllaços curts, gestionar-los des d'u
 #### ✅ Implementades
 
 - [x] Autenticació (registre / inici de sessió, gestió de sessió)
+- [x] Verificació del compte per correu ([#13](https://github.com/SirMarkus73/bool.cat/issues/13))
+- [x] Apartat de compte amb gestió de sessions actives ([#12](https://github.com/SirMarkus73/bool.cat/issues/12))
 - [x] Creació d'enllaços curts des de la interfície
+- [x] Mode d'enllaç simple / personalitzat ([#11](https://github.com/SirMarkus73/bool.cat/issues/11))
 - [x] Emmagatzematge d'enllaços a la base de dades
-- [x] Tauler d'usuari amb llistat d'enllaços (`src/features/shortener`, `src/features/url`)
+- [x] Tauler d'usuari amb llistat, estadístiques i eliminació d'enllaços (`src/features/dashboard`, `src/features/shortener`)
 - [x] Internacionalització (ca / es / en)
 - [x] Enviament de correus transaccionals
 - [x] Expiració d'enllaços
 - [x] Àlies personalitzats
+- [x] Commitlint + Commitizen ([#18](https://github.com/SirMarkus73/bool.cat/issues/18))
 
 #### ⚠️ Pendents / Per implementar
-- [ ] Generació de codis QR
+
+- [ ] Generació de codis QR per als enllaços curts ([#25](https://github.com/SirMarkus73/bool.cat/issues/25))
+- [ ] Estadístiques de clics per enllaç ([#26](https://github.com/SirMarkus73/bool.cat/issues/26))
+- [ ] Editar un enllaç escurçat existent ([#27](https://github.com/SirMarkus73/bool.cat/issues/27))
+- [ ] Enllaços protegits amb contrasenya, xifrats al client amb la Web Crypto API ([#28](https://github.com/SirMarkus73/bool.cat/issues/28))
+- [ ] Hora a la data d'expiració i selector de data en un component propi ([#29](https://github.com/SirMarkus73/bool.cat/issues/29))
 - [ ] Protecció d'enllaços sense registre contra abusos
-- [ ] Protecció amb contrasenya
 
 ### Tecnologies
 
@@ -104,9 +111,8 @@ bool.cat es una aplicación web para crear enlaces cortos, gestionarlos desde un
 - Creación de enlaces cortos desde el cliente.
 - Panel de usuario (dashboard) con el listado de los enlaces creados.
 - Redirección desde la URL corta al destino original (ruta dinámica de redirección).
-- Generación de códigos QR para los enlaces cortos.
 - Persistencia en base de datos para usuarios y enlaces.
-- Envío de correos (verificación, recuperación de contraseña, etc.) vía SMTP.
+- Envío de correos de verificación de cuenta vía SMTP.
 - Interfaz internacionalizada (catalán, castellano e inglés).
 
 ### Estado del proyecto
@@ -114,18 +120,26 @@ bool.cat es una aplicación web para crear enlaces cortos, gestionarlos desde un
 #### ✅ Implementadas
 
 - [x] Autenticación (registro / inicio de sesión, gestión de sesión)
+- [x] Verificación de la cuenta por correo ([#13](https://github.com/SirMarkus73/bool.cat/issues/13))
+- [x] Apartado de cuenta con gestión de sesiones activas ([#12](https://github.com/SirMarkus73/bool.cat/issues/12))
 - [x] Creación de enlaces cortos desde la interfaz
+- [x] Modo de enlace simple / personalizado ([#11](https://github.com/SirMarkus73/bool.cat/issues/11))
 - [x] Almacenamiento de enlaces en la base de datos
-- [x] Panel de usuario con listado de enlaces (`src/features/shortener`, `src/features/url`)
+- [x] Panel de usuario con listado, estadísticas y borrado de enlaces (`src/features/dashboard`, `src/features/shortener`)
 - [x] Internacionalización (ca / es / en)
 - [x] Envío de correos transaccionales
 - [x] Expiración de enlaces
 - [x] Alias personalizados
+- [x] Commitlint + Commitizen ([#18](https://github.com/SirMarkus73/bool.cat/issues/18))
 
 #### ⚠️ Pendientes / Por implementar
-- [ ] Generación de códigos QR
+
+- [ ] Generación de códigos QR para los enlaces cortos ([#25](https://github.com/SirMarkus73/bool.cat/issues/25))
+- [ ] Estadísticas de clics por enlace ([#26](https://github.com/SirMarkus73/bool.cat/issues/26))
+- [ ] Editar un enlace acortado existente ([#27](https://github.com/SirMarkus73/bool.cat/issues/27))
+- [ ] Enlaces protegidos con contraseña, cifrados en el cliente con la Web Crypto API ([#28](https://github.com/SirMarkus73/bool.cat/issues/28))
+- [ ] Hora en la fecha de expiración y selector de fecha en un componente propio ([#29](https://github.com/SirMarkus73/bool.cat/issues/29))
 - [ ] Protección de enlaces sin registro frente a abusos
-- [ ] Protección con contraseña
 
 ### Tecnologías
 
@@ -190,9 +204,8 @@ bool.cat is a web application for creating short links, managing them from a use
 - Short link creation from the client.
 - User dashboard listing all created links.
 - Redirection from the short URL to the original destination (dynamic redirect route).
-- QR code generation for short links.
 - Database persistence for users and links.
-- Transactional email delivery (verification, password reset, etc.) via SMTP.
+- Account verification emails via SMTP.
 - Internationalized interface (Catalan, Spanish and English).
 
 ### Project status
@@ -200,18 +213,26 @@ bool.cat is a web application for creating short links, managing them from a use
 #### ✅ Implemented
 
 - [x] Authentication (sign-up / login, session management)
+- [x] Account verification by email ([#13](https://github.com/SirMarkus73/bool.cat/issues/13))
+- [x] Account section with active session management ([#12](https://github.com/SirMarkus73/bool.cat/issues/12))
 - [x] Short link creation from the UI
+- [x] Simple / custom link mode ([#11](https://github.com/SirMarkus73/bool.cat/issues/11))
 - [x] Link storage in the database
-- [x] User dashboard with link listing (`src/features/shortener`, `src/features/url`)
+- [x] User dashboard with link listing, stats and deletion (`src/features/dashboard`, `src/features/shortener`)
 - [x] Internationalization (ca / es / en)
 - [x] Transactional email delivery
 - [x] Link expiration
 - [x] Custom aliases
+- [x] Commitlint + Commitizen ([#18](https://github.com/SirMarkus73/bool.cat/issues/18))
 
 #### ⚠️ Pending / To be implemented
-- [ ] QR code generation
+
+- [ ] QR code generation for short links ([#25](https://github.com/SirMarkus73/bool.cat/issues/25))
+- [ ] Per-link click statistics ([#26](https://github.com/SirMarkus73/bool.cat/issues/26))
+- [ ] Edit an existing short link ([#27](https://github.com/SirMarkus73/bool.cat/issues/27))
+- [ ] Password-protected links, encrypted client-side with the Web Crypto API ([#28](https://github.com/SirMarkus73/bool.cat/issues/28))
+- [ ] Time of day in the expiration date, with the date picker extracted into its own component ([#29](https://github.com/SirMarkus73/bool.cat/issues/29))
 - [ ] Abuse protection for links created without an account
-- [ ] Password protection
 
 ### Tech stack
 
