@@ -45,6 +45,8 @@
 	},
 	"shortener": {
 		"title": "Link Shortener",
+		"custom_mode": "Custom mode",
+		"custom_mode_signin_hint": "Sign in to enable custom mode and create your own slugs.",
 		"shorten_url": "Shorten URL",
 		"create_short": "Create a short link",
 		"target_url": "Target URL",

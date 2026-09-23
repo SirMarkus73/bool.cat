@@ -8,6 +8,11 @@ import {
 } from "#/components/ui/card";
 import { Field, FieldLabel } from "#/components/ui/field";
 import { Switch } from "#/components/ui/switch";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipTrigger,
+} from "#/components/ui/tooltip";
 import { CustomModeForm } from "#/features/shortener/components/customMode/customModeForm";
 import { SimpleModeForm } from "#/features/shortener/components/simpleMode/simpleModeForm";
 import { cn } from "#/lib/utils";
@@ -32,13 +37,34 @@ export function UrlShortener({
 				<CardTitle>{m["shortener.title"]()}</CardTitle>
 				<CardAction>
 					<Field orientation="horizontal" className="flex justify-end">
-						<Switch
-							defaultChecked={isSignedIn}
-							disabled={!isSignedIn}
-							checked={isSignedIn ? isChecked : false}
-							onCheckedChange={setIsChecked}
-						/>
-						<FieldLabel>Custom Mode</FieldLabel>
+						{isSignedIn ? (
+							<Switch
+								defaultChecked
+								disabled={false}
+								checked={isChecked}
+								onCheckedChange={setIsChecked}
+							/>
+						) : (
+							<Tooltip>
+								<TooltipTrigger
+									render={
+										<span>
+											<Switch
+												defaultChecked={false}
+												disabled
+												checked={false}
+												onCheckedChange={setIsChecked}
+											/>
+										</span>
+									}
+								/>
+								<TooltipContent>
+									{m["shortener.custom_mode_signin_hint"]()}
+								</TooltipContent>
+							</Tooltip>
+						)}
+
+						<FieldLabel>{m["shortener.custom_mode"]()}</FieldLabel>
 					</Field>
 				</CardAction>
 			</CardHeader>
@@ -46,7 +72,7 @@ export function UrlShortener({
 				<Activity mode={isChecked && isSignedIn ? "visible" : "hidden"}>
 					<CustomModeForm onSuccess={onSuccess} />
 				</Activity>
-				<Activity mode={!isChecked ? "visible" : "hidden"}>
+				<Activity mode={!isSignedIn || !isChecked ? "visible" : "hidden"}>
 					<SimpleModeForm onSuccess={onSuccess} />
 				</Activity>
 			</CardContent>

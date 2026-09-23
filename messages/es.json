@@ -45,6 +45,8 @@
 	},
 	"shortener": {
 		"title": "Acortador de enlaces",
+		"custom_mode": "Modo personalizado",
+		"custom_mode_signin_hint": "Inicia sesión para activar el modo personalizado y crear tus propios slugs.",
 		"shorten_url": "Acortar URL",
 		"create_short": "Crear un enlace corto",
 		"target_url": "URL de destino",

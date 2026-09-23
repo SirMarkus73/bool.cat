@@ -45,6 +45,8 @@
 	},
 	"shortener": {
 		"title": "Escurçador d'enllaços",
+		"custom_mode": "Mode personalitzat",
+		"custom_mode_signin_hint": "Inicia sessió per activar el mode personalitzat i crear els teus propis slugs.",
 		"shorten_url": "Escurçar URL",
 		"create_short": "Crear un enllaç curt",
 		"target_url": "URL de destinació",
