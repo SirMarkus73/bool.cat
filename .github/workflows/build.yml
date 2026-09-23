@@ -42,3 +42,9 @@ jobs:
                   tags: |
                       ${{ env.IMAGE_NAME }}:latest
                       ${{ env.IMAGE_NAME }}:${{ steps.version.outputs.version }}
+
+            # trigger the Dokploy webhook so the server pulls the new image
+            - name: Deploy to Dokploy
+              env:
+                  DOKPLOY_DEPLOY_URL: ${{ secrets.DOKPLOY_DEPLOY_URL }}
+              run: curl -fsS -X POST "$DOKPLOY_DEPLOY_URL"
