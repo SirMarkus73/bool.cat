@@ -59,6 +59,22 @@
 		"copied": "Copied!",
 		"copy_error": "Failed to copy to clipboard. Please try again.",
 
+		"preview_dialog": {
+			"title": "Your short link is ready",
+			"description": "Copy it, open it, or scan the QR code from your phone."
+		},
+		"showcase": {
+			"copy_qr": "Copy QR code",
+			"copy_qr_for": "Copy QR code for {url}",
+			"copying_qr": "Copying QR code…",
+			"qr_copied": "QR code copied!",
+			"copy_qr_error": "Couldn't copy the QR code. Please try again.",
+			"copying_short_url": "Copying short link…",
+			"short_url_copied": "Short link copied!",
+			"clipboard_unsupported": "Your browser can't copy to the clipboard.",
+			"clipboard_image_unsupported": "Your browser can't copy images to the clipboard.",
+			"opens_new_tab": "(opens in a new tab)"
+		},
 		"guest": {
 			"shorten_first_link": "Shorten your first link",
 			"description": "You are currently in guest mode. Your links will expire after {expirationHours} hours."

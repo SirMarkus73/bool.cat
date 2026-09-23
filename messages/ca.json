@@ -59,6 +59,22 @@
 		"copied": "¡Copiat!",
 		"copy_error": "Error al copiar al portapapers. Si us plau, intenta-ho de nou.",
 
+		"preview_dialog": {
+			"title": "El teu enllaç curt és a punt",
+			"description": "Copia'l, obre'l o escaneja el codi QR amb el mòbil."
+		},
+		"showcase": {
+			"copy_qr": "Copiar codi QR",
+			"copy_qr_for": "Copiar el codi QR de {url}",
+			"copying_qr": "Copiant codi QR…",
+			"qr_copied": "Codi QR copiat!",
+			"copy_qr_error": "No s'ha pogut copiar el codi QR. Si us plau, torna-ho a provar.",
+			"copying_short_url": "Copiant enllaç curt…",
+			"short_url_copied": "Enllaç curt copiat!",
+			"clipboard_unsupported": "El teu navegador no pot copiar al porta-retalls.",
+			"clipboard_image_unsupported": "El teu navegador no pot copiar imatges al porta-retalls.",
+			"opens_new_tab": "(s'obre en una pestanya nova)"
+		},
 		"guest": {
 			"shorten_first_link": "Escurça el teu primer enllaç",
 			"description": "Estàs en mode convidat. Els teus enllaços expiraran després de {expirationHours} hores."
