@@ -5,7 +5,7 @@ import { CtaSection } from "#/features/landing/components/ctaSection";
 import { FeaturesSection } from "#/features/landing/components/featuresSection";
 import { HeroSection } from "#/features/landing/components/heroSection";
 import { HowItWorksSection } from "#/features/landing/components/howItWorksSection";
-import { PreviewShortUrlDialog } from "#/features/shortener/components/previewShortUrlDialog";
+import { PreviewShortUrlDialog } from "#/features/shortener/components/preview/previewShortUrlDialog";
 
 const searchParamSchema = z.object({
 	preview: z.string().optional(),

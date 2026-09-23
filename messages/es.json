@@ -59,6 +59,22 @@
 		"copied": "¡Copiado!",
 		"copy_error": "Error al copiar al portapapeles. Por favor, inténtalo de nuevo.",
 
+		"preview_dialog": {
+			"title": "Tu enlace corto está listo",
+			"description": "Cópialo, ábrelo o escanea el código QR con tu móvil."
+		},
+		"showcase": {
+			"copy_qr": "Copiar código QR",
+			"copy_qr_for": "Copiar código QR de {url}",
+			"copying_qr": "Copiando código QR…",
+			"qr_copied": "¡Código QR copiado!",
+			"copy_qr_error": "No se pudo copiar el código QR. Por favor, inténtalo de nuevo.",
+			"copying_short_url": "Copiando enlace corto…",
+			"short_url_copied": "¡Enlace corto copiado!",
+			"clipboard_unsupported": "Tu navegador no puede copiar al portapapeles.",
+			"clipboard_image_unsupported": "Tu navegador no puede copiar imágenes al portapapeles.",
+			"opens_new_tab": "(se abre en una pestaña nueva)"
+		},
 		"guest": {
 			"shorten_first_link": "Acorta tu primer enlace",
 			"description": "Estás en modo invitado. Tus enlaces expirarán después de {expirationHours} horas."
