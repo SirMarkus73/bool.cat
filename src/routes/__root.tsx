@@ -2,12 +2,14 @@ import { TanStackDevtools } from "@tanstack/react-devtools";
 import {
 	createRootRouteWithContext,
 	HeadContent,
+	ScriptOnce,
 	Scripts,
 } from "@tanstack/react-router";
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TooltipProvider } from "#/components/ui/tooltip";
 import { Footer } from "#/features/layout/components/footer";
 import { Header } from "#/features/layout/components/header";
+import { themeScript } from "#/features/theme/lib/theme";
 import { getLocale } from "#/paraglide/runtime";
 import type { getContext } from "#/router";
 import appCss from "../styles.css?url";
@@ -84,8 +86,10 @@ export const Route = createRootRouteWithContext<
 
 function RootDocument({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang={getLocale()} className="dark">
+		// the theme script toggles the "dark" class before hydration
+		<html lang={getLocale()} suppressHydrationWarning>
 			<head>
+				<ScriptOnce>{themeScript}</ScriptOnce>
 				<HeadContent />
 			</head>
 			<body>

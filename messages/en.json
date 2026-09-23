@@ -34,7 +34,11 @@
 		}
 	},
 	"settings": {
-		"lang": "Language"
+		"lang": "Language",
+		"theme": "Theme",
+		"theme_light": "Light",
+		"theme_dark": "Dark",
+		"theme_system": "System"
 	},
 	"layout": {
 		"footer": {
@@ -60,7 +64,6 @@
 		"copy": "Copy",
 		"copied": "Copied!",
 		"copy_error": "Failed to copy to clipboard. Please try again.",
-
 		"preview_dialog": {
 			"title": "Your short link is ready",
 			"description": "Copy it, open it, or scan the QR code from your phone."
@@ -131,7 +134,6 @@
 		"no_links_found": "No links found for your search.",
 		"delete_expired_links": "Delete expired links"
 	},
-
 	"timestamps": {
 		"created_at": "Created at",
 		"updated_at": "Updated at"
