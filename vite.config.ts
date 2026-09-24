@@ -31,7 +31,12 @@ const config = defineConfig({
 		devtools(),
 		nitro({ rollupConfig: { external: [/^@sentry\//] } }),
 		tailwindcss(),
-		tanstackStart(),
+		tanstackStart({
+			sitemap: {
+				enabled: true,
+				host: "https://bool.cat",
+			},
+		}),
 		viteReact(),
 	],
 });
