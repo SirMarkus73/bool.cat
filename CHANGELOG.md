@@ -1,3 +1,9 @@
+## [1.5.0](https://github.com/SirMarkus73/bool.cat/compare/v1.4.0...v1.5.0) (2026-09-24)
+
+### Features
+
+* **seo:** generar sitemap con tanstackStart ([8f867db](https://github.com/SirMarkus73/bool.cat/commit/8f867dbe55ede0da9d9e934c54d851a9332479a0))
+
 ## [1.4.0](https://github.com/SirMarkus73/bool.cat/compare/v1.3.0...v1.4.0) (2026-09-24)
 
 ### Features
