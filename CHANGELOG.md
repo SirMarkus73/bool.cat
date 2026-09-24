@@ -1,3 +1,9 @@
+## [1.4.0](https://github.com/SirMarkus73/bool.cat/compare/v1.3.0...v1.4.0) (2026-09-24)
+
+### Features
+
+* **pwa:** añadir manifest e iconos para hacer la app instalable ([c884605](https://github.com/SirMarkus73/bool.cat/commit/c8846057178777adef0f5d2b31b9e736562b501f))
+
 ## [1.3.0](https://github.com/SirMarkus73/bool.cat/compare/v1.2.0...v1.3.0) (2026-09-23)
 
 ### Features
